@@ -1,0 +1,111 @@
+<script setup>
+const route = useRoute()
+const activeHash = ref('#home')
+
+function onScroll() {
+  const ids = ['home', 'about', 'features']
+  for (let i = ids.length - 1; i >= 0; i--) {
+    const el = document.getElementById(ids[i])
+    if (el && el.getBoundingClientRect().top <= 160) {
+      activeHash.value = '#' + ids[i]
+      return
+    }
+  }
+  activeHash.value = '#home'
+}
+
+function go(id) {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
+  activeHash.value = '#' + id
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+</script>
+
+<template>
+  <div class="min-h-screen bg-[#FAFBFF] relative overflow-hidden">
+    <!-- Ambient blobs -->
+    <div
+      class="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full opacity-40 pointer-events-none"
+      style="background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, rgba(59,130,246,0.03) 50%, transparent 70%);"
+    />
+    <div
+      class="fixed -bottom-[20%] -right-[10%] w-[55%] h-[55%] rounded-full opacity-30 pointer-events-none"
+      style="background: radial-gradient(circle, rgba(96,165,250,0.10) 0%, rgba(59,130,246,0.03) 50%, transparent 70%);"
+    />
+    <div
+      class="fixed -bottom-[10%] left-[20%] w-[30%] h-[40%] rounded-full opacity-20 pointer-events-none"
+      style="background: radial-gradient(circle, rgba(251,146,60,0.10) 0%, transparent 60%);"
+    />
+
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 pt-5">
+      <div
+        class="max-w-[1200px] mx-auto h-[62px] bg-white/[0.72] backdrop-blur-2xl rounded-2xl border border-white/40 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(37,99,235,0.06)] flex items-center justify-between px-2"
+      >
+        <NuxtLink to="/" class="flex items-center pl-5" @click.prevent="go('home')">
+          <img src="~/assets/images/logo-transparent.png" alt="TeamTrack" class="h-9 w-auto" />
+        </NuxtLink>
+
+        <nav class="hidden md:flex items-center bg-[#F3F4F6]/50 rounded-xl px-2 py-1.5">
+          <a class="nav-pill" :class="{ 'nav-pill-active': activeHash === '#home' }" @click.prevent="go('home')">Home</a>
+          <a class="nav-pill" :class="{ 'nav-pill-active': activeHash === '#about' }" @click.prevent="go('about')">About</a>
+          <a class="nav-pill" :class="{ 'nav-pill-active': activeHash === '#features' }" @click.prevent="go('features')">Features</a>
+        </nav>
+
+        <div class="flex items-center gap-3 pr-3">
+          <NuxtLink to="/login" class="hidden sm:inline-flex items-center text-[#475569] hover:text-[#0F172A] text-[13px] font-semibold tracking-[-0.01em] px-4 py-2 rounded-lg transition-all duration-200 hover:bg-[#F1F5F9]">Log in</NuxtLink>
+          <NuxtLink to="/signup" class="inline-flex items-center bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[13px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 hover:-translate-y-[1px] active:translate-y-0">Get Started — Free</NuxtLink>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative z-10 pt-[92px]">
+      <slot />
+    </main>
+
+    <footer class="border-t border-[#E2E8F0]/60 bg-white/50">
+      <div class="max-w-[1200px] mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <img src="~/assets/images/logo-transparent.png" alt="TeamTrack" class="h-7 w-auto" />
+            <span class="text-[13px] text-[#94A3B8]">Project management for teams. Built by students.</span>
+          </div>
+          <div class="flex items-center gap-6">
+            <NuxtLink to="/signup" class="text-[13px] text-[#64748B] hover:text-[#2563EB] font-medium transition-colors">Sign Up — Free</NuxtLink>
+            <NuxtLink to="/login" class="text-[13px] text-[#64748B] hover:text-[#2563EB] font-medium transition-colors">Log In</NuxtLink>
+          </div>
+          <p class="text-[12px] text-[#CBD5E1]">2025 TeamTrack. Free for teams.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</template>
+
+<style scoped>
+.nav-pill {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748B;
+  letter-spacing: -0.01em;
+  padding: 7px 18px;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+}
+.nav-pill:hover {
+  color: #1E293B;
+  background: rgba(255,255,255,0.6);
+}
+.nav-pill-active {
+  color: #2563EB;
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.nav-pill-active:hover {
+  background: #FFFFFF;
+}
+</style>
