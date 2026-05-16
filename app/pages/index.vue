@@ -75,24 +75,6 @@
 
           <!-- Interactive Dashboard Preview -->
           <div class="flex flex-col md:flex-row min-h-[340px] sm:min-h-[480px] md:min-h-[560px]">
-            <!-- Mobile Tab Bar (replaces hidden sidebar) -->
-            <div class="md:hidden border-b border-[#E2E8F0]/70 bg-white/95 overflow-x-auto">
-              <div class="flex gap-1.5 px-3 py-2.5 pointer-events-auto">
-                <button
-                  v-for="tab in previewTabs"
-                  :key="tab.id"
-                  @click="activePreviewTab = tab.id"
-                  class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-bold whitespace-nowrap transition-all duration-200 shrink-0"
-                  :class="activePreviewTab === tab.id
-                    ? 'bg-[#2563EB] text-white shadow-md shadow-blue-500/20'
-                    : 'bg-[#F1F5F9] text-[#475569]'"
-                >
-                  <span class="w-4 h-4 flex items-center justify-center" v-html="tab.icon"></span>
-                  {{ tab.name }}
-                </button>
-              </div>
-            </div>
-
             <!-- Sidebar (desktop only) -->
             <div class="w-full md:w-[200px] bg-white/95 backdrop-blur-xl border-b md:border-b-0 md:border-r border-[#E2E8F0]/70 hidden md:flex flex-col shrink-0">
               <div class="px-4 py-4 border-b border-[#F1F5F9]">
@@ -150,13 +132,28 @@
               </div>
             </div>
 
-            <!-- Main content -->
-            <div class="flex-1 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#EEF2FF] overflow-hidden">
-              <!-- Topbar -->
-              <div class="bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-3 sm:px-5 py-2 sm:py-3 flex items-center justify-between">
+            <!-- Main content area -->
+            <div class="flex-1 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#EEF2FF] overflow-hidden flex flex-col">
+              <!-- Mobile-style top header -->
+              <div class="md:hidden bg-white border-b border-[#E2E8F0] px-4 py-3 flex items-center justify-between">
                 <div>
-                  <div class="flex items-center gap-1 sm:gap-2 mb-0.5">
-                    <div class="text-[13px] sm:text-[16px] font-black text-[#0F172A] tracking-tight">{{ activePreviewTab === 'dashboard' ? 'Dashboard' : activePreviewTab === 'projects' ? 'Projects' : activePreviewTab === 'tasks' ? 'Tasks' : activePreviewTab === 'team' ? 'Team' : 'Team Chat' }}</div>
+                  <div class="text-[16px] font-black text-[#0F172A]">{{ activePreviewTab === 'dashboard' ? 'Dashboard' : activePreviewTab === 'projects' ? 'Projects' : activePreviewTab === 'tasks' ? 'Tasks' : activePreviewTab === 'team' ? 'Team' : 'Chat' }}</div>
+                  <div class="text-[11px] text-[#94A3B8]">Welcome back, Your Name</div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="relative w-8 h-8 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                    <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full text-[7px] text-white font-bold flex items-center justify-center">3</span>
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-[#2563EB] flex items-center justify-center text-white font-bold text-[12px]">?</div>
+                </div>
+              </div>
+
+              <!-- Desktop topbar -->
+              <div class="hidden md:block bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-5 py-3 flex items-center justify-between">
+                <div>
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <div class="text-[16px] font-black text-[#0F172A] tracking-tight">{{ activePreviewTab === 'dashboard' ? 'Dashboard' : activePreviewTab === 'projects' ? 'Projects' : activePreviewTab === 'tasks' ? 'Tasks' : activePreviewTab === 'team' ? 'Team' : 'Team Chat' }}</div>
                     <span v-if="activePreviewTab === 'dashboard'" class="bg-[#ECFDF5] text-[#059669] border border-[#BBF7D0] text-[9px] font-bold px-2 py-0.5 rounded-full">Active Sprint</span>
                   </div>
                   <div class="text-[11px] text-[#94A3B8]">Here is your team performance overview.</div>
@@ -170,8 +167,188 @@
                 </div>
               </div>
 
-              <!-- Tab content -->
-              <div class="p-2 sm:p-4 overflow-hidden select-none pointer-events-none">
+              <!-- Tab content (scrollable on mobile) -->
+              <div class="flex-1 p-2 sm:p-4 overflow-y-auto max-h-[60vh] md:max-h-none select-none pointer-events-none">
+
+              <!-- ====== MOBILE CONTENT (md:hidden) ====== -->
+              <div class="md:hidden space-y-3">
+                <!-- Dashboard mobile -->
+                <div v-if="activePreviewTab === 'dashboard'">
+                  <div class="grid grid-cols-2 gap-2.5">
+                    <div v-for="stat in previewStats" :key="stat.label" class="bg-white rounded-2xl p-3 border border-[#E2E8F0]">
+                      <div class="flex items-center justify-between mb-1.5">
+                        <div :class="stat.bg" class="w-8 h-8 rounded-lg flex items-center justify-center"><span v-html="stat.icon"></span></div>
+                        <span :class="stat.badgeClass" class="text-[8px] font-bold px-1.5 py-0.5 rounded-full">{{ stat.badge }}</span>
+                      </div>
+                      <p class="text-[9px] text-[#64748B] font-semibold">{{ stat.label }}</p>
+                      <div class="text-[18px] font-black text-[#0F172A]">{{ stat.value }}</div>
+                    </div>
+                  </div>
+                  <div class="mt-3 bg-white rounded-2xl border border-[#E2E8F0] p-3">
+                    <div class="text-[13px] font-bold text-[#0F172A] mb-2">Time Tracker</div>
+                    <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2 mb-2">
+                      <div class="text-[9px] text-[#94A3B8]">Current Task</div>
+                      <div class="text-[12px] font-bold text-[#0F172A]">Dashboard UI in Progress</div>
+                    </div>
+                    <div class="text-center bg-[#0F172A] rounded-xl p-3">
+                      <div class="text-[8px] text-[#94A3B8] font-bold mb-0.5">Current Session</div>
+                      <div class="text-[22px] font-black text-white">01:24:07</div>
+                    </div>
+                  </div>
+                  <div class="mt-3 bg-white rounded-2xl border border-[#E2E8F0] p-3">
+                    <div class="text-[13px] font-bold text-[#0F172A] mb-2">AI Insights</div>
+                    <div class="bg-[#EFF6FF] rounded-xl p-2.5">
+                      <div class="text-[9px] font-bold text-[#2563EB] mb-1">PRODUCTIVITY</div>
+                      <div class="text-[11px] text-[#334155]">Your team is 18% more productive this week.</div>
+                    </div>
+                  </div>
+                  <div class="mt-3 bg-white rounded-2xl border border-[#E2E8F0] p-3">
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="text-[13px] font-bold text-[#0F172A]">Recent Time Logs</div>
+                      <span class="text-[8px] bg-[#EFF6FF] text-[#2563EB] font-bold px-2 py-0.5 rounded-full">Today</span>
+                    </div>
+                    <div class="space-y-2">
+                      <div class="bg-[#F8FAFC] rounded-xl p-2 flex items-center justify-between">
+                        <div><div class="text-[11px] font-bold text-[#0F172A]">Dashboard UI</div><div class="text-[9px] text-[#94A3B8]">2h 10m ago</div></div>
+                        <span class="text-[11px] font-bold text-[#2563EB]">2h 10m</span>
+                      </div>
+                      <div class="bg-[#F8FAFC] rounded-xl p-2 flex items-center justify-between">
+                        <div><div class="text-[11px] font-bold text-[#0F172A]">Login Page</div><div class="text-[9px] text-[#94A3B8]">Earlier today</div></div>
+                        <span class="text-[11px] font-bold text-[#2563EB]">1h 35m</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Projects mobile -->
+                <div v-if="activePreviewTab === 'projects'">
+                  <div class="grid grid-cols-2 gap-2.5">
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]">
+                      <div class="w-8 h-8 rounded-lg bg-[#EBF0FF] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
+                      <p class="text-[9px] text-[#64748B]">Total Projects</p>
+                      <div class="text-[18px] font-black text-[#0F172A]">4</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]">
+                      <div class="w-8 h-8 rounded-lg bg-[#DCFCE7] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg></div>
+                      <p class="text-[9px] text-[#64748B]">Completed</p>
+                      <div class="text-[18px] font-black text-[#0F172A]">22</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]">
+                      <div class="w-8 h-8 rounded-lg bg-[#FEF3C7] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                      <p class="text-[9px] text-[#64748B]">Time Logged</p>
+                      <div class="text-[18px] font-black text-[#0F172A]">45h</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]">
+                      <div class="w-8 h-8 rounded-lg bg-[#F3E8FF] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                      <p class="text-[9px] text-[#64748B]">Members</p>
+                      <div class="text-[18px] font-black text-[#0F172A]">12</div>
+                    </div>
+                  </div>
+                  <div class="mt-3 space-y-2.5">
+                    <div v-for="project in previewProjects" :key="project.name" class="bg-white rounded-2xl border border-[#E2E8F0] p-3">
+                      <div class="flex items-center justify-between mb-2">
+                        <div><div class="text-[12px] font-bold text-[#0F172A]">{{ project.name }}</div><div class="text-[10px] text-[#94A3B8]">{{ project.description }}</div></div>
+                        <span :class="project.statusClass" class="text-[8px] font-bold px-2 py-0.5 rounded-full">{{ project.status }}</span>
+                      </div>
+                      <div class="mb-2">
+                        <div class="flex justify-between mb-1"><span class="text-[10px] font-bold text-[#475569]">Progress</span><span class="text-[10px] font-bold text-[#2563EB]">{{ project.progress }}%</span></div>
+                        <div class="w-full bg-[#E2E8F0] h-1.5 rounded-full"><div class="h-1.5 bg-[#2563EB] rounded-full" :style="{ width: project.progress + '%' }"></div></div>
+                      </div>
+                      <div class="flex -space-x-1.5">
+                        <div v-for="m in project.members" :key="m" class="w-5 h-5 rounded-full border-2 border-white text-[7px] text-white font-bold flex items-center justify-center" :class="memberColors[m]">{{ m }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tasks mobile -->
+                <div v-if="activePreviewTab === 'tasks'">
+                  <div class="grid grid-cols-2 gap-2.5">
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]"><div class="w-8 h-8 rounded-lg bg-[#EBF0FF] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="text-[9px] text-[#94A3B8]">Total</div><div class="text-[18px] font-black text-[#0F172A]">10</div></div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]"><div class="w-8 h-8 rounded-lg bg-[#DCFCE7] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg></div><div class="text-[9px] text-[#94A3B8]">Done</div><div class="text-[18px] font-black text-[#0F172A]">3</div></div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]"><div class="w-8 h-8 rounded-lg bg-[#FEF3C7] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div><div class="text-[9px] text-[#94A3B8]">Blocked</div><div class="text-[18px] font-black text-[#0F172A]">1</div></div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]"><div class="w-8 h-8 rounded-lg bg-[#F3E8FF] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="text-[9px] text-[#94A3B8]">Warnings</div><div class="text-[18px] font-black text-[#0F172A]">2</div></div>
+                  </div>
+                  <div class="mt-3 space-y-2.5">
+                    <div v-for="col in previewColumns" :key="col.id" class="bg-white rounded-2xl border border-[#E2E8F0] p-3">
+                      <div class="flex items-center gap-2 mb-2">
+                        <span :class="col.dotClass" class="w-2 h-2 rounded-full"></span>
+                        <span class="text-[12px] font-bold text-[#0F172A]">{{ col.title }}</span>
+                        <span class="text-[9px] bg-[#F1F5F9] text-[#94A3B8] font-bold px-2 py-0.5 rounded-full">{{ col.tasks.length }}</span>
+                      </div>
+                      <div class="space-y-2">
+                        <div v-for="task in col.tasks" :key="task" class="bg-[#F8FAFC] rounded-xl p-2.5 flex items-center justify-between">
+                          <div><div class="text-[11px] font-bold text-[#0F172A]" :class="{ 'line-through opacity-60': col.id === 'done' }">{{ task }}</div></div>
+                          <div class="w-5 h-5 rounded-full bg-[#34D399] text-[7px] text-white font-bold flex items-center justify-center">U</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Team mobile -->
+                <div v-if="activePreviewTab === 'team'">
+                  <div class="grid grid-cols-2 gap-2.5">
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]"><div class="w-8 h-8 rounded-lg bg-[#EBF0FF] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="text-[9px] text-[#94A3B8]">Members</div><div class="text-[18px] font-black text-[#0F172A]">6</div></div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]"><div class="w-8 h-8 rounded-lg bg-[#DCFCE7] flex items-center justify-center mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="text-[9px] text-[#94A3B8]">Leaders</div><div class="text-[18px] font-black text-[#0F172A]">1</div></div>
+                  </div>
+                  <div class="mt-3 space-y-2.5">
+                    <div v-for="member in previewTeamMembers" :key="member.name" class="bg-white rounded-2xl border border-[#E2E8F0] p-3">
+                      <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-[13px]" :style="{ backgroundColor: member.color }">{{ member.initial }}</div>
+                        <div class="flex-1 min-w-0">
+                          <div class="text-[12px] font-bold text-[#0F172A]">{{ member.name }}</div>
+                          <div class="text-[10px] text-[#94A3B8]">user@university.edu</div>
+                        </div>
+                        <span :class="member.roleBadge" class="text-[8px] font-bold px-2 py-0.5 rounded-full">{{ member.role }}</span>
+                      </div>
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-[9px] font-semibold text-[#475569]">Contribution</span>
+                        <span class="text-[9px] font-bold" :class="member.contribution >= 70 ? 'text-[#10B981]' : member.contribution >= 40 ? 'text-[#F59E0B]' : 'text-[#F87171]'">{{ member.contribution }}%</span>
+                      </div>
+                      <div class="w-full bg-[#E2E8F0] h-1.5 rounded-full"><div class="h-1.5 rounded-full" :class="member.contribution >= 70 ? 'bg-[#10B981]' : member.contribution >= 40 ? 'bg-[#F59E0B]' : 'bg-[#F87171]'" :style="{ width: member.contribution + '%' }"></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Chat mobile -->
+                <div v-if="activePreviewTab === 'chat'">
+                  <!-- Stats row -->
+                  <div class="grid grid-cols-3 gap-2">
+                    <div class="bg-white rounded-2xl p-2.5 border border-[#E2E8F0] text-center">
+                      <div class="text-[16px] font-black text-[#0F172A]">18</div>
+                      <div class="text-[8px] text-[#94A3B8]">Messages</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-2.5 border border-[#E2E8F0] text-center">
+                      <div class="text-[16px] font-black text-[#0F172A]">3</div>
+                      <div class="text-[8px] text-[#94A3B8]">Online</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-2.5 border border-[#E2E8F0] text-center">
+                      <div class="text-[16px] font-black text-[#0F172A]">5</div>
+                      <div class="text-[8px] text-[#94A3B8]">Discussions</div>
+                    </div>
+                  </div>
+                  <!-- Thread list (WhatsApp style) -->
+                  <div class="mt-2.5 bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden">
+                    <div v-for="thread in previewThreads" :key="thread.id" class="flex items-center gap-3 px-3 py-2.5 border-b border-[#F1F5F9] last:border-b-0" :class="thread.active ? 'bg-[#EFF6FF]' : ''">
+                      <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-white text-[12px]" :class="thread.activeBg || 'bg-[#2563EB]'">
+                        <span v-html="thread.mobileIcon || thread.icon"></span>
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                          <div class="text-[12px] font-bold text-[#0F172A] truncate">{{ thread.name }}</div>
+                          <div class="text-[9px] text-[#94A3B8] shrink-0 ml-2">{{ thread.time }}</div>
+                        </div>
+                        <div class="text-[10px] text-[#64748B] truncate">{{ thread.preview }}</div>
+                      </div>
+                      <span v-if="thread.unread" class="bg-[#2563EB] text-white text-[8px] font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 shrink-0">{{ thread.unread }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ====== DESKTOP CONTENT (hidden md:block) ====== -->
+              <div class="hidden md:block space-y-4">
                 <!-- Dashboard tab -->
                 <div v-if="activePreviewTab === 'dashboard'" class="space-y-4">
                   <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -617,7 +794,7 @@
 
                 <!-- Chat tab -->
                 <div v-if="activePreviewTab === 'chat'" class="space-y-3">
-                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <div class="grid grid-cols-3 gap-2.5">
                     <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
                       <div class="flex items-center justify-between mb-2">
                         <div class="w-9 h-9 rounded-xl bg-[#EBF0FF] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
@@ -644,9 +821,11 @@
                     </div>
                   </div>
                   <div class="grid grid-cols-1 xl:grid-cols-[140px_1fr_120px] gap-2.5">
-                    <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 shadow-sm overflow-hidden">
+                    <!-- Thread List -->
+                    <div class="hidden xl:block bg-white rounded-2xl border border-[#E2E8F0]/70 shadow-sm overflow-hidden">
                       <div class="p-3 border-b border-[#F1F5F9]">
-                        <div class="text-[11px] font-bold text-[#0F172A]">Threads</div>
+                        <div class="text-[11px] font-bold text-[#0F172A]">Project Threads</div>
+                        <div class="text-[8px] text-[#94A3B8]">Project-level discussions</div>
                       </div>
                       <div class="p-2 space-y-1.5">
                         <div v-for="thread in previewThreads" :key="thread.id" class="rounded-lg p-2 transition cursor-pointer" :class="thread.active ? 'bg-[#EBF0FF] border border-[#2563EB]/30' : 'bg-[#F8FAFC] border border-transparent hover:bg-[#F1F5F9]'">
@@ -654,14 +833,15 @@
                             <div class="w-6 h-6 rounded-lg flex items-center justify-center shrink-0" :class="thread.iconBg">
                               <span v-html="thread.icon"></span>
                             </div>
-                            <div>
-                              <div class="text-[9px] font-bold text-[#0F172A]">{{ thread.name }}</div>
+                            <div class="min-w-0">
+                              <div class="text-[9px] font-bold text-[#0F172A] truncate">{{ thread.name }}</div>
                               <div class="text-[7px] text-[#94A3B8]">{{ thread.time }}</div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <!-- Main Chat Area -->
                     <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 shadow-sm overflow-hidden flex flex-col min-h-[240px]">
                       <div class="p-3 border-b border-[#F1F5F9] flex items-center justify-between">
                         <div class="flex items-center gap-2">
@@ -670,15 +850,16 @@
                           </div>
                           <div>
                             <div class="text-[11px] font-bold text-[#0F172A]">TeamTrack Frontend</div>
+                            <div class="text-[8px] text-[#94A3B8]">Dashboard redesign and responsive UI</div>
                           </div>
                         </div>
                         <span class="bg-green-100 text-green-600 text-[8px] font-bold px-1.5 py-0.5 rounded-full">3 online</span>
                       </div>
                       <div class="flex-1 bg-[#F8FAFC] p-3 space-y-2.5 overflow-y-auto">
                         <div class="flex gap-2">
-                          <div class="w-6 h-6 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">U</div>
+                          <div class="w-6 h-6 rounded-full bg-[#34D399] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">O</div>
                           <div class="bg-white border border-[#E2E8F0] rounded-xl rounded-tl-sm p-2 max-w-[85%]">
-                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Member</span><span class="text-[7px] text-[#94A3B8]">10:24 AM</span></div>
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Omar</span><span class="text-[7px] text-[#94A3B8]">10:24 AM</span></div>
                             <p class="text-[9px] text-[#334155] leading-[1.5]">Dashboard timer and recent time logs are aligned.</p>
                           </div>
                         </div>
@@ -686,36 +867,53 @@
                           <div class="bg-[#2563EB] text-white border border-[#2563EB] rounded-xl rounded-tr-sm p-2 max-w-[75%]">
                             <p class="text-[9px] leading-[1.5]">Yes, keep the timer. Time tracking is core.</p>
                           </div>
-                          <div class="w-6 h-6 rounded-full bg-[#2563EB] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">Y</div>
+                          <div class="w-6 h-6 rounded-full bg-[#2563EB] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">S</div>
                         </div>
                         <div class="flex gap-2">
-                          <div class="w-6 h-6 rounded-full bg-green-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">U</div>
+                          <div class="w-6 h-6 rounded-full bg-[#FBBF24] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">Z</div>
                           <div class="bg-white border border-[#E2E8F0] rounded-xl rounded-tl-sm p-2 max-w-[85%]">
-                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Member</span><span class="text-[7px] text-[#94A3B8]">10:35 AM</span></div>
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Zernish</span><span class="text-[7px] text-[#94A3B8]">10:35 AM</span></div>
                             <p class="text-[9px] text-[#334155] leading-[1.5]">Projects page also looks good.</p>
                           </div>
+                        </div>
+                        <div class="flex gap-2 justify-end">
+                          <div class="bg-[#2563EB] text-white border border-[#2563EB] rounded-xl rounded-tr-sm p-2 max-w-[75%]">
+                            <p class="text-[9px] leading-[1.5]">Great. Let's finalize by Friday.</p>
+                          </div>
+                          <div class="w-6 h-6 rounded-full bg-[#2563EB] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">S</div>
                         </div>
                       </div>
                       <div class="bg-white border-t border-[#E2E8F0] p-2">
                         <div class="flex items-center gap-2">
-                          <div class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-2 py-1.5 text-[9px] text-[#94A3B8]">Write a project update...</div>
-                          <div class="bg-[#2563EB] text-white text-[9px] font-bold px-2.5 py-1.5 rounded-lg">Send</div>
+                          <div class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-2 py-1.5 text-[9px] text-[#94A3B8]">Write a project update...</div>
+                          <div class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[9px] font-bold px-3 py-1.5 rounded-xl transition">Send</div>
                         </div>
                       </div>
                     </div>
-                    <div class="space-y-2.5">
+                    <!-- Right Context Panel -->
+                    <div class="hidden xl:block space-y-2.5">
                       <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-3 shadow-sm">
                         <div class="flex items-center gap-2 mb-2">
                           <div class="w-7 h-7 rounded-lg bg-[#EBF0FF] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-                          <div class="text-[10px] font-bold text-[#0F172A]">Linked Task</div>
+                          <div class="text-[10px] font-bold text-[#0F172A]">Linked Work Item</div>
                         </div>
                         <div class="bg-[#F8FAFC] rounded-lg p-2 mb-1.5">
                           <div class="text-[8px] text-[#94A3B8]">Current Task</div>
                           <div class="text-[10px] font-bold text-[#0F172A]">Dashboard UI</div>
                         </div>
                         <div class="grid grid-cols-2 gap-1.5">
-                          <div class="bg-[#F8FAFC] rounded-lg p-1.5"><div class="text-[7px] text-[#94A3B8]">Status</div><div class="text-[9px] font-bold text-[#0F172A]">In Progress</div></div>
-                          <div class="bg-[#F8FAFC] rounded-lg p-1.5"><div class="text-[7px] text-[#94A3B8]">Priority</div><div class="text-[9px] font-bold text-[#0F172A]">High</div></div>
+                          <div class="bg-[#F8FAFC] rounded-lg p-1.5"><div class="text-[7px] text-[#94A3B8]">Status</div><div class="text-[9px] font-bold text-[#10B981]">In Progress</div></div>
+                          <div class="bg-[#F8FAFC] rounded-lg p-1.5"><div class="text-[7px] text-[#94A3B8]">Priority</div><div class="text-[9px] font-bold text-[#F87171]">High</div></div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-3 shadow-sm">
+                        <div class="flex items-center gap-2 mb-2">
+                          <div class="w-7 h-7 rounded-lg bg-[#FEF3C7] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                          <div class="text-[10px] font-bold text-[#0F172A]">Pinned Decision</div>
+                        </div>
+                        <div class="bg-[#FFFBEB] border border-[#FDE68A]/40 rounded-lg p-2">
+                          <p class="text-[8px] text-[#92400E] leading-[1.5]">Use blue theme for all primary actions.</p>
+                          <p class="text-[7px] text-[#94A3B8] mt-1">Pinned by Siraj</p>
                         </div>
                       </div>
                       <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-3 shadow-sm">
@@ -739,6 +937,24 @@
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              </div>
+              <!-- End scrollable content area -->
+
+              <!-- Mobile Bottom Tab Bar (matches actual app) -->
+              <div class="md:hidden border-t border-[#E2E8F0]/70 bg-white/95 backdrop-blur-xl px-2 py-1.5">
+                <div class="flex items-center justify-around">
+                  <button
+                    v-for="tab in previewTabs"
+                    :key="tab.id"
+                    @click="activePreviewTab = tab.id"
+                    class="flex flex-col items-center justify-center py-1 px-2 rounded-lg transition-all duration-200"
+                    :class="activePreviewTab === tab.id ? 'text-[#2563EB]' : 'text-[#94A3B8]'"
+                  >
+                    <span class="w-[18px] h-[18px] flex items-center justify-center" v-html="tab.icon"></span>
+                    <span class="text-[8px] font-bold mt-0.5">{{ tab.name }}</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1191,9 +1407,9 @@ const previewTeamMembers = [
 ]
 
 const previewThreads = [
-  { id: 1, name: 'TeamTrack FE', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>', iconBg: 'bg-[#EBF0FF]', time: '10:24 AM', active: true },
-  { id: 2, name: 'Dashboard UI', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg>', iconBg: 'bg-[#F3E8FF]', time: '11:10 AM', active: false },
-  { id: 3, name: 'AI Assistant', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>', iconBg: 'bg-[#DCFCE7]', time: 'Yesterday', active: false },
-  { id: 4, name: 'Analytics', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', iconBg: 'bg-[#FEF3C7]', time: 'Monday', active: false }
+  { id: 1, name: 'TeamTrack FE', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>', mobileIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>', iconBg: 'bg-[#EBF0FF]', activeBg: 'bg-[#2563EB]', time: '10:24 AM', active: true, preview: 'Dashboard timer and recent time logs are aligned.', unread: 2 },
+  { id: 2, name: 'Dashboard UI', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg>', mobileIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg>', iconBg: 'bg-[#F3E8FF]', activeBg: 'bg-[#7C3AED]', time: '11:10 AM', active: false, preview: 'Yes, keep the timer. Time tracking is core.', unread: 0 },
+  { id: 3, name: 'AI Assistant', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>', mobileIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>', iconBg: 'bg-[#DCFCE7]', activeBg: 'bg-[#10B981]', time: 'Yesterday', active: false, preview: 'Your team is 18% more productive this week.', unread: 1 },
+  { id: 4, name: 'Analytics', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', mobileIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', iconBg: 'bg-[#FEF3C7]', activeBg: 'bg-[#F59E0B]', time: 'Monday', active: false, preview: 'Contribution report is ready for review.', unread: 0 }
 ]
 </script>
