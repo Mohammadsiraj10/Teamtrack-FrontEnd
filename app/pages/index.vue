@@ -68,211 +68,657 @@
             </div>
           </div>
 
-          <!-- Dashboard mockup matching actual dashboard.vue -->
-          <div class="flex min-h-[480px]">
+          <!-- Interactive Dashboard Preview -->
+          <div class="flex min-h-[560px]">
             <!-- Sidebar -->
-            <div class="w-[60px] bg-white border-r border-[#E2E8F0]/70 hidden sm:flex flex-col items-center py-4 gap-3">
-              <div class="w-8 h-8 rounded-lg bg-[#2563EB] flex items-center justify-center text-white text-[11px] font-bold">T</div>
-              <div class="w-8 h-8 rounded-lg bg-[#EBF0FF] flex items-center justify-center text-[12px]">
-                <span>&#128202;</span>
+            <div class="w-[200px] bg-white/95 backdrop-blur-xl border-r border-[#E2E8F0]/70 hidden md:flex flex-col shrink-0">
+              <div class="px-4 py-4 border-b border-[#F1F5F9]">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-bold text-[14px] shadow-sm shadow-blue-500/20">T</div>
+                  <div>
+                    <div class="font-bold text-[15px] text-[#0F172A] tracking-tight">TeamTrack</div>
+                    <div class="text-[10px] text-[#94A3B8]">AI Team Workspace</div>
+                  </div>
+                </div>
               </div>
-              <div class="w-8 h-8 rounded-lg hover:bg-[#F1F5F9] flex items-center justify-center text-[12px] transition">
-                <span>&#128193;</span>
+
+              <nav class="flex-1 px-3 py-4 space-y-1.5">
+                <button
+                  v-for="tab in previewTabs"
+                  :key="tab.id"
+                  @click="activePreviewTab = tab.id"
+                  class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-[12px] font-semibold transition-all duration-200"
+                  :class="activePreviewTab === tab.id
+                    ? 'bg-[#2563EB] text-white shadow-md shadow-blue-500/20'
+                    : 'text-[#475569] hover:bg-[#F1F5F9] hover:text-[#0F172A]'"
+                >
+                  <span class="w-5 h-5 flex items-center justify-center" v-html="tab.icon"></span>
+                  {{ tab.name }}
+                </button>
+              </nav>
+
+              <div class="px-3 pb-3">
+                <div class="rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#EEF2FF] border border-[#DBEAFE] p-3">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center shadow-sm">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </div>
+                    <span class="text-[9px] font-bold text-[#2563EB] bg-white px-2 py-0.5 rounded-full">LIVE</span>
+                  </div>
+                  <div class="text-[11px] font-bold text-[#0F172A] mb-1.5">Sprint Progress</div>
+                  <div class="w-full bg-white rounded-full h-1.5 overflow-hidden mb-1.5">
+                    <div class="h-1.5 bg-[#2563EB] rounded-full transition-all duration-1000" style="width:72%"></div>
+                  </div>
+                  <div class="text-[10px] text-[#64748B]">72% this week</div>
+                </div>
               </div>
-              <div class="w-8 h-8 rounded-lg hover:bg-[#F1F5F9] flex items-center justify-center text-[12px] transition">
-                <span>&#9989;</span>
-              </div>
-              <div class="w-8 h-8 rounded-lg hover:bg-[#F1F5F9] flex items-center justify-center text-[12px] transition">
-                <span>&#128101;</span>
-              </div>
-              <div class="w-8 h-8 rounded-lg hover:bg-[#F1F5F9] flex items-center justify-center text-[12px] transition">
-                <span>&#128172;</span>
+
+              <div class="px-3 pb-3 border-t border-[#F1F5F9] pt-3">
+                <div class="flex items-center gap-2.5">
+                  <div class="relative">
+                    <div class="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-[12px]">S</div>
+                    <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
+                  </div>
+                  <div>
+                    <div class="font-bold text-[12px] text-[#0F172A]">Siraj</div>
+                    <div class="text-[10px] text-[#94A3B8]">Team Leader</div>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Main content -->
-            <div class="flex-1 p-5 bg-[#F8FAFC] overflow-hidden">
+            <div class="flex-1 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#EEF2FF] overflow-hidden">
               <!-- Topbar -->
-              <div class="flex items-center justify-between mb-5">
+              <div class="bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-5 py-3 flex items-center justify-between">
                 <div>
-                  <div class="text-[14px] font-bold text-[#0F172A]">Welcome back &#128075;</div>
-                  <div class="text-[11px] text-[#94A3B8]">Here's what's happening with your team today.</div>
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <div class="text-[16px] font-black text-[#0F172A] tracking-tight">{{ activePreviewTab === 'dashboard' ? 'Dashboard' : activePreviewTab === 'projects' ? 'Projects' : activePreviewTab === 'tasks' ? 'Tasks' : activePreviewTab === 'team' ? 'Team' : 'Team Chat' }}</div>
+                    <span v-if="activePreviewTab === 'dashboard'" class="bg-[#ECFDF5] text-[#059669] border border-[#BBF7D0] text-[9px] font-bold px-2 py-0.5 rounded-full">Active Sprint</span>
+                  </div>
+                  <div class="text-[11px] text-[#94A3B8]">Welcome back, Siraj. Here is your team performance overview.</div>
                 </div>
                 <div class="flex items-center gap-2">
-                  <div class="relative w-7 h-7 rounded-lg bg-[#F8FAFC] flex items-center justify-center text-[12px]">
-                    &#128276;
-                    <span class="absolute top-1 right-1 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                  <div class="relative w-8 h-8 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] transition cursor-pointer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                    <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white text-[7px] text-white font-bold flex items-center justify-center">3</span>
                   </div>
-                  <div class="w-7 h-7 rounded-full bg-[#2563EB] flex items-center justify-center text-white text-[10px] font-bold">S</div>
+                  <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-bold text-[11px] shadow-sm shadow-blue-500/20">S</div>
                 </div>
               </div>
 
-              <!-- Stats row -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-                <div class="bg-white rounded-2xl p-3.5 border border-[#E2E8F0]/70 shadow-sm">
-                  <div class="flex items-center justify-between mb-2">
-                    <div class="w-8 h-8 rounded-xl bg-[#EBF0FF] flex items-center justify-center text-[13px]">&#128193;</div>
-                    <span class="text-[10px] font-semibold text-green-500">+12%</span>
-                  </div>
-                  <p class="text-[10px] text-[#94A3B8] mb-0.5">Projects</p>
-                  <div class="text-[22px] font-bold text-[#0F172A]">4</div>
-                </div>
-                <div class="bg-white rounded-2xl p-3.5 border border-[#E2E8F0]/70 shadow-sm">
-                  <div class="flex items-center justify-between mb-2">
-                    <div class="w-8 h-8 rounded-xl bg-[#DCFCE7] flex items-center justify-center text-[13px]">&#9989;</div>
-                    <span class="text-[10px] font-semibold text-green-500">+8%</span>
-                  </div>
-                  <p class="text-[10px] text-[#94A3B8] mb-0.5">Tasks Done</p>
-                  <div class="text-[22px] font-bold text-[#0F172A]">24</div>
-                </div>
-                <div class="bg-white rounded-2xl p-3.5 border border-[#E2E8F0]/70 shadow-sm">
-                  <div class="flex items-center justify-between mb-2">
-                    <div class="w-8 h-8 rounded-xl bg-[#FEF3C7] flex items-center justify-center text-[13px]">&#9200;</div>
-                    <span class="text-[10px] font-semibold text-[#F59E0B]">Today</span>
-                  </div>
-                  <p class="text-[10px] text-[#94A3B8] mb-0.5">Hours Logged</p>
-                  <div class="text-[22px] font-bold text-[#0F172A]">18h</div>
-                </div>
-                <div class="bg-white rounded-2xl p-3.5 border border-[#E2E8F0]/70 shadow-sm">
-                  <div class="flex items-center justify-between mb-2">
-                    <div class="w-8 h-8 rounded-xl bg-[#F3E8FF] flex items-center justify-center text-[13px]">&#128101;</div>
-                    <span class="text-[10px] font-semibold text-purple-600">Team</span>
-                  </div>
-                  <p class="text-[10px] text-[#94A3B8] mb-0.5">Members</p>
-                  <div class="text-[22px] font-bold text-[#0F172A]">8</div>
-                </div>
-              </div>
-
-              <!-- Grid: left (timer + project) | right (AI + logs + chat) -->
-              <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
-                <!-- Left -->
-                <div class="xl:col-span-2 space-y-4">
-                  <!-- Time Tracker -->
-                  <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-4 shadow-sm">
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-9 h-9 rounded-xl bg-[#EBF0FF] flex items-center justify-center text-[14px]">&#9201;&#65039;</div>
-                      <div>
-                        <div class="text-[13px] font-bold text-[#0F172A]">Time Tracker</div>
-                        <div class="text-[10px] text-[#94A3B8]">Track work sessions for contribution visibility</div>
+              <!-- Tab content -->
+              <div class="p-4 overflow-hidden">
+                <!-- Dashboard tab -->
+                <div v-if="activePreviewTab === 'dashboard'" class="space-y-4">
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div v-for="stat in previewStats" :key="stat.label" class="relative overflow-hidden bg-white rounded-2xl p-3.5 border border-[#E2E8F0] shadow-sm hover:shadow-lg hover:shadow-slate-900/5 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group">
+                      <div :class="stat.glow" class="absolute -right-6 -top-6 w-20 h-20 rounded-full opacity-60"></div>
+                      <div class="relative flex items-center justify-between mb-3">
+                        <div :class="stat.bg" class="w-9 h-9 rounded-xl flex items-center justify-center">
+                          <span v-html="stat.icon"></span>
+                        </div>
+                        <span :class="stat.badgeClass" class="text-[9px] font-bold px-2 py-0.5 rounded-full">{{ stat.badge }}</span>
                       </div>
-                    </div>
-                    <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 mb-3">
-                      <div class="text-[10px] text-[#94A3B8] mb-0.5">Current Task</div>
-                      <div class="text-[12px] font-bold text-[#0F172A]">Dashboard UI in Progress</div>
-                    </div>
-                    <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 text-center">
-                      <div class="text-[10px] text-[#94A3B8] mb-1">Current Session</div>
-                      <div class="text-[28px] font-bold text-[#0F172A] tracking-tight mb-3">01:24:37</div>
-                      <div class="flex items-center justify-center gap-2">
-                        <span class="bg-[#2563EB] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg">Start</span>
-                        <span class="bg-[#FEF3C7] text-[#92400E] text-[10px] font-bold px-3 py-1.5 rounded-lg">Pause</span>
-                        <span class="bg-red-50 text-red-500 text-[10px] font-bold px-3 py-1.5 rounded-lg">Stop</span>
+                      <p class="relative text-[10px] text-[#64748B] font-semibold mb-0.5">{{ stat.label }}</p>
+                      <div class="relative flex items-end gap-1">
+                        <div class="text-[20px] font-black tracking-tight text-[#0F172A]">{{ stat.value }}</div>
+                        <p class="text-[9px] text-[#94A3B8] font-semibold mb-1">{{ stat.caption }}</p>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Active Project -->
-                  <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-4 shadow-sm">
+                  <div class="grid grid-cols-1 xl:grid-cols-3 gap-3">
+                    <div class="xl:col-span-2 space-y-3">
+                      <div class="grid grid-cols-1 lg:grid-cols-5 gap-3">
+                        <div class="lg:col-span-2 bg-white rounded-2xl border border-[#E2E8F0] p-4 shadow-sm">
+                          <div class="flex items-center justify-between mb-3">
+                            <div>
+                              <div class="text-[13px] font-bold text-[#0F172A]">Time Tracker</div>
+                              <div class="text-[10px] text-[#94A3B8]">Track work sessions.</div>
+                            </div>
+                            <div class="w-8 h-8 rounded-xl bg-[#EFF6FF] flex items-center justify-center">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg>
+                            </div>
+                          </div>
+                          <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 mb-3">
+                            <div class="text-[9px] text-[#94A3B8] font-bold mb-0.5">Current Task</div>
+                            <div class="text-[12px] font-black text-[#0F172A]">Dashboard UI in Progress</div>
+                          </div>
+                          <div class="text-center bg-[#0F172A] rounded-xl p-4 mb-3">
+                            <div class="text-[9px] text-[#94A3B8] font-bold mb-1">Current Session</div>
+                            <div class="text-[24px] font-black text-white tracking-tight">{{ previewTimer }}</div>
+                          </div>
+                          <div class="grid grid-cols-3 gap-2">
+                            <button @click="previewTimerRunning = true" class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[10px] font-bold py-2 rounded-lg transition">Start</button>
+                            <button @click="previewTimerRunning = false" class="bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#92400E] text-[10px] font-bold py-2 rounded-lg transition">Pause</button>
+                            <button @click="previewTimerRunning = false; previewTimerSeconds = 0" class="bg-red-50 hover:bg-red-100 text-red-500 text-[10px] font-bold py-2 rounded-lg transition">Stop</button>
+                          </div>
+                        </div>
+
+                        <div class="lg:col-span-3 bg-white rounded-2xl border border-[#E2E8F0] p-4 shadow-sm">
+                          <div class="flex items-center justify-between mb-3">
+                            <div>
+                              <div class="text-[13px] font-bold text-[#0F172A]">Sprint Performance</div>
+                              <div class="text-[10px] text-[#94A3B8]">Weekly task delivery.</div>
+                            </div>
+                            <span class="text-[9px] font-bold text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] px-2 py-0.5 rounded-full">Week 4</span>
+                          </div>
+                          <div class="h-[130px] flex items-end gap-2 px-1">
+                            <div v-for="bar in previewBars" :key="bar.day" class="flex-1 flex flex-col items-center gap-1.5">
+                              <div class="w-full h-[100px] bg-[#F1F5F9] rounded-xl flex items-end overflow-hidden">
+                                <div class="w-full rounded-xl bg-gradient-to-t from-[#2563EB] to-[#60A5FA] transition-all duration-1000" :style="{ height: bar.height + '%' }"></div>
+                              </div>
+                              <div class="text-center">
+                                <div class="text-[9px] font-bold text-[#0F172A]">{{ bar.value }}</div>
+                                <div class="text-[8px] text-[#94A3B8] font-semibold">{{ bar.day }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bg-white rounded-2xl border border-[#E2E8F0] p-4 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                          <div>
+                            <div class="text-[13px] font-bold text-[#0F172A]">Active Projects</div>
+                            <div class="text-[10px] text-[#94A3B8]">Current running projects.</div>
+                          </div>
+                          <span class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg transition cursor-pointer">View</span>
+                        </div>
+                        <div class="space-y-2.5">
+                          <div v-for="project in previewProjects" :key="project.name" class="border border-[#E2E8F0] rounded-xl p-3 hover:border-[#BFDBFE] hover:shadow-md transition-all cursor-pointer">
+                            <div class="flex items-center justify-between mb-2">
+                              <div>
+                                <div class="text-[12px] font-bold text-[#0F172A]">{{ project.name }}</div>
+                                <div class="text-[10px] text-[#94A3B8]">{{ project.description }}</div>
+                              </div>
+                              <span :class="project.statusClass" class="text-[9px] font-bold px-2 py-0.5 rounded-full">{{ project.status }}</span>
+                            </div>
+                            <div class="w-full bg-[#E2E8F0] h-1.5 rounded-full overflow-hidden mb-1.5">
+                              <div class="bg-gradient-to-r from-[#2563EB] to-[#60A5FA] h-1.5 rounded-full transition-all duration-1000" :style="{ width: project.progress + '%' }"></div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                              <span class="text-[10px] text-[#64748B] font-bold">{{ project.progress }}%</span>
+                              <div class="flex -space-x-1.5">
+                                <div v-for="m in project.members" :key="m" class="w-5 h-5 rounded-full border-2 border-white text-[7px] text-white font-bold flex items-center justify-center" :class="memberColors[m]">{{ m }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="space-y-3">
+                      <div class="relative overflow-hidden bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl p-4 text-white shadow-xl shadow-blue-500/20">
+                        <div class="absolute -right-10 -top-10 w-28 h-28 rounded-full bg-white/10 blur-xl"></div>
+                        <div class="relative flex items-center gap-2.5 mb-3">
+                          <div class="w-9 h-9 rounded-xl bg-white/20 border border-white/10 flex items-center justify-center">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                          </div>
+                          <div>
+                            <div class="text-[13px] font-bold">Team AI</div>
+                            <div class="text-[10px] text-blue-200">Smart insights</div>
+                          </div>
+                        </div>
+                        <div class="relative space-y-2.5">
+                          <div class="bg-white/10 border border-white/10 rounded-xl p-3">
+                            <div class="text-[9px] text-blue-100 font-bold mb-1">PRODUCTIVITY</div>
+                            <div class="text-[11px] leading-[1.5] text-blue-50">Your team is 18% more productive this week.</div>
+                          </div>
+                          <div class="bg-white/10 border border-white/10 rounded-xl p-3">
+                            <div class="text-[9px] text-blue-100 font-bold mb-1">RECOMMENDATION</div>
+                            <div class="text-[11px] leading-[1.5] text-blue-50">Consider reviewing workload balance for the analytics module.</div>
+                          </div>
+                        </div>
+                        <div class="text-[8px] text-blue-300 mt-2 italic">All AI suggestions require human approval.</div>
+                      </div>
+
+                      <div class="bg-white rounded-2xl border border-[#E2E8F0] p-4 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                          <div>
+                            <div class="text-[13px] font-bold text-[#0F172A]">Recent Time Logs</div>
+                            <div class="text-[10px] text-[#94A3B8]">Latest sessions.</div>
+                          </div>
+                          <span class="text-[9px] bg-[#EFF6FF] text-[#2563EB] font-bold px-2 py-0.5 rounded-full">Today</span>
+                        </div>
+                        <div class="space-y-2">
+                          <div class="bg-[#F8FAFC] rounded-xl p-2.5 hover:bg-[#F1F5F9] transition cursor-pointer">
+                            <div class="flex items-center justify-between mb-0.5">
+                              <span class="text-[11px] font-bold text-[#0F172A]">Dashboard UI</span>
+                              <span class="text-[11px] font-bold text-[#2563EB]">2h 10m</span>
+                            </div>
+                            <div class="text-[9px] text-[#94A3B8]">Logged by Siraj</div>
+                          </div>
+                          <div class="bg-[#F8FAFC] rounded-xl p-2.5 hover:bg-[#F1F5F9] transition cursor-pointer">
+                            <div class="flex items-center justify-between mb-0.5">
+                              <span class="text-[11px] font-bold text-[#0F172A]">Login Page</span>
+                              <span class="text-[11px] font-bold text-[#2563EB]">1h 35m</span>
+                            </div>
+                            <div class="text-[9px] text-[#94A3B8]">Logged by Alex</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bg-white rounded-2xl border border-[#E2E8F0] p-4 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                          <div class="text-[13px] font-bold text-[#0F172A]">Team Chat</div>
+                          <span class="text-[9px] bg-green-100 text-green-600 font-bold px-2 py-0.5 rounded-full">3 online</span>
+                        </div>
+                        <div class="flex gap-2 mb-2.5">
+                          <div class="w-7 h-7 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[9px] text-white font-bold">A</div>
+                          <div class="bg-[#F8FAFC] rounded-xl p-2 flex-1">
+                            <div class="flex items-center justify-between mb-0.5">
+                              <span class="text-[10px] font-semibold text-[#0F172A]">Alex</span>
+                              <span class="text-[8px] text-[#94A3B8]">10:24 AM</span>
+                            </div>
+                            <p class="text-[10px] text-[#475569] leading-[1.5]">API integration is done</p>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3 py-1.5 text-[10px] text-[#94A3B8]">Send a message...</div>
+                          <div class="bg-[#2563EB] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg">Send</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Projects tab -->
+                <div v-if="activePreviewTab === 'projects'" class="space-y-3">
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <div class="relative overflow-hidden bg-white rounded-2xl p-3 border border-[#E2E8F0] shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <div class="absolute -right-5 -top-5 w-16 h-16 rounded-full opacity-60 bg-[#DBEAFE]"></div>
+                      <div class="relative flex items-center justify-between mb-3">
+                        <div class="w-9 h-9 rounded-xl bg-[#EFF6FF] flex items-center justify-center">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                        </div>
+                        <span class="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-green-50 text-green-600">Active</span>
+                      </div>
+                      <p class="relative text-[9px] text-[#64748B] font-semibold mb-0.5">Total Projects</p>
+                      <div class="relative text-[18px] font-black tracking-tight text-[#0F172A]">4</div>
+                    </div>
+                    <div class="relative overflow-hidden bg-white rounded-2xl p-3 border border-[#E2E8F0] shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <div class="absolute -right-5 -top-5 w-16 h-16 rounded-full opacity-60 bg-[#BBF7D0]"></div>
+                      <div class="relative flex items-center justify-between mb-3">
+                        <div class="w-9 h-9 rounded-xl bg-[#ECFDF5] flex items-center justify-center">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                        </div>
+                        <span class="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-green-50 text-green-600">Tracked</span>
+                      </div>
+                      <p class="relative text-[9px] text-[#64748B] font-semibold mb-0.5">Completed Tasks</p>
+                      <div class="relative text-[18px] font-black tracking-tight text-[#0F172A]">22</div>
+                    </div>
+                    <div class="relative overflow-hidden bg-white rounded-2xl p-3 border border-[#E2E8F0] shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <div class="absolute -right-5 -top-5 w-16 h-16 rounded-full opacity-60 bg-[#FDE68A]"></div>
+                      <div class="relative flex items-center justify-between mb-3">
+                        <div class="w-9 h-9 rounded-xl bg-[#FFFBEB] flex items-center justify-center">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <span class="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-600">Logged</span>
+                      </div>
+                      <p class="relative text-[9px] text-[#64748B] font-semibold mb-0.5">Time Logged</p>
+                      <div class="relative text-[18px] font-black tracking-tight text-[#0F172A]">45h</div>
+                    </div>
+                    <div class="relative overflow-hidden bg-white rounded-2xl p-3 border border-[#E2E8F0] shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <div class="absolute -right-5 -top-5 w-16 h-16 rounded-full opacity-60 bg-[#DDD6FE]"></div>
+                      <div class="relative flex items-center justify-between mb-3">
+                        <div class="w-9 h-9 rounded-xl bg-[#F5F3FF] flex items-center justify-center">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <span class="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-purple-50 text-purple-600">Live</span>
+                      </div>
+                      <p class="relative text-[9px] text-[#64748B] font-semibold mb-0.5">Team Members</p>
+                      <div class="relative text-[18px] font-black tracking-tight text-[#0F172A]">12</div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-2xl border border-[#E2E8F0] p-4 shadow-sm">
                     <div class="flex items-center justify-between mb-3">
-                      <div>
-                        <div class="text-[13px] font-bold text-[#0F172A]">Active Projects</div>
-                        <div class="text-[10px] text-[#94A3B8]">Your current running projects</div>
-                      </div>
-                      <span class="bg-[#2563EB] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg">View</span>
+                      <div class="text-[13px] font-bold text-[#0F172A]">Project Workspaces</div>
+                      <span class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg transition cursor-pointer">+ Create Project</span>
                     </div>
-                    <div class="border border-[#E2E8F0] rounded-xl p-3.5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div v-for="project in previewProjects" :key="project.name" class="bg-white border border-[#E2E8F0] rounded-2xl p-3.5 shadow-sm hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300 cursor-pointer">
+                        <div class="flex items-start justify-between mb-3">
+                          <div>
+                            <div class="text-[12px] font-bold text-[#0F172A]">{{ project.name }}</div>
+                            <div class="text-[10px] text-[#94A3B8]">{{ project.description }}</div>
+                          </div>
+                          <span :class="project.statusClass" class="text-[9px] font-bold px-2 py-0.5 rounded-full">{{ project.status }}</span>
+                        </div>
+                        <div class="mb-3">
+                          <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] font-bold text-[#475569]">Progress</span>
+                            <span class="text-[10px] font-bold text-[#2563EB]">{{ project.progress }}%</span>
+                          </div>
+                          <div class="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-[#2563EB] to-[#60A5FA] h-2 rounded-full transition-all duration-1000" :style="{ width: project.progress + '%' }"></div>
+                          </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-3">
+                          <div class="bg-[#F8FAFC] rounded-xl p-2">
+                            <span class="text-[9px] text-[#94A3B8]">Deadline</span>
+                            <div class="text-[10px] font-bold text-[#0F172A]">29 Mar</div>
+                          </div>
+                          <div class="bg-[#F8FAFC] rounded-xl p-2">
+                            <span class="text-[9px] text-[#94A3B8]">Time</span>
+                            <div class="text-[10px] font-bold text-[#0F172A]">18h 30m</div>
+                          </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                          <span class="text-[9px] text-[#94A3B8]">Due Friday</span>
+                          <div class="flex -space-x-1.5">
+                            <div v-for="m in project.members" :key="m" class="w-5 h-5 rounded-lg border-2 border-white text-[7px] text-white font-bold flex items-center justify-center" :class="memberColors[m]">{{ m }}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative overflow-hidden bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl p-4 text-white shadow-xl shadow-blue-500/20">
+                    <div class="absolute -right-10 -top-10 w-28 h-28 rounded-full bg-white/10 blur-xl"></div>
+                    <div class="relative flex items-center gap-2.5 mb-3">
+                      <div class="w-9 h-9 rounded-xl bg-white/20 border border-white/10 flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                      </div>
+                      <div>
+                        <div class="text-[13px] font-bold">Project Intelligence</div>
+                        <div class="text-[10px] text-blue-200">Workspace-level guidance</div>
+                      </div>
+                    </div>
+                    <div class="relative space-y-2.5">
+                      <div class="bg-white/10 border border-white/10 rounded-xl p-3">
+                        <div class="text-[9px] text-blue-100 font-bold mb-1">PROJECT HEALTH</div>
+                        <div class="text-[11px] leading-[1.5] text-blue-50">3 of 4 active projects are progressing normally.</div>
+                      </div>
+                      <div class="bg-white/10 border border-white/10 rounded-xl p-3">
+                        <div class="text-[9px] text-blue-100 font-bold mb-1">TIME TRACKING</div>
+                        <div class="text-[11px] leading-[1.5] text-blue-50">45h 40m logged across active workspaces.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tasks tab -->
+                <div v-if="activePreviewTab === 'tasks'" class="space-y-3">
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
                       <div class="flex items-center justify-between mb-2">
-                        <div>
-                          <div class="text-[12px] font-bold text-[#0F172A]">TeamTrack Frontend</div>
-                          <div class="text-[10px] text-[#94A3B8]">Dashboard redesign and responsive UI</div>
+                        <div class="w-9 h-9 rounded-xl bg-[#EBF0FF] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+                        <span class="text-[9px] text-[#64748B] font-semibold">Total</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Total Tasks</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">10</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#DCFCE7] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+                        <span class="text-[9px] text-[#10B981] font-semibold">Done</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Completed</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">3</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#FEF3C7] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                        <span class="text-[9px] text-[#F59E0B] font-semibold">Blocked</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Blocked Tasks</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">1</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#F3E8FF] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        <span class="text-[9px] text-[#F87171] font-semibold">Warn</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Deadline Warnings</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">2</div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-4 shadow-sm">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center gap-1.5">
+                        <div class="flex items-center bg-[#F1F5F9] rounded-lg p-0.5">
+                          <span class="bg-white shadow-sm text-[#0F172A] px-2 py-1 rounded-md text-[10px] font-semibold">Kanban</span>
+                          <span class="text-[#64748B] px-2 py-1 text-[10px] font-semibold">List</span>
                         </div>
-                        <span class="bg-green-100 text-green-600 text-[9px] font-bold px-2 py-0.5 rounded-full">Active</span>
                       </div>
-                      <div class="w-full bg-[#E2E8F0] h-1.5 rounded-full overflow-hidden mb-2">
-                        <div class="bg-[#2563EB] h-1.5 rounded-full" style="width:72%;" />
-                      </div>
-                      <div class="flex items-center justify-between">
-                        <span class="text-[10px] text-[#64748B]">Progress: 72%</span>
-                        <div class="flex -space-x-1.5">
-                          <div class="w-5 h-5 rounded-full bg-blue-400 border-2 border-white text-[8px] text-white font-bold flex items-center justify-center">S</div>
-                          <div class="w-5 h-5 rounded-full bg-green-400 border-2 border-white text-[8px] text-white font-bold flex items-center justify-center">Z</div>
-                          <div class="w-5 h-5 rounded-full bg-yellow-400 border-2 border-white text-[8px] text-white font-bold flex items-center justify-center">M</div>
+                      <span class="bg-[#2563EB] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg">+ New Task</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2.5">
+                      <div v-for="col in previewColumns" :key="col.id">
+                        <div class="flex items-center gap-1.5 mb-2.5">
+                          <span :class="col.dotClass" class="w-2 h-2 rounded-full"></span>
+                          <span class="text-[11px] font-bold text-[#0F172A]">{{ col.title }}</span>
+                          <span class="text-[9px] font-semibold text-[#94A3B8] bg-[#F1F5F9] rounded-full w-4 h-4 flex items-center justify-center">{{ col.tasks.length }}</span>
+                        </div>
+                        <div class="space-y-2">
+                          <div v-for="task in col.tasks" :key="task" class="bg-white rounded-xl border border-[#E2E8F0]/70 p-2.5 shadow-sm hover:shadow-md hover:border-[#2563EB]/30 transition-all cursor-pointer">
+                            <div class="mb-1.5">
+                              <span :class="col.id === 'backlog' ? 'bg-[#F1F5F9] text-[#64748B]' : col.id === 'in-progress' ? 'bg-[#EBF0FF] text-[#2563EB]' : col.id === 'review' ? 'bg-[#FEF3C7] text-[#D97706]' : 'bg-[#D1FAE5] text-[#10B981]'" class="text-[8px] font-bold px-1.5 py-0.5 rounded-full">Medium</span>
+                            </div>
+                            <div class="text-[10px] font-bold text-[#0F172A] mb-1.5" :class="{ 'line-through opacity-60': col.id === 'done' }">{{ task }}</div>
+                            <div v-if="col.id === 'in-progress'" class="mb-1.5">
+                              <div class="w-full bg-[#E2E8F0] rounded-full h-1 overflow-hidden">
+                                <div class="bg-[#2563EB] h-1 rounded-full" style="width:65%"></div>
+                              </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                              <div class="flex items-center gap-1.5">
+                                <div class="w-4 h-4 rounded-full bg-[#34D399] text-[7px] text-white font-bold flex items-center justify-center">M</div>
+                                <span class="text-[9px] text-[#64748B]">Maria</span>
+                              </div>
+                              <div class="flex items-center gap-1 text-[#94A3B8]">
+                                <svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span class="text-[8px] font-medium">5 Apr</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Right -->
-                <div class="space-y-4">
-                  <!-- AI -->
-                  <div class="bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl p-4 text-white">
-                    <div class="flex items-center gap-2.5 mb-3">
-                      <div class="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-[14px]">&#129302;</div>
-                      <div>
-                        <div class="text-[13px] font-bold">Team AI</div>
-                        <div class="text-[10px] text-blue-200">System-generated suggestions</div>
+                <!-- Team tab -->
+                <div v-if="activePreviewTab === 'team'" class="space-y-3">
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#EBF0FF] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+                        <span class="text-[9px] text-[#10B981] font-semibold">Active</span>
                       </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Total Members</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">6</div>
                     </div>
-                    <div class="bg-white/10 rounded-xl p-3 mb-2.5">
-                      <p class="text-[11px] leading-[1.6] text-blue-100">
-                        <span class="text-white font-semibold">Workload Alert:</span> Student A has logged 80% of total project time. Consider rebalancing tasks.
-                      </p>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#DCFCE7] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <span class="text-[9px] text-[#2563EB] font-semibold">Leaders</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Leaders</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">1</div>
                     </div>
-                    <div class="bg-white/10 rounded-xl p-3">
-                      <p class="text-[11px] leading-[1.6] text-blue-100">
-                        <span class="text-white font-semibold">Deadline Risk:</span> Analytics task is 78% likely to miss its due date.
-                      </p>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#FEF3C7] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        <span class="text-[9px] text-[#F59E0B] font-semibold">Pending</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Pending Invites</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">2</div>
                     </div>
-                    <p class="text-[9px] text-blue-300 mt-2 italic">All AI suggestions require human approval.</p>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#F3E8FF] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+                        <span class="text-[9px] text-[#9333EA] font-semibold">Log</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Role Changes</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">3</div>
+                    </div>
                   </div>
-
-                  <!-- Time Logs -->
                   <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-4 shadow-sm">
                     <div class="flex items-center justify-between mb-3">
                       <div>
-                        <div class="text-[13px] font-bold text-[#0F172A]">Recent Time Logs</div>
-                        <div class="text-[10px] text-[#94A3B8]">Latest tracked sessions</div>
+                        <div class="text-[13px] font-bold text-[#0F172A]">Team Members</div>
+                        <div class="text-[10px] text-[#94A3B8]">Membership list with names, emails, and roles</div>
                       </div>
-                      <span class="text-[9px] bg-[#EFF6FF] text-[#2563EB] font-bold px-2 py-0.5 rounded-full">Today</span>
+                      <span class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg transition cursor-pointer">+ Invite Member</span>
                     </div>
-                    <div class="space-y-2">
-                      <div class="bg-[#F8FAFC] rounded-xl p-2.5">
-                        <div class="flex items-center justify-between mb-0.5">
-                          <span class="text-[11px] font-bold text-[#0F172A]">Dashboard UI</span>
-                          <span class="text-[11px] font-bold text-[#2563EB]">2h 10m</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div v-for="member in previewTeamMembers" :key="member.name" class="border border-[#E2E8F0]/70 rounded-2xl p-3.5 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+                        <div class="flex items-start justify-between mb-3">
+                          <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-[14px]" :style="{ backgroundColor: member.color }">{{ member.initial }}</div>
+                            <div>
+                              <div class="text-[12px] font-bold text-[#0F172A]">{{ member.name }}</div>
+                              <div class="text-[10px] text-[#94A3B8]">{{ member.email }}</div>
+                            </div>
+                          </div>
+                          <span :class="member.roleBadge" class="text-[9px] font-bold px-2 py-0.5 rounded-full">{{ member.role }}</span>
                         </div>
-                        <div class="text-[9px] text-[#94A3B8]">Logged by Siraj</div>
-                      </div>
-                      <div class="bg-[#F8FAFC] rounded-xl p-2.5">
-                        <div class="flex items-center justify-between mb-0.5">
-                          <span class="text-[11px] font-bold text-[#0F172A]">Login Page</span>
-                          <span class="text-[11px] font-bold text-[#2563EB]">1h 35m</span>
+                        <div class="grid grid-cols-2 gap-2 mb-2.5">
+                          <div class="bg-[#F8FAFC] rounded-lg p-2">
+                            <div class="text-[8px] text-[#94A3B8]">Tasks Assigned</div>
+                            <div class="text-[11px] font-bold text-[#0F172A]">{{ member.tasksAssigned }}</div>
+                          </div>
+                          <div class="bg-[#F8FAFC] rounded-lg p-2">
+                            <div class="text-[8px] text-[#94A3B8]">Tasks Completed</div>
+                            <div class="text-[11px] font-bold text-[#0F172A]">{{ member.tasksCompleted }}</div>
+                          </div>
                         </div>
-                        <div class="text-[9px] text-[#94A3B8]">Logged by Alex</div>
+                        <div class="flex items-center justify-between mb-1">
+                          <span class="text-[9px] font-semibold text-[#475569]">Contribution</span>
+                          <span class="text-[9px] font-bold" :class="member.contribution >= 70 ? 'text-[#10B981]' : member.contribution >= 40 ? 'text-[#F59E0B]' : 'text-[#F87171]'">{{ member.contribution }}%</span>
+                        </div>
+                        <div class="w-full bg-[#E2E8F0] h-1.5 rounded-full overflow-hidden">
+                          <div class="h-1.5 rounded-full transition-all duration-500" :class="member.contribution >= 70 ? 'bg-[#10B981]' : member.contribution >= 40 ? 'bg-[#F59E0B]' : 'bg-[#F87171]'" :style="{ width: member.contribution + '%' }"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Chat -->
-                  <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-4 shadow-sm">
-                    <div class="flex items-center justify-between mb-3">
-                      <div class="text-[13px] font-bold text-[#0F172A]">Team Chat</div>
-                      <span class="text-[9px] bg-green-100 text-green-600 font-bold px-2 py-0.5 rounded-full">3 online</span>
+                <!-- Chat tab -->
+                <div v-if="activePreviewTab === 'chat'" class="space-y-3">
+                  <div class="grid grid-cols-3 gap-2.5">
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#EBF0FF] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                        <span class="text-[9px] font-semibold text-[#2563EB]">Today</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Project Messages</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">18</div>
                     </div>
-                    <div class="flex gap-2 mb-3">
-                      <div class="w-7 h-7 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[9px] text-white font-bold">A</div>
-                      <div class="bg-[#F8FAFC] rounded-xl p-2 flex-1">
-                        <div class="flex items-center justify-between mb-0.5">
-                          <span class="text-[10px] font-semibold text-[#0F172A]">Alex</span>
-                          <span class="text-[8px] text-[#94A3B8]">10:24 AM</span>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#DCFCE7] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+                        <span class="text-[9px] font-semibold text-green-500">Online</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Active Members</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">3</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-[#FEF3C7] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                        <span class="text-[9px] font-semibold text-[#F59E0B]">Pinned</span>
+                      </div>
+                      <p class="text-[9px] text-[#94A3B8] mb-0.5">Task Discussions</p>
+                      <div class="text-[18px] font-bold text-[#0F172A]">5</div>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 xl:grid-cols-[140px_1fr_120px] gap-2.5">
+                    <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 shadow-sm overflow-hidden">
+                      <div class="p-3 border-b border-[#F1F5F9]">
+                        <div class="text-[11px] font-bold text-[#0F172A]">Threads</div>
+                      </div>
+                      <div class="p-2 space-y-1.5">
+                        <div v-for="thread in previewThreads" :key="thread.id" class="rounded-lg p-2 transition cursor-pointer" :class="thread.active ? 'bg-[#EBF0FF] border border-[#2563EB]/30' : 'bg-[#F8FAFC] border border-transparent hover:bg-[#F1F5F9]'">
+                          <div class="flex items-center gap-1.5">
+                            <div class="w-6 h-6 rounded-lg flex items-center justify-center shrink-0" :class="thread.iconBg">
+                              <span v-html="thread.icon"></span>
+                            </div>
+                            <div>
+                              <div class="text-[9px] font-bold text-[#0F172A]">{{ thread.name }}</div>
+                              <div class="text-[7px] text-[#94A3B8]">{{ thread.time }}</div>
+                            </div>
+                          </div>
                         </div>
-                        <p class="text-[10px] text-[#475569] leading-[1.5]">API integration is done &#128640;</p>
                       </div>
                     </div>
-                    <div class="flex items-center gap-2">
-                      <div class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3 py-2 text-[10px] text-[#94A3B8]">Send a message...</div>
-                      <div class="bg-[#2563EB] text-white text-[10px] font-bold px-3 py-2 rounded-lg">Send</div>
+                    <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 shadow-sm overflow-hidden flex flex-col min-h-[240px]">
+                      <div class="p-3 border-b border-[#F1F5F9] flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                          <div class="w-7 h-7 rounded-lg flex items-center justify-center bg-[#EBF0FF]">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                          </div>
+                          <div>
+                            <div class="text-[11px] font-bold text-[#0F172A]">TeamTrack Frontend</div>
+                          </div>
+                        </div>
+                        <span class="bg-green-100 text-green-600 text-[8px] font-bold px-1.5 py-0.5 rounded-full">3 online</span>
+                      </div>
+                      <div class="flex-1 bg-[#F8FAFC] p-3 space-y-2.5 overflow-y-auto">
+                        <div class="flex gap-2">
+                          <div class="w-6 h-6 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">A</div>
+                          <div class="bg-white border border-[#E2E8F0] rounded-xl rounded-tl-sm p-2 max-w-[85%]">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Alex</span><span class="text-[7px] text-[#94A3B8]">10:24 AM</span></div>
+                            <p class="text-[9px] text-[#334155] leading-[1.5]">Dashboard timer and recent time logs are aligned.</p>
+                          </div>
+                        </div>
+                        <div class="flex gap-2 justify-end">
+                          <div class="bg-[#2563EB] text-white border border-[#2563EB] rounded-xl rounded-tr-sm p-2 max-w-[75%]">
+                            <p class="text-[9px] leading-[1.5]">Yes, keep the timer. Time tracking is core.</p>
+                          </div>
+                          <div class="w-6 h-6 rounded-full bg-[#2563EB] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">S</div>
+                        </div>
+                        <div class="flex gap-2">
+                          <div class="w-6 h-6 rounded-full bg-green-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">S</div>
+                          <div class="bg-white border border-[#E2E8F0] rounded-xl rounded-tl-sm p-2 max-w-[85%]">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Sarah</span><span class="text-[7px] text-[#94A3B8]">10:35 AM</span></div>
+                            <p class="text-[9px] text-[#334155] leading-[1.5]">Projects page also looks good.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white border-t border-[#E2E8F0] p-2">
+                        <div class="flex items-center gap-2">
+                          <div class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-2 py-1.5 text-[9px] text-[#94A3B8]">Write a project update...</div>
+                          <div class="bg-[#2563EB] text-white text-[9px] font-bold px-2.5 py-1.5 rounded-lg">Send</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="space-y-2.5">
+                      <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-3 shadow-sm">
+                        <div class="flex items-center gap-2 mb-2">
+                          <div class="w-7 h-7 rounded-lg bg-[#EBF0FF] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+                          <div class="text-[10px] font-bold text-[#0F172A]">Linked Task</div>
+                        </div>
+                        <div class="bg-[#F8FAFC] rounded-lg p-2 mb-1.5">
+                          <div class="text-[8px] text-[#94A3B8]">Current Task</div>
+                          <div class="text-[10px] font-bold text-[#0F172A]">Dashboard UI</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-1.5">
+                          <div class="bg-[#F8FAFC] rounded-lg p-1.5"><div class="text-[7px] text-[#94A3B8]">Status</div><div class="text-[9px] font-bold text-[#0F172A]">In Progress</div></div>
+                          <div class="bg-[#F8FAFC] rounded-lg p-1.5"><div class="text-[7px] text-[#94A3B8]">Priority</div><div class="text-[9px] font-bold text-[#0F172A]">High</div></div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-2xl border border-[#E2E8F0]/70 p-3 shadow-sm">
+                        <div class="text-[10px] font-bold text-[#0F172A] mb-2">Chat Activity</div>
+                        <div class="space-y-2">
+                          <div class="flex gap-1.5">
+                            <div class="w-5 h-5 rounded-lg bg-green-100 flex items-center justify-center text-[8px] font-bold text-green-600">+</div>
+                            <div>
+                              <div class="text-[9px] font-bold text-[#0F172A]">Message logged</div>
+                              <div class="text-[7px] text-[#94A3B8]">Alex posted 12m ago</div>
+                            </div>
+                          </div>
+                          <div class="flex gap-1.5">
+                            <div class="w-5 h-5 rounded-lg bg-[#EBF0FF] flex items-center justify-center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                            <div>
+                              <div class="text-[9px] font-bold text-[#0F172A]">Task discussion</div>
+                              <div class="text-[7px] text-[#94A3B8]">New replies today</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -671,4 +1117,104 @@
 </template>
 
 <script setup>
+import { computed, onUnmounted, ref } from 'vue'
+
+const activePreviewTab = ref('dashboard')
+
+const previewTabs = [
+  { id: 'dashboard', name: 'Dashboard', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>' },
+  { id: 'projects', name: 'Projects', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>' },
+  { id: 'tasks', name: 'Tasks', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>' },
+  { id: 'team', name: 'Team', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>' },
+  { id: 'chat', name: 'Chat', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>' }
+]
+
+const previewStats = [
+  { label: 'Projects', value: '12', caption: 'active', badge: '+12%', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>', bg: 'bg-[#EFF6FF]', glow: 'bg-[#DBEAFE]', badgeClass: 'bg-green-50 text-green-600' },
+  { label: 'Tasks Done', value: '84', caption: 'sprint', badge: '+8%', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>', bg: 'bg-[#ECFDF5]', glow: 'bg-[#BBF7D0]', badgeClass: 'bg-green-50 text-green-600' },
+  { label: 'Team Members', value: '16', caption: 'online', badge: '+4', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>', bg: 'bg-[#FFFBEB]', glow: 'bg-[#FDE68A]', badgeClass: 'bg-amber-50 text-amber-600' },
+  { label: 'Tracked Hours', value: '18h', caption: 'today', badge: 'Today', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>', bg: 'bg-[#F5F3FF]', glow: 'bg-[#DDD6FE]', badgeClass: 'bg-purple-50 text-purple-600' }
+]
+
+const previewBars = [
+  { day: 'Mon', value: '62', height: 62 },
+  { day: 'Tue', value: '74', height: 74 },
+  { day: 'Wed', value: '58', height: 58 },
+  { day: 'Thu', value: '86', height: 86 },
+  { day: 'Fri', value: '91', height: 91 },
+  { day: 'Sat', value: '68', height: 68 },
+  { day: 'Sun', value: '79', height: 79 }
+]
+
+const previewProjects = [
+  { name: 'TeamTrack Frontend', description: 'Dashboard redesign and responsive UI.', progress: 72, status: 'Active', statusClass: 'bg-green-100 text-green-600', members: ['S', 'A', 'M'] },
+  { name: 'Authentication Flow', description: 'Login, signup, and session handling.', progress: 54, status: 'In Review', statusClass: 'bg-blue-100 text-blue-600', members: ['S', 'A'] }
+]
+
+const memberColors = {
+  S: 'bg-[#2563EB]',
+  A: 'bg-[#059669]',
+  M: 'bg-[#D97706]',
+  Z: 'bg-[#7C3AED]',
+  O: 'bg-[#F87171]'
+}
+
+const previewColumns = [
+  { id: 'backlog', title: 'Backlog', dotClass: 'bg-[#64748B]', tasks: ['Design ER diagram', 'Setup auth module'] },
+  { id: 'in-progress', title: 'In Progress', dotClass: 'bg-[#2563EB]', tasks: ['Analytics dashboard', 'Chat interface'] },
+  { id: 'review', title: 'Review', dotClass: 'bg-[#F59E0B]', tasks: ['Auth & RBAC setup'] },
+  { id: 'done', title: 'Done', dotClass: 'bg-[#10B981]', tasks: ['Project setup', 'Kanban board'] }
+]
+
+const previewTeamMembers = [
+  { name: 'Siraj', initial: 'S', color: '#2563EB', role: 'Leader', roleBadge: 'bg-[#EBF0FF] text-[#2563EB]', email: 'siraj@uni.edu', tasksAssigned: 12, tasksCompleted: 8, contribution: 85 },
+  { name: 'Maria', initial: 'M', color: '#34D399', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', email: 'maria@uni.edu', tasksAssigned: 10, tasksCompleted: 7, contribution: 72 },
+  { name: 'Omar', initial: 'O', color: '#F87171', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', email: 'omar@uni.edu', tasksAssigned: 9, tasksCompleted: 5, contribution: 58 },
+  { name: 'Zernish', initial: 'Z', color: '#FBBF24', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', email: 'zernish@uni.edu', tasksAssigned: 8, tasksCompleted: 4, contribution: 45 }
+]
+
+const previewThreads = [
+  { id: 1, name: 'TeamTrack FE', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>', iconBg: 'bg-[#EBF0FF]', time: '10:24 AM', active: true },
+  { id: 2, name: 'Dashboard UI', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg>', iconBg: 'bg-[#F3E8FF]', time: '11:10 AM', active: false },
+  { id: 3, name: 'AI Assistant', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>', iconBg: 'bg-[#DCFCE7]', time: 'Yesterday', active: false },
+  { id: 4, name: 'Analytics', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', iconBg: 'bg-[#FEF3C7]', time: 'Monday', active: false }
+]
+
+const previewTimerRunning = ref(false)
+const previewTimerSeconds = ref(5047)
+
+let previewTimerInterval = null
+
+const previewTimer = computed(() => {
+  const hours = Math.floor(previewTimerSeconds.value / 3600)
+  const minutes = Math.floor((previewTimerSeconds.value % 3600) / 60)
+  const seconds = previewTimerSeconds.value % 60
+  return [hours, minutes, seconds].map(v => String(v).padStart(2, '0')).join(':')
+})
+
+const startPreviewTimer = () => {
+  if (previewTimerInterval) clearInterval(previewTimerInterval)
+  previewTimerInterval = setInterval(() => {
+    previewTimerSeconds.value += 1
+  }, 1000)
+}
+
+const stopPreviewTimer = () => {
+  if (previewTimerInterval) {
+    clearInterval(previewTimerInterval)
+    previewTimerInterval = null
+  }
+}
+
+watch(previewTimerRunning, (running) => {
+  if (running) {
+    startPreviewTimer()
+  } else {
+    stopPreviewTimer()
+  }
+})
+
+onUnmounted(() => {
+  stopPreviewTimer()
+})
 </script>
