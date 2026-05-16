@@ -33,9 +33,7 @@
             ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-500/20'
             : 'text-[#475569] hover:bg-[#F1F5F9] hover:text-[#0F172A]'"
         >
-          <span class="text-[18px] w-6 text-center">
-            {{ item.icon }}
-          </span>
+          <span class="w-6 h-6 flex items-center justify-center" v-html="item.icon"></span>
           {{ item.name }}
         </NuxtLink>
       </nav>
@@ -44,9 +42,7 @@
       <div class="px-4 pb-4">
         <div class="rounded-3xl bg-gradient-to-br from-[#EFF6FF] to-[#EEF2FF] border border-[#DBEAFE] p-5">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-sm text-[18px]">
-              📊
-            </div>
+            <div class="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
 
             <span class="text-[11px] font-black text-[#2563EB] bg-white px-3 py-1 rounded-full">
               LIVE
@@ -124,7 +120,7 @@
 
           <!-- Search -->
           <div class="hidden xl:flex items-center gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl px-4 py-3 w-[330px]">
-            <span class="text-[15px]">🔎</span>
+            <span class="w-4 h-4 text-[#94A3B8]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
 
             <input
               type="text"
@@ -140,7 +136,7 @@
               class="relative w-12 h-12 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] hover:border-[#BFDBFE] transition"
               aria-label="Notifications"
             >
-              <span class="text-[19px]">🔔</span>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
 
               <span
                 v-if="notifications.length > 0"
@@ -185,10 +181,10 @@
                 >
                   <div class="flex gap-3">
                     <div
-                      class="w-10 h-10 rounded-2xl flex items-center justify-center text-[18px]"
-                      :class="notification.bg"
-                    >
-                      {{ notification.icon }}
+                       class="w-10 h-10 rounded-2xl flex items-center justify-center"
+                       :class="notification.bg"
+                     >
+                       <span v-html="notification.icon"></span>
                     </div>
 
                     <div>
@@ -210,7 +206,7 @@
                 v-else
                 class="px-5 py-8 text-center"
               >
-                <div class="text-[28px] mb-2">🔕</div>
+                <div class="text-[28px] mb-2"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
                 <p class="text-[14px] font-black text-[#0F172A]">
                   No notifications
                 </p>
@@ -263,10 +259,10 @@
 
             <div class="relative flex items-center justify-between mb-6">
               <div
-                class="w-12 h-12 rounded-2xl flex items-center justify-center text-[22px]"
+                class="w-12 h-12 rounded-2xl flex items-center justify-center"
                 :class="stat.bg"
               >
-                {{ stat.icon }}
+                <span v-html="stat.icon"></span>
               </div>
 
               <span
@@ -313,9 +309,7 @@
                     </p>
                   </div>
 
-                  <div class="w-11 h-11 rounded-2xl bg-[#EFF6FF] flex items-center justify-center text-[20px]">
-                    ⏱️
-                  </div>
+                  <div class="w-11 h-11 rounded-2xl bg-[#EFF6FF] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg></div>
                 </div>
 
                 <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-5 mb-5">
@@ -508,10 +502,10 @@
                 >
                   <div class="flex items-center gap-4">
                     <div
-                      class="w-11 h-11 rounded-2xl flex items-center justify-center text-[18px]"
-                      :class="task.bg"
-                    >
-                      {{ task.icon }}
+                       class="w-11 h-11 rounded-2xl flex items-center justify-center"
+                       :class="task.bg"
+                     >
+                       <span v-html="task.icon"></span>
                     </div>
 
                     <div>
@@ -540,9 +534,7 @@
               <div class="absolute -right-14 -top-14 w-40 h-40 rounded-full bg-white/10 blur-xl"></div>
 
               <div class="relative flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center text-[22px]">
-                  🤖
-                </div>
+                <div class="w-12 h-12 rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
 
                 <div>
                   <h3 class="font-black text-[19px]">
@@ -744,31 +736,31 @@ const navigation = [
   {
     name: 'Dashboard',
     to: '/dashboard',
-    icon: '📊',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
     active: true
   },
   {
     name: 'Projects',
     to: '/projects',
-    icon: '📁',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>',
     active: false
   },
   {
     name: 'Tasks',
     to: '/tasks',
-    icon: '✅',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     active: false
   },
   {
     name: 'Team',
     to: '/team',
-    icon: '👥',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
     active: false
   },
   {
     name: 'Team Chat',
     to: '/chat',
-    icon: '💬',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>',
     active: false
   }
 ]
@@ -779,7 +771,7 @@ const stats = [
     value: '12',
     caption: 'active',
     badge: '+12%',
-    icon: '📁',
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>',
     bg: 'bg-[#EFF6FF]',
     glow: 'bg-[#DBEAFE]',
     badgeClass: 'bg-green-50 text-green-600'
@@ -789,7 +781,7 @@ const stats = [
     value: '84',
     caption: 'this sprint',
     badge: '+8%',
-    icon: '✅',
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     bg: 'bg-[#ECFDF5]',
     glow: 'bg-[#BBF7D0]',
     badgeClass: 'bg-green-50 text-green-600'
@@ -799,7 +791,7 @@ const stats = [
     value: '16',
     caption: 'online team',
     badge: '+4',
-    icon: '👥',
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
     bg: 'bg-[#FFFBEB]',
     glow: 'bg-[#FDE68A]',
     badgeClass: 'bg-amber-50 text-amber-600'
@@ -809,7 +801,7 @@ const stats = [
     value: '18h',
     caption: 'today',
     badge: 'Today',
-    icon: '⏰',
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
     bg: 'bg-[#F5F3FF]',
     glow: 'bg-[#DDD6FE]',
     badgeClass: 'bg-purple-50 text-purple-600'
@@ -821,7 +813,7 @@ const showNotifications = ref(false)
 const notifications = ref([
   {
     id: 1,
-    icon: '✅',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     title: 'Task completed',
     message: 'Alex completed the Login Page task.',
     time: '2 minutes ago',
@@ -829,7 +821,7 @@ const notifications = ref([
   },
   {
     id: 2,
-    icon: '⏰',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
     title: 'Time log added',
     message: 'Siraj logged 2h 10m on Dashboard UI.',
     time: '15 minutes ago',
@@ -837,7 +829,7 @@ const notifications = ref([
   },
   {
     id: 3,
-    icon: '📁',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>',
     title: 'Project updated',
     message: 'TeamTrack Frontend progress moved to 72%.',
     time: '1 hour ago',
@@ -891,21 +883,21 @@ const recentTasks = [
     title: 'Login Page Completed',
     meta: 'Completed by Alex',
     time: '2h ago',
-    icon: '✅',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     bg: 'bg-green-100'
   },
   {
     title: 'Dashboard UI in Progress',
     meta: 'Assigned to Siraj',
     time: 'Now',
-    icon: '⏳',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
     bg: 'bg-yellow-100'
   },
   {
     title: 'Project Board Updated',
     meta: 'Updated by Maria',
     time: '4h ago',
-    icon: '📁',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>',
     bg: 'bg-[#EFF6FF]'
   }
 ]

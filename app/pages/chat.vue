@@ -25,7 +25,7 @@
           to="/dashboard"
           class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition"
         >
-          <span>📊</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
           Dashboard
         </NuxtLink>
 
@@ -33,7 +33,7 @@
           to="/projects"
           class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition"
         >
-          <span>📁</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></span>
           Projects
         </NuxtLink>
 
@@ -41,7 +41,7 @@
           to="/tasks"
           class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition"
         >
-          <span>✅</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
           Tasks
         </NuxtLink>
 
@@ -49,7 +49,7 @@
           to="/team"
           class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition"
         >
-          <span>👥</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>
           Team
         </NuxtLink>
 
@@ -57,7 +57,7 @@
           to="/chat"
           class="flex items-center gap-3 bg-[#2563EB] text-white px-4 py-3 rounded-xl font-semibold"
         >
-          <span>💬</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
           Team Chat
         </NuxtLink>
       </nav>
@@ -94,7 +94,7 @@
 
         <div>
           <h2 class="text-[28px] font-bold text-[#0F172A]">
-            Team Chat 💬
+            Team Chat
           </h2>
 
           <p class="text-[14px] text-[#94A3B8] mt-1">
@@ -104,7 +104,7 @@
 
         <div class="flex items-center gap-4">
           <button class="relative w-11 h-11 rounded-xl bg-[#F8FAFC] flex items-center justify-center hover:bg-[#EFF6FF] transition">
-            <span class="text-[18px]">🔔</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
             <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
           </button>
 
@@ -129,7 +129,7 @@
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center">
-                💬
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
               </div>
               <span class="text-[12px] font-semibold text-[#2563EB]">Today</span>
             </div>
@@ -141,7 +141,7 @@
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center">
-                👥
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
               <span class="text-[12px] font-semibold text-green-500">Online</span>
             </div>
@@ -153,7 +153,7 @@
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 rounded-2xl bg-[#FEF3C7] flex items-center justify-center">
-                📌
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
               </div>
               <span class="text-[12px] font-semibold text-[#F59E0B]">Pinned</span>
             </div>
@@ -195,7 +195,7 @@
                       class="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
                       :class="thread.iconBg"
                     >
-                      {{ thread.icon }}
+                      <span v-html="thread.icon"></span>
                     </div>
 
                     <div>
@@ -243,7 +243,7 @@
                   class="w-12 h-12 rounded-2xl flex items-center justify-center"
                   :class="activeThread.iconBg"
                 >
-                  {{ activeThread.icon }}
+                  <span v-html="activeThread.icon"></span>
                 </div>
 
                 <div>
@@ -390,7 +390,7 @@
             <div class="bg-white rounded-3xl border border-[#E2E8F0]/70 p-6 shadow-sm">
               <div class="flex items-center gap-3 mb-5">
                 <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center">
-                  ✅
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                 </div>
 
                 <div>
@@ -462,7 +462,7 @@
                   </p>
                 </div>
 
-                <span class="text-[18px]">📌</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
               </div>
 
               <div class="bg-[#FEF3C7]/70 border border-[#FDE68A] rounded-2xl p-4">
@@ -496,7 +496,7 @@
 
                 <div class="flex gap-3">
                   <div class="w-9 h-9 rounded-xl bg-[#EBF0FF] flex items-center justify-center">
-                    💬
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                   </div>
 
                   <div>
@@ -511,7 +511,7 @@
 
                 <div class="flex gap-3">
                   <div class="w-9 h-9 rounded-xl bg-[#F3E8FF] flex items-center justify-center">
-                    🤖
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                   </div>
 
                   <div>
@@ -554,7 +554,7 @@ const threads = ref([
     name: 'TeamTrack Frontend',
     description: 'Main discussion for homepage, login, dashboard, and project workspace UI.',
     preview: 'Dashboard timer and project page are looking clean.',
-    icon: '📁',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>',
     iconBg: 'bg-[#EBF0FF]',
     type: 'Project',
     badgeClass: 'bg-[#EFF6FF] text-[#2563EB]',
@@ -571,7 +571,7 @@ const threads = ref([
     name: 'Dashboard UI',
     description: 'Task-linked discussion for dashboard widgets, timer, and recent timings.',
     preview: 'Timer section should stay because it supports effort tracking.',
-    icon: '⏱️',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg>',
     iconBg: 'bg-[#F3E8FF]',
     type: 'Task',
     badgeClass: 'bg-purple-100 text-purple-600',
@@ -588,7 +588,7 @@ const threads = ref([
     name: 'AI Assistant',
     description: 'Discussion about project-aware prompts and AI response preview.',
     preview: 'AI should provide suggestions, not automatic decisions.',
-    icon: '🤖',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
     iconBg: 'bg-[#DCFCE7]',
     type: 'AI',
     badgeClass: 'bg-green-100 text-green-600',
@@ -605,7 +605,7 @@ const threads = ref([
     name: 'Contribution Analytics',
     description: 'Discussion around tracked hours, workload balance, and contribution visibility.',
     preview: 'Contribution should be transparent but not judgmental.',
-    icon: '📊',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
     iconBg: 'bg-[#FEF3C7]',
     type: 'Analytics',
     badgeClass: 'bg-yellow-100 text-yellow-600',

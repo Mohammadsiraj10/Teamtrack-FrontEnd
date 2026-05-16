@@ -24,9 +24,7 @@
 
           <div class="grid grid-cols-2 gap-4">
             <div class="bg-white border border-[#E2E8F0]/70 rounded-3xl p-5 shadow-sm">
-              <div class="w-11 h-11 rounded-2xl bg-[#EBF0FF] flex items-center justify-center mb-4">
-                📁
-              </div>
+              <div class="w-11 h-11 rounded-2xl bg-[#EBF0FF] flex items-center justify-center mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
               <h3 class="text-[15px] font-bold text-[#0F172A] mb-1">Projects</h3>
               <p class="text-[13px] text-[#94A3B8] leading-[1.6]">
                 Create and manage academic workspaces.
@@ -34,9 +32,7 @@
             </div>
 
             <div class="bg-white border border-[#E2E8F0]/70 rounded-3xl p-5 shadow-sm">
-              <div class="w-11 h-11 rounded-2xl bg-[#DCFCE7] flex items-center justify-center mb-4">
-                ✅
-              </div>
+              <div class="w-11 h-11 rounded-2xl bg-[#DCFCE7] flex items-center justify-center mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
               <h3 class="text-[15px] font-bold text-[#0F172A] mb-1">Tasks</h3>
               <p class="text-[13px] text-[#94A3B8] leading-[1.6]">
                 Assign, update, and track team work.
@@ -44,9 +40,7 @@
             </div>
 
             <div class="bg-white border border-[#E2E8F0]/70 rounded-3xl p-5 shadow-sm">
-              <div class="w-11 h-11 rounded-2xl bg-[#F3E8FF] flex items-center justify-center mb-4">
-                ⏰
-              </div>
+              <div class="w-11 h-11 rounded-2xl bg-[#F3E8FF] flex items-center justify-center mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
               <h3 class="text-[15px] font-bold text-[#0F172A] mb-1">Time Logs</h3>
               <p class="text-[13px] text-[#94A3B8] leading-[1.6]">
                 Record effort using timers and logs.
@@ -54,9 +48,7 @@
             </div>
 
             <div class="bg-white border border-[#E2E8F0]/70 rounded-3xl p-5 shadow-sm">
-              <div class="w-11 h-11 rounded-2xl bg-[#FEF3C7] flex items-center justify-center mb-4">
-                🤖
-              </div>
+              <div class="w-11 h-11 rounded-2xl bg-[#FEF3C7] flex items-center justify-center mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
               <h3 class="text-[15px] font-bold text-[#0F172A] mb-1">AI Insights</h3>
               <p class="text-[13px] text-[#94A3B8] leading-[1.6]">
                 View supportive project suggestions.

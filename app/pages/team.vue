@@ -16,19 +16,19 @@
 
       <nav class="flex-1 px-4 py-6 space-y-2">
         <NuxtLink to="/dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>📊</span> Dashboard
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span> Dashboard
         </NuxtLink>
         <NuxtLink to="/projects" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>📁</span> Projects
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></span> Projects
         </NuxtLink>
         <NuxtLink to="/tasks" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>✅</span> Tasks
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span> Tasks
         </NuxtLink>
         <NuxtLink to="/team" class="flex items-center gap-3 bg-[#2563EB] text-white px-4 py-3 rounded-xl font-semibold">
-          <span>👥</span> Team
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span> Team
         </NuxtLink>
         <NuxtLink to="/chat" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>💬</span> Team Chat
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span> Team Chat
         </NuxtLink>
       </nav>
 
@@ -57,7 +57,7 @@
         </div>
         <div class="flex items-center gap-3">
           <button @click="showJoinCode = true" class="bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#2563EB] text-[14px] font-semibold px-5 py-3 rounded-xl transition">
-            🔗 Join Code
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Join Code
           </button>
           <button @click="showInviteMember = true" class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[14px] font-semibold px-5 py-3 rounded-xl transition shadow-sm hover:shadow-lg">
             + Invite Member
@@ -71,7 +71,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center text-xl">👥</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
               <span class="text-[12px] text-[#10B981] font-semibold">Active</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Total Members</p>
@@ -80,7 +80,7 @@
 
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center text-xl">👑</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
               <span class="text-[12px] text-[#2563EB] font-semibold">Leaders</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Leaders</p>
@@ -89,7 +89,7 @@
 
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#FEF3C7] flex items-center justify-center text-xl">⏳</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#FEF3C7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
               <span class="text-[12px] text-[#F59E0B] font-semibold">Pending</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Pending Invites</p>
@@ -98,7 +98,7 @@
 
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-xl">📋</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#F3E8FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
               <span class="text-[12px] text-[#9333EA] font-semibold">Log</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Role Changes</p>
@@ -338,7 +338,7 @@
           </div>
           <p class="text-[13px] text-[#94A3B8] mb-4">Share this code with teammates so they can join the project.</p>
           <button @click="copyJoinCode" class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[14px] font-semibold px-6 py-3 rounded-xl transition">
-            {{ joinCodeCopied ? 'Copied!' : '📋 Copy Code' }}
+            <template v-if="joinCodeCopied">Copied!</template><template v-else><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Code</template>
           </button>
         </div>
 

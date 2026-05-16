@@ -16,19 +16,19 @@
 
       <nav class="flex-1 px-4 py-6 space-y-2">
         <NuxtLink to="/dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>📊</span> Dashboard
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span> Dashboard
         </NuxtLink>
         <NuxtLink to="/projects" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>📁</span> Projects
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></span> Projects
         </NuxtLink>
         <NuxtLink to="/tasks" class="flex items-center gap-3 bg-[#2563EB] text-white px-4 py-3 rounded-xl font-semibold">
-          <span>✅</span> Tasks
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span> Tasks
         </NuxtLink>
         <NuxtLink to="/team" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>👥</span> Team
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span> Team
         </NuxtLink>
         <NuxtLink to="/chat" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#475569] hover:bg-[#F1F5F9] transition">
-          <span>💬</span> Team Chat
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span> Team Chat
         </NuxtLink>
       </nav>
 
@@ -106,7 +106,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center text-xl">📋</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
               <span class="text-[12px] text-[#64748B] font-semibold">Total</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Total Tasks</p>
@@ -114,7 +114,7 @@
           </div>
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center text-xl">✅</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
               <span class="text-[12px] text-[#10B981] font-semibold">Done</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Completed</p>
@@ -122,7 +122,7 @@
           </div>
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#FEF3C7] flex items-center justify-center text-xl">🚧</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#FEF3C7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
               <span class="text-[12px] text-[#F59E0B] font-semibold">Blocked</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Blocked Tasks</p>
@@ -130,7 +130,7 @@
           </div>
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-xl">⏰</div>
+              <div class="w-12 h-12 rounded-2xl bg-[#F3E8FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
               <span class="text-[12px] text-[#F87171] font-semibold">Warn</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Deadline Warnings</p>

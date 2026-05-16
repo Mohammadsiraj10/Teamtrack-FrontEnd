@@ -29,9 +29,7 @@
             ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-500/20'
             : 'text-[#475569] hover:bg-[#F1F5F9] hover:text-[#0F172A]'"
         >
-          <span class="text-[18px] w-6 text-center">
-            {{ item.icon }}
-          </span>
+          <span class="w-6 h-6 flex items-center justify-center" v-html="item.icon"></span>
           {{ item.name }}
         </NuxtLink>
       </nav>
@@ -39,9 +37,7 @@
       <div class="px-4 pb-4">
         <div class="rounded-3xl bg-gradient-to-br from-[#EFF6FF] to-[#EEF2FF] border border-[#DBEAFE] p-5">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-sm text-[18px]">
-              📁
-            </div>
+            <div class="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
 
             <span class="text-[11px] font-black text-[#2563EB] bg-white px-3 py-1 rounded-full">
               LIVE
@@ -157,10 +153,10 @@
 
             <div class="relative flex items-center justify-between mb-6">
               <div
-                class="w-12 h-12 rounded-2xl flex items-center justify-center text-[22px]"
+                class="w-12 h-12 rounded-2xl flex items-center justify-center"
                 :class="stat.bg"
               >
-                {{ stat.icon }}
+                <span v-html="stat.icon"></span>
               </div>
 
               <span
@@ -202,7 +198,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-3">
                   <div class="flex items-center gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl px-4 py-3 min-w-[280px]">
-                    <span class="text-[15px]">🔎</span>
+                    <span class="text-[15px]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
 
                     <input
                       v-model="search"
@@ -229,9 +225,7 @@
               <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div>
                   <div class="flex items-center gap-3 mb-2">
-                    <div class="w-11 h-11 rounded-2xl bg-[#EFF6FF] flex items-center justify-center text-[20px]">
-                      📤
-                    </div>
+                    <div class="w-11 h-11 rounded-2xl bg-[#EFF6FF] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
 
                     <div>
                       <h3 class="text-[20px] font-black text-[#0F172A]">
@@ -262,9 +256,7 @@
               </div>
 
               <div class="mt-6 border-2 border-dashed border-[#BFDBFE] bg-[#F8FAFC] rounded-[28px] p-7 text-center">
-                <div class="w-14 h-14 mx-auto rounded-3xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[26px] shadow-sm mb-4">
-                  🗂️
-                </div>
+                <div class="w-14 h-14 mx-auto rounded-3xl bg-white border border-[#E2E8F0] flex items-center justify-center shadow-sm mb-4"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
 
                 <h4 class="text-[17px] font-black text-[#0F172A]">
                   Add project files or folders
@@ -322,10 +314,11 @@
                   >
                     <div class="flex items-center gap-4 min-w-0">
                       <div
-                        class="w-11 h-11 rounded-2xl flex items-center justify-center text-[19px]"
+                        class="w-11 h-11 rounded-2xl flex items-center justify-center"
                         :class="item.type === 'Folder' ? 'bg-[#FEF3C7]' : 'bg-[#EFF6FF]'"
                       >
-                        {{ item.type === 'Folder' ? '🗂️' : '📄' }}
+                        <svg v-if="item.type === 'Folder'" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                        <svg v-else width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                       </div>
 
                       <div class="min-w-0">
@@ -356,10 +349,10 @@
                   <div>
                     <div class="flex items-center gap-3 mb-2">
                       <div
-                        class="w-11 h-11 rounded-2xl flex items-center justify-center text-[20px]"
+                        class="w-11 h-11 rounded-2xl flex items-center justify-center"
                         :class="project.iconBg"
                       >
-                        {{ project.icon }}
+                        <span v-html="project.icon"></span>
                       </div>
 
                       <div>
@@ -389,9 +382,7 @@
                   v-if="project.inactiveMembers > 0"
                   class="mb-5 bg-red-50 border border-red-100 rounded-3xl p-4 flex items-start gap-3"
                 >
-                  <div class="w-9 h-9 rounded-2xl bg-white flex items-center justify-center text-[18px]">
-                    ⚠️
-                  </div>
+                  <div class="w-9 h-9 rounded-2xl bg-white flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
 
                   <div>
                     <h4 class="text-[13px] font-black text-red-600">
@@ -478,7 +469,7 @@
               v-if="filteredProjects.length === 0"
               class="bg-white border border-[#E2E8F0] rounded-[30px] p-10 text-center"
             >
-              <div class="text-[34px] mb-3">🔎</div>
+              <div class="text-[34px] mb-3"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
               <h3 class="text-[20px] font-black text-[#0F172A] mb-2">
                 No projects found
               </h3>
@@ -494,9 +485,7 @@
               <div class="absolute -right-14 -top-14 w-40 h-40 rounded-full bg-white/10 blur-xl"></div>
 
               <div class="relative flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center text-[22px]">
-                  🤖
-                </div>
+                <div class="w-12 h-12 rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
 
                 <div>
                   <h3 class="font-black text-[19px]">
@@ -599,10 +588,10 @@
                 <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-5">
                   <div class="flex items-center gap-3 mb-3">
                     <div
-                      class="w-11 h-11 rounded-2xl flex items-center justify-center text-[20px]"
+                      class="w-11 h-11 rounded-2xl flex items-center justify-center"
                       :class="selectedProject.iconBg"
                     >
-                      {{ selectedProject.icon }}
+                      <span v-html="selectedProject.icon"></span>
                     </div>
 
                     <div>
@@ -671,10 +660,10 @@
                   class="flex gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-4"
                 >
                   <div
-                    class="w-10 h-10 rounded-2xl flex items-center justify-center text-[18px]"
+                    class="w-10 h-10 rounded-2xl flex items-center justify-center"
                     :class="activity.bg"
                   >
-                    {{ activity.icon }}
+                    <span v-html="activity.icon"></span>
                   </div>
 
                   <div>
@@ -825,11 +814,11 @@ const newProject = ref({
 })
 
 const navigation = [
-  { name: 'Dashboard', to: '/dashboard', icon: '📊', active: false },
-  { name: 'Projects', to: '/projects', icon: '📁', active: true },
-  { name: 'Tasks', to: '/tasks', icon: '✅', active: false },
-  { name: 'Team', to: '/team', icon: '👥', active: false },
-  { name: 'Team Chat', to: '/chat', icon: '💬', active: false }
+  { name: 'Dashboard', to: '/dashboard', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', active: false },
+  { name: 'Projects', to: '/projects', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>', active: true },
+  { name: 'Tasks', to: '/tasks', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>', active: false },
+  { name: 'Team', to: '/team', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>', active: false },
+  { name: 'Team Chat', to: '/chat', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>', active: false }
 ]
 
 const projects = ref([
@@ -844,7 +833,7 @@ const projects = ref([
     completedTasks: 8,
     totalTasks: 12,
     timeLogged: '18h 30m',
-    icon: '🧭',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
     iconBg: 'bg-[#EFF6FF]',
     metrics: [
       { label: 'Deadline', value: '29 Mar 2026' },
@@ -865,7 +854,7 @@ const projects = ref([
     completedTasks: 5,
     totalTasks: 8,
     timeLogged: '9h 45m',
-    icon: '🤖',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
     iconBg: 'bg-[#F5F3FF]',
     metrics: [
       { label: 'Deadline', value: '24 Mar 2026' },
@@ -886,7 +875,7 @@ const projects = ref([
     completedTasks: 6,
     totalTasks: 10,
     timeLogged: '11h 10m',
-    icon: '🧩',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
     iconBg: 'bg-[#ECFDF5]',
     metrics: [
       { label: 'Deadline', value: '27 Mar 2026' },
@@ -907,7 +896,7 @@ const projects = ref([
     completedTasks: 3,
     totalTasks: 9,
     timeLogged: '6h 20m',
-    icon: '📈',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
     iconBg: 'bg-[#FEF2F2]',
     metrics: [
       { label: 'Deadline', value: '25 Mar 2026' },
@@ -966,7 +955,7 @@ const stats = computed(() => [
     value: String(projects.value.length),
     caption: 'workspaces',
     badge: 'Active',
-    icon: '📁',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>',
     bg: 'bg-[#EFF6FF]',
     glow: 'bg-[#DBEAFE]',
     badgeClass: 'bg-green-50 text-green-600'
@@ -976,7 +965,7 @@ const stats = computed(() => [
     value: String(totalCompletedTasks.value),
     caption: `/ ${totalTaskCount.value} tasks`,
     badge: 'Tracked',
-    icon: '✅',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     bg: 'bg-[#ECFDF5]',
     glow: 'bg-[#BBF7D0]',
     badgeClass: 'bg-green-50 text-green-600'
@@ -986,7 +975,7 @@ const stats = computed(() => [
     value: totalTimeLogged.value,
     caption: 'total',
     badge: 'Logged',
-    icon: '⏰',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
     bg: 'bg-[#FFFBEB]',
     glow: 'bg-[#FDE68A]',
     badgeClass: 'bg-amber-50 text-amber-600'
@@ -996,7 +985,7 @@ const stats = computed(() => [
     value: '12',
     caption: 'assigned',
     badge: totalInactiveMembers.value > 0 ? `${totalInactiveMembers.value} alerts` : 'Live',
-    icon: '👥',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
     bg: 'bg-[#F5F3FF]',
     glow: 'bg-[#DDD6FE]',
     badgeClass: totalInactiveMembers.value > 0 ? 'bg-red-50 text-red-600' : 'bg-purple-50 text-purple-600'
@@ -1005,28 +994,28 @@ const stats = computed(() => [
 
 const activities = [
   {
-    icon: '📤',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>',
     title: 'Upload area added',
     message: 'Project page supports file and folder selection for handover evidence.',
     time: 'Just now',
     bg: 'bg-[#EFF6FF]'
   },
   {
-    icon: '⏰',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
     title: 'Time log updated',
     message: 'Total project time has been calculated across active workspaces.',
     time: '8 minutes ago',
     bg: 'bg-[#FEF3C7]'
   },
   {
-    icon: '✅',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     title: 'Completed tasks tracked',
     message: 'Task completion summary is now visible in the project overview.',
     time: '12 minutes ago',
     bg: 'bg-[#ECFDF5]'
   },
   {
-    icon: '⚠️',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
     title: 'Inactive member warning',
     message: 'Email alerts should be handled by backend and displayed in Team.',
     time: '18 minutes ago',
@@ -1126,7 +1115,7 @@ const createProject = () => {
     completedTasks: 0,
     totalTasks: 0,
     timeLogged: '0h 0m',
-    icon: '📌',
+    icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
     iconBg: 'bg-[#EFF6FF]',
     metrics: [
       { label: 'Deadline', value: newProject.value.deadline || 'Not set' },
