@@ -69,17 +69,17 @@
           <div class="flex items-center gap-3">
             <div class="relative">
               <div class="w-11 h-11 rounded-2xl bg-[#2563EB] flex items-center justify-center text-white font-black">
-                S
+                {{ currentUser.initial }}
               </div>
               <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></span>
             </div>
 
             <div>
               <h3 class="font-bold text-[14px] text-[#0F172A]">
-                Siraj
+                {{ currentUser.name }}
               </h3>
               <p class="text-[12px] text-[#94A3B8]">
-                Team Leader
+                {{ currentUser.role }}
               </p>
             </div>
           </div>
@@ -95,52 +95,33 @@
     </aside>
 
     <!-- ===== MAIN ===== -->
-    <main class="flex-1 overflow-y-auto">
+    <main class="flex-1 overflow-y-auto pb-20 lg:pb-0">
 
       <!-- Topbar -->
-      <header class="bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-8 py-5 flex items-center justify-between sticky top-0 z-40">
+      <header class="relative z-50 bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-4 md:px-8 py-4 md:py-5">
 
-        <div>
-          <div class="flex items-center gap-3 mb-1">
-            <h2 class="text-[30px] font-black tracking-tight text-[#0F172A]">
+        <div class="flex items-center justify-between mb-2 md:mb-0">
+          <div class="flex items-center gap-2 md:gap-3">
+            <h2 class="text-[22px] md:text-[30px] font-black tracking-tight text-[#0F172A]">
               Dashboard
             </h2>
 
-            <span class="bg-[#ECFDF5] text-[#059669] border border-[#BBF7D0] text-[12px] font-black px-3 py-1 rounded-full">
+            <span class="bg-[#ECFDF5] text-[#059669] border border-[#BBF7D0] text-[10px] md:text-[12px] font-black px-2 md:px-3 py-1 rounded-full">
               Active Sprint
             </span>
           </div>
 
-          <p class="text-[14px] text-[#64748B]">
-            Welcome back, Siraj. Here is your team performance overview.
-          </p>
-        </div>
-
-        <div class="flex items-center gap-4">
-
-          <!-- Search -->
-          <div class="hidden xl:flex items-center gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl px-4 py-3 w-[330px]">
-            <span class="w-4 h-4 text-[#94A3B8]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
-
-            <input
-              type="text"
-              placeholder="Search projects, tasks, members..."
-              class="w-full bg-transparent text-[14px] text-[#0F172A] placeholder:text-[#94A3B8] outline-none"
-            />
-          </div>
-
-          <!-- Notification -->
-          <div class="relative">
+          <div class="relative flex items-center gap-2 md:gap-4">
             <button
               @click="showNotifications = !showNotifications"
-              class="relative w-12 h-12 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] hover:border-[#BFDBFE] transition"
+              class="relative w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] hover:border-[#BFDBFE] transition"
               aria-label="Notifications"
             >
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
 
               <span
                 v-if="notifications.length > 0"
-                class="absolute -top-2 -right-2 min-w-[23px] h-[23px] bg-red-500 text-white text-[11px] font-black rounded-full flex items-center justify-center border-2 border-white shadow-lg shadow-red-500/30"
+                class="absolute -top-2 -right-2 min-w-[20px] h-[20px] md:min-w-[23px] md:h-[23px] bg-red-500 text-white text-[10px] md:text-[11px] font-black rounded-full flex items-center justify-center border-2 border-white shadow-lg shadow-red-500/30"
               >
                 {{ notifications.length }}
               </span>
@@ -149,14 +130,14 @@
             <!-- Notification Dropdown -->
             <div
               v-if="showNotifications"
-              class="absolute right-0 mt-3 w-[360px] bg-white border border-[#E2E8F0] rounded-3xl shadow-2xl shadow-slate-900/10 z-50 overflow-hidden"
+              class="notif-dropdown absolute right-0 top-full mt-2 w-[calc(100vw-2rem)] md:w-[360px] max-w-[360px] bg-white border border-[#E2E8F0] rounded-3xl shadow-2xl shadow-slate-900/10 z-50 overflow-hidden"
             >
-              <div class="px-5 py-4 border-b border-[#E2E8F0] flex items-center justify-between">
+              <div class="px-4 md:px-5 py-4 border-b border-[#E2E8F0] flex items-center justify-between">
                 <div>
-                  <h3 class="font-black text-[#0F172A] text-[17px]">
+                  <h3 class="font-black text-[#0F172A] text-[15px] md:text-[17px]">
                     Notifications
                   </h3>
-                  <p class="text-[12px] text-[#94A3B8]">
+                  <p class="text-[11px] md:text-[12px] text-[#94A3B8]">
                     {{ notifications.length }} new workspace updates
                   </p>
                 </div>
@@ -164,7 +145,7 @@
                 <button
                   v-if="notifications.length > 0"
                   @click="clearNotifications"
-                  class="text-[12px] font-bold text-[#2563EB] hover:underline"
+                  class="text-[11px] md:text-[12px] font-bold text-[#2563EB] hover:underline"
                 >
                   Clear
                 </button>
@@ -177,24 +158,24 @@
                 <div
                   v-for="notification in notifications"
                   :key="notification.id"
-                  class="px-5 py-4 border-b border-[#F1F5F9] hover:bg-[#F8FAFC] transition"
+                  class="px-4 md:px-5 py-3 md:py-4 border-b border-[#F1F5F9] hover:bg-[#F8FAFC] transition"
                 >
                   <div class="flex gap-3">
                     <div
-                       class="w-10 h-10 rounded-2xl flex items-center justify-center"
+                       class="w-9 h-9 md:w-10 md:h-10 rounded-2xl flex items-center justify-center shrink-0"
                        :class="notification.bg"
                      >
                        <span v-html="notification.icon"></span>
                     </div>
 
                     <div>
-                      <h4 class="text-[14px] font-black text-[#0F172A]">
+                      <h4 class="text-[13px] md:text-[14px] font-black text-[#0F172A]">
                         {{ notification.title }}
                       </h4>
-                      <p class="text-[12px] text-[#64748B] mt-1 leading-[1.6]">
+                      <p class="text-[11px] md:text-[12px] text-[#64748B] mt-1 leading-[1.6]">
                         {{ notification.message }}
                       </p>
-                      <p class="text-[11px] text-[#94A3B8] mt-2">
+                      <p class="text-[10px] md:text-[11px] text-[#94A3B8] mt-2">
                         {{ notification.time }}
                       </p>
                     </div>
@@ -206,7 +187,6 @@
                 v-else
                 class="px-5 py-8 text-center"
               >
-                <div class="text-[28px] mb-2"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
                 <p class="text-[14px] font-black text-[#0F172A]">
                   No notifications
                 </p>
@@ -217,71 +197,108 @@
 
               <NuxtLink
                 to="/tasks"
-                class="block w-full py-3 text-center text-[13px] font-black text-[#2563EB] hover:bg-[#EFF6FF] transition"
+                class="block w-full py-3 text-center text-[12px] md:text-[13px] font-black text-[#2563EB] hover:bg-[#EFF6FF] transition"
               >
                 View all updates
               </NuxtLink>
             </div>
-          </div>
 
-          <!-- User -->
-          <div class="flex items-center gap-3">
-            <div class="text-right hidden sm:block">
-              <p class="text-[14px] font-black text-[#0F172A]">
-                Siraj
-              </p>
-              <p class="text-[12px] text-[#94A3B8]">
-                Admin
-              </p>
-            </div>
+            <div class="relative">
+              <button
+                @click="showProfile = !showProfile"
+                class="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-black shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition"
+                aria-label="Profile"
+              >
+                {{ currentUser.initial }}
+              </button>
 
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-black shadow-lg shadow-blue-500/20">
-              S
+              <!-- Profile Dropdown -->
+              <div
+              v-if="showProfile"
+              class="profile-dropdown absolute right-0 top-full mt-2 w-[calc(100vw-2rem)] md:w-[280px] max-w-[280px] bg-white border border-[#E2E8F0] rounded-3xl shadow-2xl shadow-slate-900/10 z-50 overflow-hidden"
+              >
+                <div class="px-4 md:px-5 py-4 border-b border-[#F1F5F9]">
+                  <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-black text-[14px] shadow-lg shadow-blue-500/20">
+                      {{ currentUser.initial }}
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-black text-[#0F172A] text-[14px] truncate">{{ currentUser.name }}</h3>
+                      <p class="text-[11px] text-[#94A3B8] truncate">{{ currentUser.email }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="px-4 md:px-5 py-3 border-b border-[#F1F5F9]">
+                  <div class="flex items-center gap-2">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold" :class="currentUser.role === 'Leader' ? 'bg-[#EBF0FF] text-[#2563EB]' : currentUser.role === 'Admin' ? 'bg-purple-50 text-purple-600' : currentUser.role === 'Instructor' ? 'bg-amber-50 text-amber-600' : 'bg-green-50 text-green-600'">
+                      {{ currentUser.role }}
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  @click="handleLogout"
+                  class="w-full px-4 md:px-5 py-3 flex items-center gap-3 hover:bg-red-50 transition text-left"
+                >
+                  <div class="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                  </div>
+                  <div>
+                    <p class="text-[13px] font-bold text-red-600">Log out</p>
+                    <p class="text-[10px] text-[#94A3B8]">Sign out of your account</p>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        <p class="text-[13px] md:text-[14px] text-[#64748B]">
+          Welcome back, {{ currentUser.name }}. Here is your team performance overview.
+        </p>
       </header>
 
       <!-- BODY -->
-      <div class="p-8">
+      <div class="p-4 md:p-8">
 
         <!-- ===== STATS ===== -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
           <div
             v-for="stat in stats"
             :key="stat.label"
-            class="relative overflow-hidden bg-white rounded-[28px] p-6 border border-[#E2E8F0] shadow-sm hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300"
+            class="relative overflow-hidden bg-white rounded-2xl md:rounded-[28px] p-4 md:p-6 border border-[#E2E8F0] shadow-sm hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300"
           >
             <div
               class="absolute -right-8 -top-8 w-28 h-28 rounded-full opacity-70"
               :class="stat.glow"
             ></div>
 
-            <div class="relative flex items-center justify-between mb-6">
+            <div class="relative flex items-center justify-between mb-4 md:mb-6">
               <div
-                class="w-12 h-12 rounded-2xl flex items-center justify-center"
+                class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center"
                 :class="stat.bg"
               >
                 <span v-html="stat.icon"></span>
               </div>
 
               <span
-                class="text-[12px] font-black px-2.5 py-1 rounded-full"
+                class="text-[10px] md:text-[12px] font-black px-2 md:px-2.5 py-1 rounded-full"
                 :class="stat.badgeClass"
               >
                 {{ stat.badge }}
               </span>
             </div>
 
-            <p class="relative text-[14px] text-[#64748B] font-semibold mb-1">
+            <p class="relative text-[12px] md:text-[14px] text-[#64748B] font-semibold mb-1">
               {{ stat.label }}
             </p>
 
             <div class="relative flex items-end gap-2">
-              <h3 class="text-[34px] font-black tracking-tight text-[#0F172A]">
+              <h3 class="text-[24px] md:text-[34px] font-black tracking-tight text-[#0F172A]">
                 {{ stat.value }}
               </h3>
-              <p class="text-[12px] text-[#94A3B8] font-semibold mb-2">
+              <p class="text-[10px] md:text-[12px] text-[#94A3B8] font-semibold mb-2">
                 {{ stat.caption }}
               </p>
             </div>
@@ -289,86 +306,88 @@
         </div>
 
         <!-- ===== MAIN GRID ===== -->
-        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-8">
 
           <!-- LEFT -->
           <div class="xl:col-span-2 space-y-8">
 
             <!-- Timer + Performance -->
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 md:gap-6">
 
               <!-- Timer -->
-              <div class="lg:col-span-2 bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-                <div class="flex items-center justify-between mb-6">
+              <div class="lg:col-span-2 bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-4 md:mb-6">
                   <div>
-                    <h3 class="text-[20px] font-black text-[#0F172A]">
+                    <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                       Time Tracker
                     </h3>
-                    <p class="text-[13px] text-[#64748B] mt-1">
+                    <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                       Track work sessions.
                     </p>
                   </div>
 
-                  <div class="w-11 h-11 rounded-2xl bg-[#EFF6FF] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg></div>
+                  <div class="w-9 h-9 md:w-11 md:h-11 rounded-xl md:rounded-2xl bg-[#EFF6FF] flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M22 6l-3-3"/></svg></div>
                 </div>
 
-                <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-5 mb-5">
-                  <p class="text-[12px] font-bold text-[#94A3B8] mb-1">
+                <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl md:rounded-3xl p-3 md:p-5 mb-3 md:mb-5">
+                  <p class="text-[11px] md:text-[12px] font-bold text-[#94A3B8] mb-1">
                     Current Task
                   </p>
-                  <h4 class="text-[15px] font-black text-[#0F172A]">
+                  <h4 class="text-[13px] md:text-[15px] font-black text-[#0F172A]">
                     Dashboard UI in Progress
                   </h4>
                 </div>
 
-                <div class="text-center bg-[#0F172A] rounded-3xl p-6 mb-5">
-                  <p class="text-[12px] text-[#94A3B8] font-bold mb-2">
+                <div class="text-center bg-[#0F172A] rounded-2xl md:rounded-3xl p-4 md:p-6 mb-3 md:mb-5">
+                  <p class="text-[11px] md:text-[12px] text-[#94A3B8] font-bold mb-2">
                     Current Session
                   </p>
-                  <div class="text-[38px] font-black text-white tracking-tight">
+                  <div class="text-[28px] md:text-[38px] font-black text-white tracking-tight">
                     {{ formattedTimer }}
                   </div>
                 </div>
 
                 <div class="grid grid-cols-3 gap-3">
                   <button
+                    v-if="isLeader"
                     @click="startTimer"
                     :disabled="timerRunning"
                     class="bg-[#2563EB] hover:bg-[#1E40AF] disabled:opacity-50 disabled:cursor-not-allowed text-white text-[13px] font-black py-3 rounded-2xl transition"
                   >
                     Start
                   </button>
-
                   <button
+                    v-if="isLeader"
                     @click="pauseTimer"
                     :disabled="!timerRunning"
                     class="bg-[#FEF3C7] hover:bg-[#FDE68A] disabled:opacity-50 disabled:cursor-not-allowed text-[#92400E] text-[13px] font-black py-3 rounded-2xl transition"
                   >
                     Pause
                   </button>
-
                   <button
+                    v-if="isLeader"
                     @click="resetTimer"
                     class="bg-red-50 hover:bg-red-100 text-red-500 text-[13px] font-black py-3 rounded-2xl transition"
                   >
                     Stop
                   </button>
+                  <p v-if="!isLeader" class="col-span-3 text-[12px] text-[#94A3B8] italic py-2">Timer controls available to Leaders only</p>
                 </div>
               </div>
 
               <!-- Performance Chart -->
-              <div class="lg:col-span-3 bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-                <div class="flex items-center justify-between mb-6">
+              <div class="lg:col-span-3 bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-4 md:mb-6">
                   <div>
-                    <h3 class="text-[20px] font-black text-[#0F172A]">
+                    <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                       Sprint Performance
                     </h3>
-                    <p class="text-[13px] text-[#64748B] mt-1">
+                    <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                       Weekly task delivery overview.
                     </p>
                   </div>
 
-                  <span class="text-[12px] font-black text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] px-3 py-1.5 rounded-full">
+                  <span class="text-[10px] md:text-[12px] font-black text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] px-2 md:px-3 py-1 md:py-1.5 rounded-full">
                     Week 4
                   </span>
                 </div>
@@ -400,55 +419,55 @@
             </div>
 
             <!-- Active Projects -->
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Active Projects
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Current running projects and progress.
                   </p>
                 </div>
 
                 <NuxtLink
                   to="/projects"
-                  class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[14px] font-black px-5 py-3 rounded-2xl transition shadow-lg shadow-blue-500/20"
+                  class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[12px] md:text-[14px] font-black px-3 md:px-5 py-2 md:py-3 rounded-xl md:rounded-2xl transition shadow-lg shadow-blue-500/20"
                 >
-                  View Projects
+                  View
                 </NuxtLink>
               </div>
 
-              <div class="space-y-5">
+              <div class="space-y-3 md:space-y-5">
                 <div
                   v-for="project in projects"
                   :key="project.name"
-                  class="border border-[#E2E8F0] rounded-3xl p-5 hover:border-[#BFDBFE] hover:shadow-lg hover:shadow-slate-900/5 transition-all"
+                  class="border border-[#E2E8F0] rounded-2xl md:rounded-3xl p-3 md:p-5 hover:border-[#BFDBFE] hover:shadow-lg hover:shadow-slate-900/5 transition-all"
                 >
-                  <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center justify-between mb-3 md:mb-5">
                     <div>
-                      <div class="flex items-center gap-3">
-                        <h4 class="font-black text-[#0F172A]">
+                      <div class="flex items-center gap-2 md:gap-3">
+                        <h4 class="font-black text-[#0F172A] text-[13px] md:text-[15px]">
                           {{ project.name }}
                         </h4>
                         <span
-                          class="text-[11px] font-black px-2.5 py-1 rounded-full"
+                          class="text-[10px] md:text-[11px] font-black px-2 md:px-2.5 py-1 rounded-full"
                           :class="project.statusClass"
                         >
                           {{ project.status }}
                         </span>
                       </div>
 
-                      <p class="text-[13px] text-[#64748B] mt-1">
+                      <p class="text-[11px] md:text-[13px] text-[#64748B] mt-1">
                         {{ project.description }}
                       </p>
                     </div>
 
                     <div class="text-right">
-                      <p class="text-[22px] font-black text-[#0F172A]">
+                      <p class="text-[18px] md:text-[22px] font-black text-[#0F172A]">
                         {{ project.progress }}%
                       </p>
-                      <p class="text-[11px] text-[#94A3B8] font-semibold">
+                      <p class="text-[10px] md:text-[11px] text-[#94A3B8] font-semibold">
                         Complete
                       </p>
                     </div>
@@ -482,43 +501,43 @@
             </div>
 
             <!-- Recent Tasks -->
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Recent Tasks
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Latest task movements from your workspace.
                   </p>
                 </div>
               </div>
 
-              <div class="space-y-4">
+              <div class="space-y-3 md:space-y-4">
                 <div
                   v-for="task in recentTasks"
                   :key="task.title"
-                  class="flex items-center justify-between bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-4"
+                  class="flex items-center justify-between bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl md:rounded-3xl p-3 md:p-4"
                 >
-                  <div class="flex items-center gap-4">
+                  <div class="flex items-center gap-3 md:gap-4">
                     <div
-                       class="w-11 h-11 rounded-2xl flex items-center justify-center"
+                       class="w-9 h-9 md:w-11 md:h-11 rounded-xl md:rounded-2xl flex items-center justify-center"
                        :class="task.bg"
                      >
                        <span v-html="task.icon"></span>
                     </div>
 
                     <div>
-                      <h4 class="font-black text-[#0F172A] text-[14px]">
+                      <h4 class="font-black text-[#0F172A] text-[12px] md:text-[14px]">
                         {{ task.title }}
                       </h4>
-                      <p class="text-[13px] text-[#64748B] mt-0.5">
+                      <p class="text-[11px] md:text-[13px] text-[#64748B] mt-0.5">
                         {{ task.meta }}
                       </p>
                     </div>
                   </div>
 
-                  <span class="text-[12px] text-[#94A3B8] font-bold">
+                  <span class="text-[10px] md:text-[12px] text-[#94A3B8] font-bold">
                     {{ task.time }}
                   </span>
                 </div>
@@ -530,17 +549,17 @@
           <div class="space-y-8">
 
             <!-- AI Insight -->
-            <div class="relative overflow-hidden bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-[30px] p-6 text-white shadow-xl shadow-blue-500/20">
+            <div class="relative overflow-hidden bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl md:rounded-[30px] p-4 md:p-6 text-white shadow-xl shadow-blue-500/20">
               <div class="absolute -right-14 -top-14 w-40 h-40 rounded-full bg-white/10 blur-xl"></div>
 
-              <div class="relative flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+              <div class="relative flex items-center gap-3 mb-4 md:mb-6">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
 
                 <div>
-                  <h3 class="font-black text-[19px]">
+                  <h3 class="font-black text-[16px] md:text-[19px]">
                     Team AI
                   </h3>
-                  <p class="text-blue-100 text-[13px]">
+                  <p class="text-blue-100 text-[11px] md:text-[13px]">
                     Smart productivity insights
                   </p>
                 </div>
@@ -568,13 +587,13 @@
             </div>
 
             <!-- Workload Balance -->
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Workload Balance
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Team contribution distribution.
                   </p>
                 </div>
@@ -584,30 +603,30 @@
                 </span>
               </div>
 
-              <div class="space-y-5">
+              <div class="space-y-3 md:space-y-5">
                 <div
                   v-for="member in workload"
                   :key="member.name"
                 >
                   <div class="flex items-center justify-between mb-2">
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-2 md:gap-3">
                       <div
-                        class="w-8 h-8 rounded-xl text-white text-[11px] font-black flex items-center justify-center"
+                        class="w-7 h-7 md:w-8 md:h-8 rounded-lg md:rounded-xl text-white text-[10px] md:text-[11px] font-black flex items-center justify-center"
                         :class="member.color"
                       >
                         {{ member.initial }}
                       </div>
-                      <p class="text-[13px] font-black text-[#0F172A]">
+                      <p class="text-[12px] md:text-[13px] font-black text-[#0F172A]">
                         {{ member.name }}
                       </p>
                     </div>
 
-                    <span class="text-[12px] font-black text-[#64748B]">
+                    <span class="text-[11px] md:text-[12px] font-black text-[#64748B]">
                       {{ member.value }}%
                     </span>
                   </div>
 
-                  <div class="h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden">
+                  <div class="h-2 md:h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden">
                     <div
                       class="h-2.5 rounded-full"
                       :class="member.color"
@@ -619,13 +638,13 @@
             </div>
 
             <!-- Recent Time Logs -->
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Recent Time Logs
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Latest tracked sessions.
                   </p>
                 </div>
@@ -635,22 +654,22 @@
                 </span>
               </div>
 
-              <div class="space-y-4">
+              <div class="space-y-3 md:space-y-4">
                 <div
                   v-for="log in timeLogs"
                   :key="log.title"
-                  class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-4"
+                  class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl md:rounded-3xl p-3 md:p-4"
                 >
                   <div class="flex items-center justify-between mb-1">
-                    <h4 class="text-[14px] font-black text-[#0F172A]">
+                    <h4 class="text-[13px] md:text-[14px] font-black text-[#0F172A]">
                       {{ log.title }}
                     </h4>
-                    <span class="text-[13px] font-black text-[#2563EB]">
+                    <span class="text-[12px] md:text-[13px] font-black text-[#2563EB]">
                       {{ log.duration }}
                     </span>
                   </div>
 
-                  <p class="text-[12px] text-[#94A3B8] font-semibold">
+                  <p class="text-[11px] md:text-[12px] text-[#94A3B8] font-semibold">
                     Logged by {{ log.owner }}
                   </p>
                 </div>
@@ -658,13 +677,13 @@
             </div>
 
             <!-- Team Chat -->
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Team Chat
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Latest message preview.
                   </p>
                 </div>
@@ -674,40 +693,40 @@
                 </span>
               </div>
 
-              <div class="flex gap-3 mb-5">
-                <div class="w-10 h-10 rounded-2xl bg-[#2563EB] text-white text-[12px] font-black flex items-center justify-center">
-                  A
+              <div class="flex gap-2 md:gap-3 mb-3 md:mb-5">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-2xl bg-[#2563EB] text-white text-[10px] md:text-[12px] font-black flex items-center justify-center shrink-0">
+                  M
                 </div>
 
-                <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-4 flex-1">
+                <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl md:rounded-3xl p-3 md:p-4 flex-1">
                   <div class="flex items-center justify-between mb-1">
-                    <h4 class="font-black text-[14px] text-[#0F172A]">
-                      Alex
+                    <h4 class="font-black text-[#0F172A] text-[12px] md:text-[14px]">
+                      Maria
                     </h4>
 
-                    <span class="text-[11px] text-[#94A3B8] font-semibold">
+                    <span class="text-[10px] md:text-[11px] text-[#94A3B8] font-semibold">
                       10:24 AM
                     </span>
                   </div>
 
-                  <p class="text-[13px] text-[#475569] leading-[1.6]">
-                    API integration is done 🚀
+                  <p class="text-[12px] md:text-[13px] text-[#475569] leading-[1.6]">
+                    API integration is done
                   </p>
                 </div>
               </div>
 
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-2 md:gap-3">
                 <input
                   v-model="chatMessage"
                   type="text"
                   maxlength="200"
                   placeholder="Send a message..."
-                  class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#2563EB]"
+                  class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl md:rounded-2xl px-3 md:px-4 py-2.5 md:py-3 text-[13px] md:text-[14px] focus:outline-none focus:border-[#2563EB]"
                 />
 
                 <button
                   @click="sendMessage"
-                  class="bg-[#2563EB] hover:bg-[#1E40AF] text-white px-5 py-3 rounded-2xl font-black transition"
+                  class="bg-[#2563EB] hover:bg-[#1E40AF] text-white px-3 md:px-5 py-2.5 md:py-3 rounded-xl md:rounded-2xl font-black text-[12px] md:text-[14px] transition"
                 >
                   Send
                 </button>
@@ -719,18 +738,47 @@
 
       </div>
     </main>
+
+    <!-- MOBILE BOTTOM TAB BAR -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#E2E8F0] z-50 px-2 pb-[env(safe-area-inset-bottom)]">
+      <div class="flex items-center justify-around">
+        <NuxtLink to="/dashboard" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#2563EB]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="text-[10px] font-bold">Dashboard</span>
+        </NuxtLink>
+        <NuxtLink to="/projects" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-semibold">Projects</span>
+        </NuxtLink>
+        <NuxtLink to="/tasks" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <span class="text-[10px] font-semibold">Tasks</span>
+        </NuxtLink>
+        <NuxtLink to="/team" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="text-[10px] font-semibold">Team</span>
+        </NuxtLink>
+        <NuxtLink to="/chat" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-semibold">Chat</span>
+        </NuxtLink>
+      </div>
+    </nav>
+
   </div>
 </template>
 
 <script setup>
-import { computed, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserRole } from '~/composables/useUserRole'
 
 definePageMeta({
   layout: false
 })
 
 const router = useRouter()
+const { currentUser, isLeader } = useUserRole()
 
 const navigation = [
   {
@@ -809,13 +857,14 @@ const stats = [
 ]
 
 const showNotifications = ref(false)
+const showProfile = ref(false)
 
 const notifications = ref([
   {
     id: 1,
     icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     title: 'Task completed',
-    message: 'Alex completed the Login Page task.',
+    message: 'Hashir completed the Login Page task.',
     time: '2 minutes ago',
     bg: 'bg-green-100'
   },
@@ -840,6 +889,29 @@ const notifications = ref([
 const clearNotifications = () => {
   notifications.value = []
 }
+
+const handleLogout = () => {
+  showProfile.value = false
+  router.push('/')
+}
+
+const handleClickOutside = (e) => {
+  const notifBtn = e.target.closest('[aria-label="Notifications"]')
+  const notifDrop = e.target.closest('.notif-dropdown')
+  const profileBtn = e.target.closest('[aria-label="Profile"]')
+  const profileDrop = e.target.closest('.profile-dropdown')
+
+  if (!notifBtn && !notifDrop) showNotifications.value = false
+  if (!profileBtn && !profileDrop) showProfile.value = false
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 
 const performanceBars = [
   { day: 'Mon', value: '62', height: 62 },
@@ -881,7 +953,7 @@ const memberColors = {
 const recentTasks = [
   {
     title: 'Login Page Completed',
-    meta: 'Completed by Alex',
+    meta: 'Completed by Hashir',
     time: '2h ago',
     icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
     bg: 'bg-green-100'
@@ -904,15 +976,15 @@ const recentTasks = [
 
 const workload = [
   { name: 'Siraj', initial: 'S', value: 78, color: 'bg-[#2563EB]' },
-  { name: 'Alex', initial: 'A', value: 64, color: 'bg-[#059669]' },
-  { name: 'Maria', initial: 'M', value: 58, color: 'bg-[#D97706]' },
-  { name: 'Sarah', initial: 'S', value: 43, color: 'bg-[#7C3AED]' }
+  { name: 'Maria', initial: 'M', value: 64, color: 'bg-[#34D399]' },
+  { name: 'Omar', initial: 'O', value: 58, color: 'bg-[#F87171]' },
+  { name: 'Zernish', initial: 'Z', value: 43, color: 'bg-[#FBBF24]' }
 ]
 
 const timeLogs = [
   { title: 'Dashboard UI', duration: '2h 10m', owner: 'Siraj' },
-  { title: 'Login Page', duration: '1h 35m', owner: 'Alex' },
-  { title: 'Project Board', duration: '45m', owner: 'Sarah' }
+  { title: 'Login Page', duration: '1h 35m', owner: 'Hashir' },
+  { title: 'Project Board', duration: '45m', owner: 'Zernish' }
 ]
 
 const chatMessage = ref('')

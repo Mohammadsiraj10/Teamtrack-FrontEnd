@@ -39,12 +39,12 @@ onMounted(() => {
       style="background: radial-gradient(circle, rgba(251,146,60,0.10) 0%, transparent 60%);"
     />
 
-    <header class="fixed top-0 left-0 right-0 z-50 px-6 pt-5">
+    <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-5">
       <div
-        class="max-w-[1200px] mx-auto h-[62px] bg-white/[0.72] backdrop-blur-2xl rounded-2xl border border-white/40 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(37,99,235,0.06)] flex items-center justify-between px-2"
+        class="max-w-[1200px] mx-auto h-[52px] sm:h-[62px] bg-white/[0.72] backdrop-blur-2xl rounded-xl sm:rounded-2xl border border-white/40 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_rgba(37,99,235,0.06)] flex items-center justify-between px-2 sm:px-2"
       >
-        <NuxtLink to="/" class="flex items-center pl-5" @click.prevent="go('hero')">
-          <img src="~/assets/images/logo-transparent.png" alt="TeamTrack" class="h-9 w-auto" />
+        <NuxtLink to="/" class="flex items-center pl-3 sm:pl-5" @click.prevent="go('hero')">
+          <img src="~/assets/images/logo-transparent.png" alt="TeamTrack" class="h-7 sm:h-9 w-auto" />
         </NuxtLink>
 
         <nav class="hidden md:flex items-center bg-[#F3F4F6]/50 rounded-xl px-2 py-1.5">
@@ -57,12 +57,15 @@ onMounted(() => {
 
         <div class="flex items-center gap-3 pr-3">
           <NuxtLink to="/login" class="hidden sm:inline-flex items-center text-[#475569] hover:text-[#0F172A] text-[13px] font-semibold tracking-[-0.01em] px-4 py-2 rounded-lg transition-all duration-200 hover:bg-[#F1F5F9]">Log in</NuxtLink>
-          <NuxtLink to="/signup" class="inline-flex items-center bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[13px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 hover:-translate-y-[1px] active:translate-y-0">Get Started &mdash; Free</NuxtLink>
+          <NuxtLink to="/signup" class="hidden sm:inline-flex items-center bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[13px] font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 hover:-translate-y-[1px] active:translate-y-0">Get Started &mdash; Free</NuxtLink>
+          <NuxtLink to="/signup" class="sm:hidden flex items-center justify-center w-9 h-9 rounded-xl bg-[#2563EB] hover:bg-[#1E40AF] text-white transition-all duration-200">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </NuxtLink>
         </div>
       </div>
     </header>
 
-    <main class="relative z-10 pt-[92px]">
+    <main class="relative z-10 pt-[72px] sm:pt-[92px]">
       <slot />
     </main>
 

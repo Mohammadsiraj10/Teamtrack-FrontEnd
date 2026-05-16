@@ -2,35 +2,35 @@
   <div class="relative">
 
     <!-- ===== HERO ===== -->
-    <section id="hero" class="max-w-[1200px] mx-auto px-6 pt-20 pb-28">
+    <section id="hero" class="max-w-[1200px] mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-28">
       <div class="max-w-[720px] mx-auto text-center">
-        <div class="inline-flex items-center gap-2.5 bg-[#EBF0FF]/80 border border-[#2563EB]/10 rounded-full pl-[3px] pr-4 py-[3px] mb-8 backdrop-blur-sm">
+        <div class="inline-flex items-center gap-2 bg-[#EBF0FF]/80 border border-[#2563EB]/10 rounded-full pl-[3px] pr-3 sm:pr-4 py-[3px] mb-6 sm:mb-8 backdrop-blur-sm">
           <span class="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-[#2563EB]">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5"><path d="M20 6L9 17l-5-5" /></svg>
           </span>
-          <span class="text-[12.5px] font-semibold text-[#2563EB] tracking-tight">Academic project management, built for fairness</span>
+          <span class="text-[10px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight">Academic project management, built for fairness</span>
         </div>
 
-        <h1 class="font-heading text-[44px] sm:text-[52px] lg:text-[60px] leading-[1.08] text-[#0F172A] mb-6 tracking-[-0.02em]">
+        <h1 class="font-heading text-[28px] sm:text-[36px] lg:text-[52px] xl:text-[60px] leading-[1.08] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]">
           Track every contribution.<br />
           <span class="text-[#2563EB]">Keep your team accountable.</span>
         </h1>
 
-        <p class="text-[#64748B] text-[18px] leading-[1.7] mb-10 max-w-[560px] mx-auto">
+        <p class="text-[#64748B] text-[15px] sm:text-[18px] leading-[1.7] mb-8 sm:mb-10 max-w-[560px] mx-auto">
           TeamTrack is the project management platform built for academic teams. Plan tasks, log time, view contribution analytics, and let AI surface the insights that keep everyone aligned and accountable.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-          <NuxtLink to="/signup" class="inline-flex items-center bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[16px] font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/20 hover:-translate-y-[1px] active:translate-y-0">
+          <NuxtLink to="/signup" class="inline-flex items-center bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[13px] sm:text-[16px] font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/20 hover:-translate-y-[1px] active:translate-y-0">
             Get Started &mdash; Free for Teams
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </NuxtLink>
-          <NuxtLink to="/login" class="inline-flex items-center text-[#475569] hover:text-[#0F172A] text-[15px] font-semibold px-6 py-4 rounded-full border border-[#E2E8F0] hover:border-[#CBD5E1] transition-all duration-200">
+          <NuxtLink to="/login" class="inline-flex items-center text-[#475569] hover:text-[#0F172A] text-[13px] sm:text-[15px] font-semibold px-5 sm:px-6 py-3 sm:py-4 rounded-full border border-[#E2E8F0] hover:border-[#CBD5E1] transition-all duration-200">
             Log in
           </NuxtLink>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13.5px] text-[#64748B] font-medium">
+        <div class="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[12px] sm:text-[13.5px] text-[#64748B] font-medium">
           <span class="flex items-center gap-1.5">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M20 6L9 17l-5-5" /></svg>
             University email signup
@@ -48,30 +48,53 @@
     </section>
 
     <!-- ===== DASHBOARD PREVIEW ===== -->
-    <section class="max-w-[1200px] mx-auto px-6 pb-24">
+    <section class="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12 sm:pb-24">
+      <div class="text-center mb-4 sm:mb-8">
+        <span class="inline-block text-[11px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-2 sm:mb-3">Preview</span>
+        <h2 class="font-heading text-[24px] sm:text-[36px] lg:text-[44px] leading-[1.1] text-[#0F172A] tracking-[-0.02em]">See what your team will look like</h2>
+        <p class="text-[#64748B] text-[13px] sm:text-[16px] leading-[1.7] mt-2 sm:mt-3 max-w-[520px] mx-auto">Explore each tab to preview the Dashboard, Projects, Tasks, Team, and Chat pages before signing up.</p>
+      </div>
       <div class="relative">
-        <div class="absolute -inset-10 rounded-[40px] opacity-50 blur-3xl pointer-events-none" style="background: radial-gradient(circle at 40% 50%, rgba(37,99,235,0.10), transparent 60%);" />
+        <div class="absolute -inset-5 sm:-inset-10 rounded-[20px] sm:rounded-[40px] opacity-50 blur-3xl pointer-events-none" style="background: radial-gradient(circle at 40% 50%, rgba(37,99,235,0.10), transparent 60%);" />
 
-        <div class="relative bg-white rounded-[28px] border border-[#E2E8F0]/70 shadow-[0_25px_80px_-20px_rgba(0,0,0,0.10)] overflow-hidden">
+        <div class="relative bg-white rounded-[16px] sm:rounded-[28px] border border-[#E2E8F0]/70 shadow-[0_25px_80px_-20px_rgba(0,0,0,0.10)] overflow-hidden">
           <!-- Browser bar -->
-          <div class="flex items-center gap-3 px-6 py-3.5 border-b border-[#F1F5F9] bg-[#FAFBFF]">
-            <div class="flex gap-[6px]">
-              <span class="w-[12px] h-[12px] rounded-full bg-[#FF5F57]" />
-              <span class="w-[12px] h-[12px] rounded-full bg-[#FEBC2E]" />
-              <span class="w-[12px] h-[12px] rounded-full bg-[#28C840]" />
+          <div class="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3.5 border-b border-[#F1F5F9] bg-[#FAFBFF]">
+            <div class="flex gap-[5px] sm:gap-[6px]">
+              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#FF5F57]" />
+              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#FEBC2E]" />
+              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#28C840]" />
             </div>
             <div class="flex-1 flex justify-center">
-              <div class="flex items-center gap-2 bg-[#F1F5F9]/80 rounded-lg px-4 py-1.5 text-[12px] text-[#94A3B8] font-medium">
-                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              <div class="flex items-center gap-1.5 sm:gap-2 bg-[#F1F5F9]/80 rounded-lg px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-[12px] text-[#94A3B8] font-medium">
+                <svg width="10" height="10" class="sm:w-[12px] sm:h-[12px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
                 teamtrack.io/dashboard
               </div>
             </div>
           </div>
 
           <!-- Interactive Dashboard Preview -->
-          <div class="flex min-h-[560px]">
-            <!-- Sidebar -->
-            <div class="w-[200px] bg-white/95 backdrop-blur-xl border-r border-[#E2E8F0]/70 hidden md:flex flex-col shrink-0">
+          <div class="flex flex-col md:flex-row min-h-[340px] sm:min-h-[480px] md:min-h-[560px]">
+            <!-- Mobile Tab Bar (replaces hidden sidebar) -->
+            <div class="md:hidden border-b border-[#E2E8F0]/70 bg-white/95 overflow-x-auto">
+              <div class="flex gap-1.5 px-3 py-2.5 pointer-events-auto">
+                <button
+                  v-for="tab in previewTabs"
+                  :key="tab.id"
+                  @click="activePreviewTab = tab.id"
+                  class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-bold whitespace-nowrap transition-all duration-200 shrink-0"
+                  :class="activePreviewTab === tab.id
+                    ? 'bg-[#2563EB] text-white shadow-md shadow-blue-500/20'
+                    : 'bg-[#F1F5F9] text-[#475569]'"
+                >
+                  <span class="w-4 h-4 flex items-center justify-center" v-html="tab.icon"></span>
+                  {{ tab.name }}
+                </button>
+              </div>
+            </div>
+
+            <!-- Sidebar (desktop only) -->
+            <div class="w-full md:w-[200px] bg-white/95 backdrop-blur-xl border-b md:border-b-0 md:border-r border-[#E2E8F0]/70 hidden md:flex flex-col shrink-0">
               <div class="px-4 py-4 border-b border-[#F1F5F9]">
                 <div class="flex items-center gap-2.5">
                   <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-bold text-[14px] shadow-sm shadow-blue-500/20">T</div>
@@ -82,7 +105,7 @@
                 </div>
               </div>
 
-              <nav class="flex-1 px-3 py-4 space-y-1.5">
+              <nav class="flex-1 px-3 py-4 space-y-1.5 pointer-events-auto">
                 <button
                   v-for="tab in previewTabs"
                   :key="tab.id"
@@ -116,12 +139,12 @@
               <div class="px-3 pb-3 border-t border-[#F1F5F9] pt-3">
                 <div class="flex items-center gap-2.5">
                   <div class="relative">
-                    <div class="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-[12px]">S</div>
+                    <div class="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-[12px]">?</div>
                     <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
                   </div>
                   <div>
-                    <div class="font-bold text-[12px] text-[#0F172A]">Siraj</div>
-                    <div class="text-[10px] text-[#94A3B8]">Team Leader</div>
+                    <div class="font-bold text-[12px] text-[#0F172A]">Your Name</div>
+                    <div class="text-[10px] text-[#94A3B8]">Your Role</div>
                   </div>
                 </div>
               </div>
@@ -130,25 +153,25 @@
             <!-- Main content -->
             <div class="flex-1 bg-gradient-to-br from-[#F8FAFC] via-[#F1F5F9] to-[#EEF2FF] overflow-hidden">
               <!-- Topbar -->
-              <div class="bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-5 py-3 flex items-center justify-between">
+              <div class="bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-3 sm:px-5 py-2 sm:py-3 flex items-center justify-between">
                 <div>
-                  <div class="flex items-center gap-2 mb-0.5">
-                    <div class="text-[16px] font-black text-[#0F172A] tracking-tight">{{ activePreviewTab === 'dashboard' ? 'Dashboard' : activePreviewTab === 'projects' ? 'Projects' : activePreviewTab === 'tasks' ? 'Tasks' : activePreviewTab === 'team' ? 'Team' : 'Team Chat' }}</div>
+                  <div class="flex items-center gap-1 sm:gap-2 mb-0.5">
+                    <div class="text-[13px] sm:text-[16px] font-black text-[#0F172A] tracking-tight">{{ activePreviewTab === 'dashboard' ? 'Dashboard' : activePreviewTab === 'projects' ? 'Projects' : activePreviewTab === 'tasks' ? 'Tasks' : activePreviewTab === 'team' ? 'Team' : 'Team Chat' }}</div>
                     <span v-if="activePreviewTab === 'dashboard'" class="bg-[#ECFDF5] text-[#059669] border border-[#BBF7D0] text-[9px] font-bold px-2 py-0.5 rounded-full">Active Sprint</span>
                   </div>
-                  <div class="text-[11px] text-[#94A3B8]">Welcome back, Siraj. Here is your team performance overview.</div>
+                  <div class="text-[11px] text-[#94A3B8]">Here is your team performance overview.</div>
                 </div>
                 <div class="flex items-center gap-2">
                   <div class="relative w-8 h-8 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center hover:bg-[#EFF6FF] transition cursor-pointer">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
                     <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white text-[7px] text-white font-bold flex items-center justify-center">3</span>
                   </div>
-                  <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1E40AF] flex items-center justify-center text-white font-bold text-[11px] shadow-sm shadow-blue-500/20">S</div>
+                  <div class="w-8 h-8 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0] flex items-center justify-center text-[#64748B] font-bold text-[11px]">?</div>
                 </div>
               </div>
 
               <!-- Tab content -->
-              <div class="p-4 overflow-hidden">
+              <div class="p-2 sm:p-4 overflow-hidden select-none pointer-events-none">
                 <!-- Dashboard tab -->
                 <div v-if="activePreviewTab === 'dashboard'" class="space-y-4">
                   <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -187,12 +210,7 @@
                           </div>
                           <div class="text-center bg-[#0F172A] rounded-xl p-4 mb-3">
                             <div class="text-[9px] text-[#94A3B8] font-bold mb-1">Current Session</div>
-                            <div class="text-[24px] font-black text-white tracking-tight">{{ previewTimer }}</div>
-                          </div>
-                          <div class="grid grid-cols-3 gap-2">
-                            <button @click="previewTimerRunning = true" class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[10px] font-bold py-2 rounded-lg transition">Start</button>
-                            <button @click="previewTimerRunning = false" class="bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#92400E] text-[10px] font-bold py-2 rounded-lg transition">Pause</button>
-                            <button @click="previewTimerRunning = false; previewTimerSeconds = 0" class="bg-red-50 hover:bg-red-100 text-red-500 text-[10px] font-bold py-2 rounded-lg transition">Stop</button>
+                            <div class="text-[24px] font-black text-white tracking-tight">01:24:07</div>
                           </div>
                         </div>
 
@@ -288,14 +306,14 @@
                               <span class="text-[11px] font-bold text-[#0F172A]">Dashboard UI</span>
                               <span class="text-[11px] font-bold text-[#2563EB]">2h 10m</span>
                             </div>
-                            <div class="text-[9px] text-[#94A3B8]">Logged by Siraj</div>
-                          </div>
-                          <div class="bg-[#F8FAFC] rounded-xl p-2.5 hover:bg-[#F1F5F9] transition cursor-pointer">
-                            <div class="flex items-center justify-between mb-0.5">
-                              <span class="text-[11px] font-bold text-[#0F172A]">Login Page</span>
-                              <span class="text-[11px] font-bold text-[#2563EB]">1h 35m</span>
-                            </div>
-                            <div class="text-[9px] text-[#94A3B8]">Logged by Alex</div>
+                            <div class="text-[9px] text-[#94A3B8]">02h 10m ago</div>
+                           </div>
+                           <div class="bg-[#F8FAFC] rounded-xl p-2.5 hover:bg-[#F1F5F9] transition cursor-pointer">
+                             <div class="flex items-center justify-between mb-0.5">
+                               <span class="text-[11px] font-bold text-[#0F172A]">Login Page</span>
+                               <span class="text-[11px] font-bold text-[#2563EB]">1h 35m</span>
+                             </div>
+                             <div class="text-[9px] text-[#94A3B8]">Earlier today</div>
                           </div>
                         </div>
                       </div>
@@ -306,10 +324,10 @@
                           <span class="text-[9px] bg-green-100 text-green-600 font-bold px-2 py-0.5 rounded-full">3 online</span>
                         </div>
                         <div class="flex gap-2 mb-2.5">
-                          <div class="w-7 h-7 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[9px] text-white font-bold">A</div>
+                          <div class="w-7 h-7 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[9px] text-white font-bold">U</div>
                           <div class="bg-[#F8FAFC] rounded-xl p-2 flex-1">
                             <div class="flex items-center justify-between mb-0.5">
-                              <span class="text-[10px] font-semibold text-[#0F172A]">Alex</span>
+                              <span class="text-[10px] font-semibold text-[#0F172A]">Team Member</span>
                               <span class="text-[8px] text-[#94A3B8]">10:24 AM</span>
                             </div>
                             <p class="text-[10px] text-[#475569] leading-[1.5]">API integration is done</p>
@@ -484,7 +502,7 @@
                       </div>
                       <span class="bg-[#2563EB] text-white text-[10px] font-bold px-3 py-1.5 rounded-lg">+ New Task</span>
                     </div>
-                    <div class="grid grid-cols-4 gap-2.5">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5">
                       <div v-for="col in previewColumns" :key="col.id">
                         <div class="flex items-center gap-1.5 mb-2.5">
                           <span :class="col.dotClass" class="w-2 h-2 rounded-full"></span>
@@ -504,8 +522,8 @@
                             </div>
                             <div class="flex items-center justify-between">
                               <div class="flex items-center gap-1.5">
-                                <div class="w-4 h-4 rounded-full bg-[#34D399] text-[7px] text-white font-bold flex items-center justify-center">M</div>
-                                <span class="text-[9px] text-[#64748B]">Maria</span>
+                                <div class="w-4 h-4 rounded-full bg-[#34D399] text-[7px] text-white font-bold flex items-center justify-center">U</div>
+                                <span class="text-[9px] text-[#64748B]">Assignee</span>
                               </div>
                               <div class="flex items-center gap-1 text-[#94A3B8]">
                                 <svg width="8" height="8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -570,7 +588,7 @@
                             <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-[14px]" :style="{ backgroundColor: member.color }">{{ member.initial }}</div>
                             <div>
                               <div class="text-[12px] font-bold text-[#0F172A]">{{ member.name }}</div>
-                              <div class="text-[10px] text-[#94A3B8]">{{ member.email }}</div>
+                              <div class="text-[10px] text-[#94A3B8]">user@university.edu</div>
                             </div>
                           </div>
                           <span :class="member.roleBadge" class="text-[9px] font-bold px-2 py-0.5 rounded-full">{{ member.role }}</span>
@@ -599,7 +617,7 @@
 
                 <!-- Chat tab -->
                 <div v-if="activePreviewTab === 'chat'" class="space-y-3">
-                  <div class="grid grid-cols-3 gap-2.5">
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     <div class="bg-white rounded-2xl p-3 border border-[#E2E8F0]/70 shadow-sm">
                       <div class="flex items-center justify-between mb-2">
                         <div class="w-9 h-9 rounded-xl bg-[#EBF0FF] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
@@ -658,9 +676,9 @@
                       </div>
                       <div class="flex-1 bg-[#F8FAFC] p-3 space-y-2.5 overflow-y-auto">
                         <div class="flex gap-2">
-                          <div class="w-6 h-6 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">A</div>
+                          <div class="w-6 h-6 rounded-full bg-blue-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">U</div>
                           <div class="bg-white border border-[#E2E8F0] rounded-xl rounded-tl-sm p-2 max-w-[85%]">
-                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Alex</span><span class="text-[7px] text-[#94A3B8]">10:24 AM</span></div>
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Member</span><span class="text-[7px] text-[#94A3B8]">10:24 AM</span></div>
                             <p class="text-[9px] text-[#334155] leading-[1.5]">Dashboard timer and recent time logs are aligned.</p>
                           </div>
                         </div>
@@ -668,12 +686,12 @@
                           <div class="bg-[#2563EB] text-white border border-[#2563EB] rounded-xl rounded-tr-sm p-2 max-w-[75%]">
                             <p class="text-[9px] leading-[1.5]">Yes, keep the timer. Time tracking is core.</p>
                           </div>
-                          <div class="w-6 h-6 rounded-full bg-[#2563EB] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">S</div>
+                          <div class="w-6 h-6 rounded-full bg-[#2563EB] shrink-0 flex items-center justify-center text-[8px] text-white font-bold">Y</div>
                         </div>
                         <div class="flex gap-2">
-                          <div class="w-6 h-6 rounded-full bg-green-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">S</div>
+                          <div class="w-6 h-6 rounded-full bg-green-400 shrink-0 flex items-center justify-center text-[8px] text-white font-bold">U</div>
                           <div class="bg-white border border-[#E2E8F0] rounded-xl rounded-tl-sm p-2 max-w-[85%]">
-                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Sarah</span><span class="text-[7px] text-[#94A3B8]">10:35 AM</span></div>
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[9px] font-bold text-[#0F172A]">Member</span><span class="text-[7px] text-[#94A3B8]">10:35 AM</span></div>
                             <p class="text-[9px] text-[#334155] leading-[1.5]">Projects page also looks good.</p>
                           </div>
                         </div>
@@ -707,7 +725,7 @@
                             <div class="w-5 h-5 rounded-lg bg-green-100 flex items-center justify-center text-[8px] font-bold text-green-600">+</div>
                             <div>
                               <div class="text-[9px] font-bold text-[#0F172A]">Message logged</div>
-                              <div class="text-[7px] text-[#94A3B8]">Alex posted 12m ago</div>
+                              <div class="text-[7px] text-[#94A3B8]">12m ago</div>
                             </div>
                           </div>
                           <div class="flex gap-1.5">
@@ -731,231 +749,230 @@
 
     <!-- ===== TRUST STATS ===== -->
     <section class="border-y border-[#E2E8F0]/60 bg-white/50">
-      <div class="max-w-[1200px] mx-auto px-6 py-16">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 text-center">
           <div>
-            <div class="font-heading text-[40px] text-[#0F172A] mb-1">4</div>
-            <div class="text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">User Roles</div>
-            <div class="text-[12px] text-[#64748B] mt-1">Member, Leader, Instructor, Admin</div>
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">4</div>
+            <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">User Roles</div>
+            <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">Member, Leader, Instructor, Admin</div>
           </div>
           <div>
-            <div class="font-heading text-[40px] text-[#0F172A] mb-1">8</div>
-            <div class="text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Core Modules</div>
-            <div class="text-[12px] text-[#64748B] mt-1">Auth, Workspaces, Tasks, Time, Chat, Analytics, AI, Alerts</div>
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">8</div>
+            <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Core Modules</div>
+            <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">Auth, Workspaces, Tasks, Time, Chat, Analytics, AI, Alerts</div>
           </div>
           <div>
-            <div class="font-heading text-[40px] text-[#0F172A] mb-1">&lt;2s</div>
-            <div class="text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Max Response</div>
-            <div class="text-[12px] text-[#64748B] mt-1">All page loads under 2 seconds</div>
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">&lt;2s</div>
+            <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Max Response</div>
+            <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">All page loads under 2 seconds</div>
           </div>
           <div>
-            <div class="font-heading text-[40px] text-[#0F172A] mb-1">99%</div>
-            <div class="text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Target Uptime</div>
-            <div class="text-[12px] text-[#64748B] mt-1">Available 24/7 during semester</div>
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">99%</div>
+            <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Target Uptime</div>
+            <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">Available 24/7 during semester</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== WHY TEAMTRACK ===== -->
-    <section id="why" class="max-w-[1200px] mx-auto px-6 pt-28 pb-24">
-      <div class="max-w-[640px] mx-auto text-center mb-16">
-        <span class="inline-block text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-4">Why TeamTrack</span>
-        <h2 class="font-heading text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-6 tracking-[-0.02em]">
+    <section id="why" class="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 sm:pt-28 pb-14 sm:pb-24">
+      <div class="max-w-[640px] mx-auto text-center mb-10 sm:mb-16">
+        <span class="inline-block text-[11px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-3 sm:mb-4">Why TeamTrack</span>
+        <h2 class="font-heading text-[26px] sm:text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]">
           Built for the realities of <span class="text-[#2563EB]">academic teamwork</span>
         </h2>
-        <p class="text-[#64748B] text-[17px] leading-[1.75]">
+        <p class="text-[#64748B] text-[14px] sm:text-[17px] leading-[1.75]">
           Most project tools ignore the realities of student group work — free riders, invisible contributions, and workload imbalances. TeamTrack is designed to solve exactly those problems.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300">
-          <div class="w-12 h-12 rounded-2xl mb-6 flex items-center justify-center bg-[#EBF0FF]">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8">
+        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#EBF0FF]">
+            <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
           </div>
-          <h3 class="text-[18px] font-bold text-[#0F172A] mb-3">Role-Based Access & Privacy</h3>
-          <p class="text-[14.5px] text-[#64748B] leading-[1.7]">Four distinct roles — Team Member, Team Leader, Instructor (read-only), and Admin — each with scoped permissions. Instructors can view contribution analytics without editing project data.</p>
+          <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Role-Based Access & Privacy</h3>
+          <p class="text-[13px] sm:text-[14.5px] text-[#64748B] leading-[1.7]">Four distinct roles — Team Member, Team Leader, Instructor (read-only), and Admin — each with scoped permissions. Instructors can view contribution analytics without editing project data.</p>
         </div>
 
-        <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300">
-          <div class="w-12 h-12 rounded-2xl mb-6 flex items-center justify-center bg-[#D1FAE5]">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#D1FAE5]">
+            <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
-          <h3 class="text-[18px] font-bold text-[#0F172A] mb-3">Fair Contribution Tracking</h3>
-          <p class="text-[14.5px] text-[#64748B] leading-[1.7]">Start/stop timers, manual logs with mandatory descriptions, and immutable timesheets after 24 hours. Contribution analytics show exactly who did what — no disputes, no ambiguity.</p>
+          <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Fair Contribution Tracking</h3>
+          <p class="text-[13px] sm:text-[14.5px] text-[#64748B] leading-[1.7]">Start/stop timers, manual logs with mandatory descriptions, and immutable timesheets after 24 hours. Contribution analytics show exactly who did what — no disputes, no ambiguity.</p>
         </div>
 
-        <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300">
-          <div class="w-12 h-12 rounded-2xl mb-6 flex items-center justify-center bg-[#FEF3C7]">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300 sm:col-span-2 md:col-span-1">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#FEF3C7]">
+            <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
           </div>
-          <h3 class="text-[18px] font-bold text-[#0F172A] mb-3">Transparent AI Assistance</h3>
-          <p class="text-[14.5px] text-[#64748B] leading-[1.7]">AI detects workload imbalances and deadline risks, then surfaces labelled System-Generated Suggestions. Humans always approve before any action is taken — no hidden automation.</p>
+          <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Transparent AI Assistance</h3>
+          <p class="text-[13px] sm:text-[14.5px] text-[#64748B] leading-[1.7]">AI detects workload imbalances and deadline risks, then surfaces labelled System-Generated Suggestions. Humans always approve before any action is taken — no hidden automation.</p>
         </div>
       </div>
     </section>
 
     <!-- ===== HOW IT WORKS ===== -->
     <section id="workflow" class="border-y border-[#E2E8F0]/60 bg-gradient-to-b from-[#F8FAFC] to-white">
-      <div class="max-w-[1200px] mx-auto px-6 py-24">
-        <div class="max-w-[640px] mx-auto text-center mb-16">
-          <span class="inline-block text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-4">How it works</span>
-          <h2 class="font-heading text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-6 tracking-[-0.02em]">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-14 sm:py-24">
+        <div class="max-w-[640px] mx-auto text-center mb-10 sm:mb-16">
+          <span class="inline-block text-[11px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-3 sm:mb-4">How it works</span>
+          <h2 class="font-heading text-[26px] sm:text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]">
             From signup to insights in <span class="text-[#2563EB]">5 steps</span>
           </h2>
-          <p class="text-[#64748B] text-[17px] leading-[1.75]">
+          <p class="text-[#64748B] text-[14px] sm:text-[17px] leading-[1.75]">
             Matching the actual TeamTrack system workflow, from registration to contribution analytics.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-5 gap-6">
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-10 h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[15px] mx-auto mb-4">1</div>
-            <h4 class="text-[15px] font-bold text-[#0F172A] mb-2">Register &amp; Login</h4>
-            <p class="text-[13px] text-[#64748B] leading-[1.6]">Sign up with your university email. Activate your account. Secure session with auto-timeout after 60 min idle.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">1</div>
+            <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Register &amp; Login</h4>
+            <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Sign up with your university email. Activate your account. Secure session with auto-timeout after 60 min idle.</p>
           </div>
 
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-10 h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[15px] mx-auto mb-4">2</div>
-            <h4 class="text-[15px] font-bold text-[#0F172A] mb-2">Create or Join a Workspace</h4>
-            <p class="text-[13px] text-[#64748B] leading-[1.6]">Leaders create projects with a unique join code. Members join and get assigned their role. Instructors get read-only access.</p>
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">2</div>
+            <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Create or Join a Workspace</h4>
+            <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Leaders create projects with a unique join code. Members join and get assigned their role. Instructors get read-only access.</p>
           </div>
 
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-10 h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[15px] mx-auto mb-4">3</div>
-            <h4 class="text-[15px] font-bold text-[#0F172A] mb-2">Plan &amp; Assign Tasks</h4>
-            <p class="text-[13px] text-[#64748B] leading-[1.6]">Kanban or list view. Set priorities, deadlines, dependencies. Flag blocked tasks. Every change is logged in the Activity Log.</p>
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">3</div>
+            <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Plan &amp; Assign Tasks</h4>
+            <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Kanban or list view. Set priorities, deadlines, dependencies. Flag blocked tasks. Every change is logged in the Activity Log.</p>
           </div>
 
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-10 h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[15px] mx-auto mb-4">4</div>
-            <h4 class="text-[15px] font-bold text-[#0F172A] mb-2">Log Time &amp; Collaborate</h4>
-            <p class="text-[13px] text-[#64748B] leading-[1.6]">Start/stop timers on tasks or submit manual logs. Chat within the project. All time entries become immutable after 24 hours.</p>
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">4</div>
+            <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Log Time &amp; Collaborate</h4>
+            <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Start/stop timers on tasks or submit manual logs. Chat within the project. All time entries become immutable after 24 hours.</p>
           </div>
 
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-10 h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[15px] mx-auto mb-4">5</div>
-            <h4 class="text-[15px] font-bold text-[#0F172A] mb-2">Review Analytics &amp; AI Insights</h4>
-            <p class="text-[13px] text-[#64748B] leading-[1.6]">See contribution breakdowns, workload alerts, and deadline risks. AI flags issues before they become problems. All labelled and transparent.</p>
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center col-span-2 sm:col-span-1">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">5</div>
+            <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Review Analytics &amp; AI Insights</h4>
+            <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">See contribution breakdowns, workload alerts, and deadline risks. AI flags issues before they become problems. All labelled and transparent.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== CORE MODULES ===== -->
-    <section id="modules" class="max-w-[1200px] mx-auto px-6 pt-28 pb-24">
-      <div class="max-w-[640px] mx-auto text-center mb-16">
-        <span class="inline-block text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-4">Core modules</span>
-        <h2 class="font-heading text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-6 tracking-[-0.02em]">
+    <section id="modules" class="max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 sm:pt-28 pb-14 sm:pb-24">
+      <div class="max-w-[640px] mx-auto text-center mb-10 sm:mb-16">
+        <span class="inline-block text-[11px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-3 sm:mb-4">Core modules</span>
+        <h2 class="font-heading text-[26px] sm:text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]">
           8 modules. <span class="text-[#2563EB]">One platform.</span>
         </h2>
-        <p class="text-[#64748B] text-[17px] leading-[1.75]">
+        <p class="text-[#64748B] text-[14px] sm:text-[17px] leading-[1.75]">
           Every feature your academic team needs, purpose-built for fair collaboration.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Module 1: Auth -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
+      <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">Secure Authentication &amp; RBAC</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">University email registration with activation links. Password complexity enforcement. Role-Based Access Control with four roles — Member, Leader, Instructor (read-only), and Admin. Sessions auto-expire after 60 minutes of inactivity.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Secure Authentication &amp; RBAC</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">University email registration with activation links. Password complexity enforcement. Role-Based Access Control with four roles — Member, Leader, Instructor (read-only), and Admin. Sessions auto-expire after 60 minutes of inactivity.</p>
             </div>
           </div>
         </div>
 
         <!-- Module 2: Projects -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">Project Workspaces</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">Create workspaces with unique join codes. Leaders manage members, assign roles, and edit project details. Instructors join with read-only access. Finished projects are archived with all data preserved for academic review.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Project Workspaces</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">Create workspaces with unique join codes. Leaders manage members, assign roles, and edit project details. Instructors join with read-only access. Finished projects are archived with all data preserved for academic review.</p>
             </div>
           </div>
         </div>
 
         <!-- Module 3: Tasks -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /></svg>
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">Kanban Task Boards</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">Tasks in Backlog, In Progress, Review, and Done columns. Set priority (Low/Medium/High), deadlines, and dependencies. Flag blocked tasks with reasons. Search tasks by keyword. Dashboard alerts for tasks due within 24 hours.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Kanban Task Boards</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">Tasks in Backlog, In Progress, Review, and Done columns. Set priority (Low/Medium/High), deadlines, and dependencies. Flag blocked tasks with reasons. Search tasks by keyword. Dashboard alerts for tasks due within 24 hours.</p>
             </div>
           </div>
         </div>
 
         <!-- Module 4: Time -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">Time Tracking &amp; Effort Logging</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">Start/stop timers on assigned tasks. Submit manual logs for offline work with required descriptions (min 10 characters). Personal and team timesheets. Logs become immutable after 24 hours to protect analytics integrity. Only one active timer at a time.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Time Tracking &amp; Effort Logging</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">Start/stop timers on assigned tasks. Submit manual logs for offline work with required descriptions (min 10 characters). Personal and team timesheets. Logs become immutable after 24 hours to protect analytics integrity. Only one active timer at a time.</p>
             </div>
           </div>
         </div>
 
         <!-- Module 5: Chat -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></svg>
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">Team Chat &amp; Communication</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">Project-scoped messaging with persistent history. Messages show sender name and timestamp. Content is sanitised for security. Only project members can access the chat. Task-level comments provide context-specific discussion.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Team Chat &amp; Communication</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">Project-scoped messaging with persistent history. Messages show sender name and timestamp. Content is sanitised for security. Only project members can access the chat. Task-level comments provide context-specific discussion.</p>
             </div>
           </div>
         </div>
 
         <!-- Module 6: Analytics -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">Contribution Analytics Dashboard</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">Visual summaries of time spent, task completion, and activity per member. Comparative indicators show each person relative to the team average. Workload imbalance is highlighted automatically. Leaders and instructors can export reports.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Contribution Analytics Dashboard</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">Visual summaries of time spent, task completion, and activity per member. Comparative indicators show each person relative to the team average. Workload imbalance is highlighted automatically. Leaders and instructors can export reports.</p>
             </div>
           </div>
         </div>
 
         <!-- Module 7: AI -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">AI-Driven Project Assistant</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">Natural language queries about deadlines, progress, and activity. Workload Variance Score and Deadline Risk Probability calculated automatically. Smart task assignment suggestions. Inactivity alerts after 72 hours. All suggestions labelled as System-Generated and require human approval.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">AI-Driven Project Assistant</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">Natural language queries about deadlines, progress, and activity. Workload Variance Score and Deadline Risk Probability calculated automatically. Smart task assignment suggestions. Inactivity alerts after 72 hours. All suggestions labelled as System-Generated and require human approval.</p>
             </div>
           </div>
         </div>
 
         <!-- Module 8: Notifications -->
-        <div class="group bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
-          <div class="flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2563EB] group-hover:text-white transition-colors duration-300"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" /></svg>
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+          <div class="flex items-start gap-3 sm:gap-5">
+            <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
+              <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" /></svg>
             </div>
             <div>
-              <h3 class="text-[17px] font-bold text-[#0F172A] mb-2">Smart Notifications &amp; Reminders</h3>
-              <p class="text-[14px] text-[#64748B] leading-[1.7]">Priority-based alerting with escalation for urgent deadline warnings. Actionable vs. passive notifications are separated. Low-priority updates are batched into weekly email digests. Deep linking takes you directly to the relevant task or chat. @mentions bypass Do Not Disturb.</p>
+              <h3 class="text-[14px] sm:text-[17px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Smart Notifications &amp; Reminders</h3>
+              <p class="text-[12px] sm:text-[14px] text-[#64748B] leading-[1.7]">Priority-based alerting with escalation for urgent deadline warnings. Actionable vs. passive notifications are separated. Low-priority updates are batched into weekly email digests. Deep linking takes you directly to the relevant task or chat. @mentions bypass Do Not Disturb.</p>
             </div>
           </div>
         </div>
@@ -964,50 +981,50 @@
 
     <!-- ===== NFR / TRUST SECTION ===== -->
     <section id="trust" class="border-y border-[#E2E8F0]/60 bg-gradient-to-b from-[#F8FAFC] to-white">
-      <div class="max-w-[1200px] mx-auto px-6 py-24">
-        <div class="max-w-[640px] mx-auto text-center mb-14">
-          <span class="inline-block text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-4">Engineered for trust</span>
-          <h2 class="font-heading text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-6 tracking-[-0.02em]">Security. Performance. Usability.</h2>
-          <p class="text-[#64748B] text-[17px] leading-[1.75]">Non-functional requirements that make TeamTrack reliable, fast, and safe for academic use.</p>
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-14 sm:py-24">
+        <div class="max-w-[640px] mx-auto text-center mb-10 sm:mb-14">
+          <span class="inline-block text-[11px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-3 sm:mb-4">Engineered for trust</span>
+          <h2 class="font-heading text-[26px] sm:text-[40px] lg:text-[48px] leading-[1.1] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]">Security. Performance. Usability.</h2>
+          <p class="text-[#64748B] text-[14px] sm:text-[17px] leading-[1.75]">Non-functional requirements that make TeamTrack reliable, fast, and safe for academic use.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)]">
-            <div class="w-12 h-12 rounded-2xl mb-5 flex items-center justify-center bg-[#FEE2E2]">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8">
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)]">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#FEE2E2]">
+              <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
             </div>
-            <h3 class="text-[18px] font-bold text-[#0F172A] mb-3">Security</h3>
-            <ul class="space-y-3 text-[14px] text-[#64748B] leading-[1.6]">
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Encrypted data in transit and at rest</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Role-Based Access Control (4 roles)</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Input sanitisation &amp; session timeouts</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Immutable audit trail for all actions</li>
+            <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Security</h3>
+            <ul class="space-y-2 sm:space-y-3 text-[12px] sm:text-[14px] text-[#64748B] leading-[1.6]">
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Encrypted data in transit and at rest</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Role-Based Access Control (4 roles)</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Input sanitisation &amp; session timeouts</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Immutable audit trail for all actions</li>
             </ul>
           </div>
 
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)]">
-            <div class="w-12 h-12 rounded-2xl mb-5 flex items-center justify-center bg-[#DBEAFE]">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-7l1-8z" /></svg>
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)]">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#DBEAFE]">
+              <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-7l1-8z" /></svg>
             </div>
-            <h3 class="text-[18px] font-bold text-[#0F172A] mb-3">Performance</h3>
-            <ul class="space-y-3 text-[14px] text-[#64748B] leading-[1.6]">
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Page loads under 2 seconds</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> 30+ concurrent users supported</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Chat messages delivered in 1&ndash;2 seconds</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Analytics dashboard loads within 3 seconds</li>
+            <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Performance</h3>
+            <ul class="space-y-2 sm:space-y-3 text-[12px] sm:text-[14px] text-[#64748B] leading-[1.6]">
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Page loads under 2 seconds</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> 30+ concurrent users supported</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Chat messages delivered in 1&ndash;2 seconds</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Analytics dashboard loads within 3 seconds</li>
             </ul>
           </div>
 
-          <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)]">
-            <div class="w-12 h-12 rounded-2xl mb-5 flex items-center justify-center bg-[#D1FAE5]">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M9 12l2 2 4-4" /></svg>
+          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] sm:col-span-2 md:col-span-1">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#D1FAE5]">
+              <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M9 12l2 2 4-4" /></svg>
             </div>
-            <h3 class="text-[18px] font-bold text-[#0F172A] mb-3">Usability</h3>
-            <ul class="space-y-3 text-[14px] text-[#64748B] leading-[1.6]">
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Consistent design across all pages</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Task creation in under 1 minute</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Clear feedback for every user action</li>
-              <li class="flex items-start gap-2.5"><span class="text-[#10B981] text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> WCAG basic accessibility compliance</li>
+            <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Usability</h3>
+            <ul class="space-y-2 sm:space-y-3 text-[12px] sm:text-[14px] text-[#64748B] leading-[1.6]">
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Consistent design across all pages</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Task creation in under 1 minute</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> Clear feedback for every user action</li>
+              <li class="flex items-start gap-2 sm:gap-2.5"><span class="text-[#10B981] text-[14px] sm:text-[16px] leading-[1.4] mt-[1px]">&#10003;</span> WCAG basic accessibility compliance</li>
             </ul>
           </div>
         </div>
@@ -1015,80 +1032,80 @@
     </section>
 
     <!-- ===== ACTIVITY LOG / AUDIT TRAIL SECTION ===== -->
-    <section class="max-w-[1200px] mx-auto px-6 pt-24 pb-16">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+    <section class="max-w-[1200px] mx-auto px-4 sm:px-6 pt-14 sm:pt-24 pb-10 sm:pb-16">
+      <div class="grid sm:grid-cols-2 gap-8 sm:gap-16 items-center">
         <div>
-          <span class="inline-block text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-4">Full traceability</span>
-          <h2 class="font-heading text-[36px] leading-[1.15] text-[#0F172A] mb-6 tracking-[-0.02em]">Every action.<br /><span class="text-[#2563EB]">Logged. Immutable. Auditable.</span></h2>
-          <p class="text-[#64748B] text-[16px] leading-[1.75] mb-8">
+          <span class="inline-block text-[11px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight uppercase mb-3 sm:mb-4">Full traceability</span>
+          <h2 class="font-heading text-[22px] sm:text-[36px] leading-[1.15] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]">Every action.<br /><span class="text-[#2563EB]">Logged. Immutable. Auditable.</span></h2>
+          <p class="text-[#64748B] text-[13px] sm:text-[16px] leading-[1.75] mb-6 sm:mb-8">
             The Activity Log records every CRUD operation with Before/After states, actor identity, and timestamps. No one — not even Admins — can modify or delete audit entries. Instructors can export the complete trail as a timestamped PDF or CSV for grading.
           </p>
-          <div class="space-y-4">
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-[#D1FAE5] flex items-center justify-center shrink-0 mt-0.5">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
+          <div class="space-y-3 sm:space-y-4">
+            <div class="flex items-start gap-2.5 sm:gap-3">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#D1FAE5] flex items-center justify-center shrink-0 mt-0.5">
+                <svg width="10" height="10" class="sm:w-[12px] sm:h-[12px]" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
               </div>
               <div>
-                <p class="text-[14px] font-semibold text-[#0F172A]">Version control on text fields</p>
-                <p class="text-[13px] text-[#64748B]">See older versions of task descriptions to retrieve overwritten information.</p>
+                <p class="text-[13px] sm:text-[14px] font-semibold text-[#0F172A]">Version control on text fields</p>
+                <p class="text-[12px] sm:text-[13px] text-[#64748B]">See older versions of task descriptions to retrieve overwritten information.</p>
               </div>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-[#D1FAE5] flex items-center justify-center shrink-0 mt-0.5">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
+            <div class="flex items-start gap-2.5 sm:gap-3">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#D1FAE5] flex items-center justify-center shrink-0 mt-0.5">
+                <svg width="10" height="10" class="sm:w-[12px] sm:h-[12px]" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
               </div>
               <div>
-                <p class="text-[14px] font-semibold text-[#0F172A]">Post-completion edit flagging</p>
-                <p class="text-[13px] text-[#64748B]">Edits to tasks after completion are flagged — Team Leaders are warned of potential revision.</p>
+                <p class="text-[13px] sm:text-[14px] font-semibold text-[#0F172A]">Post-completion edit flagging</p>
+                <p class="text-[12px] sm:text-[13px] text-[#64748B]">Edits to tasks after completion are flagged — Team Leaders are warned of potential revision.</p>
               </div>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-[#D1FAE5] flex items-center justify-center shrink-0 mt-0.5">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
+            <div class="flex items-start gap-2.5 sm:gap-3">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#D1FAE5] flex items-center justify-center shrink-0 mt-0.5">
+                <svg width="10" height="10" class="sm:w-[12px] sm:h-[12px]" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
               </div>
               <div>
-                <p class="text-[14px] font-semibold text-[#0F172A]">Data retention for at least one academic year</p>
-                <p class="text-[13px] text-[#64748B]">Activity logs are retained for the full academic cycle and available for grade audits.</p>
+                <p class="text-[13px] sm:text-[14px] font-semibold text-[#0F172A]">Data retention for at least one academic year</p>
+                <p class="text-[12px] sm:text-[13px] text-[#64748B]">Activity logs are retained for the full academic cycle and available for grade audits.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Audit log visual mockup -->
-        <div class="bg-white rounded-[24px] border border-[#E2E8F0]/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] overflow-hidden">
-          <div class="px-6 py-4 border-b border-[#F1F5F9] flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-[#EBF0FF] flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" /><rect x="9" y="3" width="6" height="4" rx="2" /></svg>
+        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] overflow-hidden">
+          <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-[#F1F5F9] flex items-center gap-2 sm:gap-3">
+            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#EBF0FF] flex items-center justify-center">
+              <svg width="14" height="14" class="sm:w-[16px] sm:h-[16px]" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" /><rect x="9" y="3" width="6" height="4" rx="2" /></svg>
             </div>
-            <span class="text-[14px] font-bold text-[#0F172A]">Activity Log &amp; Audit Trail</span>
+            <span class="text-[12px] sm:text-[14px] font-bold text-[#0F172A]">Activity Log &amp; Audit Trail</span>
           </div>
-          <div class="p-5 space-y-3">
-            <div class="flex items-start gap-3 py-3 border-b border-[#F1F5F9]">
-              <div class="w-7 h-7 rounded-full bg-green-100 flex items-center justify-center shrink-0 text-[10px] font-bold text-green-600 mt-0.5">+</div>
+          <div class="p-3 sm:p-5 space-y-2 sm:space-y-3">
+            <div class="flex items-start gap-2 sm:gap-3 py-2 sm:py-3 border-b border-[#F1F5F9]">
+              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-green-100 flex items-center justify-center shrink-0 text-[9px] sm:text-[10px] font-bold text-green-600 mt-0.5">+</div>
               <div>
-                <p class="text-[13px] font-semibold text-[#0F172A]">Task created: "Design ER diagram"</p>
-                <p class="text-[11px] text-[#94A3B8]">by Maria &middot; Mar 10, 2026 09:14 AM &middot; IP logged</p>
+                <p class="text-[12px] sm:text-[13px] font-semibold text-[#0F172A]">Task created: "Design ER diagram"</p>
+                <p class="text-[10px] sm:text-[11px] text-[#94A3B8]">by Maria &middot; Mar 10, 2026 09:14 AM &middot; IP logged</p>
               </div>
             </div>
-            <div class="flex items-start gap-3 py-3 border-b border-[#F1F5F9]">
-              <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center shrink-0 text-[10px] font-bold text-blue-600 mt-0.5">&#9998;</div>
+            <div class="flex items-start gap-2 sm:gap-3 py-2 sm:py-3 border-b border-[#F1F5F9]">
+              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-blue-100 flex items-center justify-center shrink-0 text-[9px] sm:text-[10px] font-bold text-blue-600 mt-0.5">&#9998;</div>
               <div>
-                <p class="text-[13px] font-semibold text-[#0F172A]">Status changed: In Progress &rarr; Review</p>
-                <p class="text-[11px] text-[#94A3B8]">by Siraj &middot; Mar 11, 2026 02:30 PM &middot; Before/After recorded</p>
+                <p class="text-[12px] sm:text-[13px] font-semibold text-[#0F172A]">Status changed: In Progress &rarr; Review</p>
+                <p class="text-[10px] sm:text-[11px] text-[#94A3B8]">by Siraj &middot; Mar 11, 2026 02:30 PM &middot; Before/After recorded</p>
               </div>
             </div>
-            <div class="flex items-start gap-3 py-3 border-b border-[#F1F5F9]">
-              <div class="w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center shrink-0 text-[10px] font-bold text-amber-600 mt-0.5">&#9888;</div>
+            <div class="flex items-start gap-2 sm:gap-3 py-2 sm:py-3 border-b border-[#F1F5F9]">
+              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-amber-100 flex items-center justify-center shrink-0 text-[9px] sm:text-[10px] font-bold text-amber-600 mt-0.5">&#9888;</div>
               <div>
-                <p class="text-[13px] font-semibold text-[#0F172A]">Post-completion edit flagged: task "Auth setup"</p>
-                <p class="text-[11px] text-[#94A3B8]">by Omar &middot; Mar 12, 2026 11:58 AM &middot; Leader notified</p>
+                <p class="text-[12px] sm:text-[13px] font-semibold text-[#0F172A]">Post-completion edit flagged: task "Auth setup"</p>
+                <p class="text-[10px] sm:text-[11px] text-[#94A3B8]">by Omar &middot; Mar 12, 2026 11:58 AM &middot; Leader notified</p>
               </div>
             </div>
-            <div class="flex items-start gap-3 py-3">
-              <div class="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center shrink-0 text-[10px] font-bold text-purple-600 mt-0.5">&#8635;</div>
+            <div class="flex items-start gap-2 sm:gap-3 py-2 sm:py-3">
+              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-purple-100 flex items-center justify-center shrink-0 text-[9px] sm:text-[10px] font-bold text-purple-600 mt-0.5">&#8635;</div>
               <div>
-                <p class="text-[13px] font-semibold text-[#0F172A]">Role changed: Member &rarr; Leader</p>
-                <p class="text-[11px] text-[#94A3B8]">by Siraj &middot; Mar 8, 2026 04:10 PM &middot; Role-change logged</p>
+                <p class="text-[12px] sm:text-[13px] font-semibold text-[#0F172A]">Role changed: Member &rarr; Leader</p>
+                <p class="text-[10px] sm:text-[11px] text-[#94A3B8]">by Siraj &middot; Mar 8, 2026 04:10 PM &middot; Role-change logged</p>
               </div>
             </div>
           </div>
@@ -1097,18 +1114,18 @@
     </section>
 
     <!-- ===== FINAL CTA ===== -->
-    <section class="max-w-[1200px] mx-auto px-6 pb-28">
-      <div class="bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-[28px] px-8 py-16 text-white text-center">
-        <h2 class="font-heading text-[32px] lg:text-[42px] leading-[1.1] mb-4">Ready to make every contribution count?</h2>
-        <p class="text-blue-100 text-[17px] leading-[1.7] mb-8 max-w-[540px] mx-auto">
+    <section class="max-w-[1200px] mx-auto px-4 sm:px-6 pb-16 sm:pb-28">
+      <div class="bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl sm:rounded-[28px] px-5 sm:px-8 py-10 sm:py-16 text-white text-center">
+        <h2 class="font-heading text-[22px] sm:text-[32px] lg:text-[42px] leading-[1.1] mb-3 sm:mb-4">Ready to make every contribution count?</h2>
+        <p class="text-blue-100 text-[13px] sm:text-[17px] leading-[1.7] mb-6 sm:mb-8 max-w-[540px] mx-auto">
           From task boards and time tracking to AI-powered insights and contribution analytics — TeamTrack keeps academic teams fair, transparent, and on schedule.
         </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <NuxtLink to="/signup" class="inline-flex items-center bg-white text-[#2563EB] text-[16px] font-bold px-10 py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <NuxtLink to="/signup" class="inline-flex items-center bg-white text-[#2563EB] text-[14px] sm:text-[16px] font-bold px-7 sm:px-10 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0">
             Create Your Free Team
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </NuxtLink>
-          <span class="text-blue-200 text-[13px]">4 roles &middot; 8 modules &middot; Fair by design.</span>
+          <span class="text-blue-200 text-[11px] sm:text-[13px]">4 roles &middot; 8 modules &middot; Fair by design.</span>
         </div>
       </div>
     </section>
@@ -1117,7 +1134,7 @@
 </template>
 
 <script setup>
-import { computed, onUnmounted, ref } from 'vue'
+import { ref } from 'vue'
 
 const activePreviewTab = ref('dashboard')
 
@@ -1167,10 +1184,10 @@ const previewColumns = [
 ]
 
 const previewTeamMembers = [
-  { name: 'Siraj', initial: 'S', color: '#2563EB', role: 'Leader', roleBadge: 'bg-[#EBF0FF] text-[#2563EB]', email: 'siraj@uni.edu', tasksAssigned: 12, tasksCompleted: 8, contribution: 85 },
-  { name: 'Maria', initial: 'M', color: '#34D399', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', email: 'maria@uni.edu', tasksAssigned: 10, tasksCompleted: 7, contribution: 72 },
-  { name: 'Omar', initial: 'O', color: '#F87171', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', email: 'omar@uni.edu', tasksAssigned: 9, tasksCompleted: 5, contribution: 58 },
-  { name: 'Zernish', initial: 'Z', color: '#FBBF24', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', email: 'zernish@uni.edu', tasksAssigned: 8, tasksCompleted: 4, contribution: 45 }
+  { name: 'Member 1', initial: 'M1', color: '#2563EB', role: 'Leader', roleBadge: 'bg-[#EBF0FF] text-[#2563EB]', tasksAssigned: 12, tasksCompleted: 8, contribution: 85 },
+  { name: 'Member 2', initial: 'M2', color: '#34D399', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', tasksAssigned: 10, tasksCompleted: 7, contribution: 72 },
+  { name: 'Member 3', initial: 'M3', color: '#F87171', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', tasksAssigned: 9, tasksCompleted: 5, contribution: 58 },
+  { name: 'Member 4', initial: 'M4', color: '#FBBF24', role: 'Member', roleBadge: 'bg-[#DCFCE7] text-[#10B981]', tasksAssigned: 8, tasksCompleted: 4, contribution: 45 }
 ]
 
 const previewThreads = [
@@ -1179,42 +1196,4 @@ const previewThreads = [
   { id: 3, name: 'AI Assistant', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>', iconBg: 'bg-[#DCFCE7]', time: 'Yesterday', active: false },
   { id: 4, name: 'Analytics', icon: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', iconBg: 'bg-[#FEF3C7]', time: 'Monday', active: false }
 ]
-
-const previewTimerRunning = ref(false)
-const previewTimerSeconds = ref(5047)
-
-let previewTimerInterval = null
-
-const previewTimer = computed(() => {
-  const hours = Math.floor(previewTimerSeconds.value / 3600)
-  const minutes = Math.floor((previewTimerSeconds.value % 3600) / 60)
-  const seconds = previewTimerSeconds.value % 60
-  return [hours, minutes, seconds].map(v => String(v).padStart(2, '0')).join(':')
-})
-
-const startPreviewTimer = () => {
-  if (previewTimerInterval) clearInterval(previewTimerInterval)
-  previewTimerInterval = setInterval(() => {
-    previewTimerSeconds.value += 1
-  }, 1000)
-}
-
-const stopPreviewTimer = () => {
-  if (previewTimerInterval) {
-    clearInterval(previewTimerInterval)
-    previewTimerInterval = null
-  }
-}
-
-watch(previewTimerRunning, (running) => {
-  if (running) {
-    startPreviewTimer()
-  } else {
-    stopPreviewTimer()
-  }
-})
-
-onUnmounted(() => {
-  stopPreviewTimer()
-})
 </script>

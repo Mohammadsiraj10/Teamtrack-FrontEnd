@@ -35,10 +35,10 @@
       <div class="p-4 border-t border-[#F1F5F9]">
         <div class="bg-[#F8FAFC] rounded-2xl p-4 mb-4">
           <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white font-bold">S</div>
+            <div class="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white font-bold">{{ currentUser.initial }}</div>
             <div>
-              <h3 class="font-semibold text-[14px] text-[#0F172A]">Siraj</h3>
-              <p class="text-[12px] text-[#94A3B8]">Team Leader</p>
+              <h3 class="font-semibold text-[14px] text-[#0F172A]">{{ currentUser.name }}</h3>
+              <p class="text-[12px] text-[#94A3B8]">{{ currentUser.role }}</p>
             </div>
           </div>
         </div>
@@ -47,17 +47,17 @@
     </aside>
 
     <!-- MAIN -->
-    <main class="flex-1 overflow-y-auto">
+    <main class="flex-1 overflow-y-auto pb-20 lg:pb-0">
 
       <!-- Topbar -->
-      <header class="bg-white border-b border-[#E2E8F0] px-8 py-5 flex items-center justify-between flex-wrap gap-4">
+      <header class="bg-white border-b border-[#E2E8F0] px-4 md:px-8 py-4 md:py-5 flex items-center justify-between flex-wrap gap-3 md:gap-4">
         <div>
-          <h2 class="text-[28px] font-bold text-[#0F172A]">Tasks</h2>
-          <p class="text-[14px] text-[#94A3B8] mt-1">Task management — Kanban board, list view, dependencies, and activity tracking.</p>
+          <h2 class="text-[22px] md:text-[28px] font-bold text-[#0F172A]">Tasks</h2>
+          <p class="text-[12px] md:text-[14px] text-[#94A3B8] mt-1">Task management — Kanban board, list view, dependencies, and activity tracking.</p>
         </div>
-        <div class="flex items-center gap-3 flex-wrap">
+        <div class="flex items-center gap-2 md:gap-3 flex-wrap">
           <div class="relative">
-            <input v-model="searchQuery" type="text" placeholder="Search tasks..." class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-[14px] text-[#0F172A] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#2563EB] w-[220px]" />
+            <input v-model="searchQuery" type="text" placeholder="Search tasks..." class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 md:px-4 py-2 md:py-2.5 text-[13px] md:text-[14px] text-[#0F172A] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#2563EB] w-[160px] md:w-[220px]" />
             <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94A3B8]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" /></svg>
           </div>
           <select v-model="filterAssignee" class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-[14px] focus:outline-none focus:border-[#2563EB]">
@@ -78,16 +78,16 @@
         </div>
       </header>
 
-      <div class="p-8">
+      <div class="p-4 md:p-8">
 
         <!-- Deadline warning banner (FR-42) -->
-        <div v-if="deadlineWarningTasks.length > 0" class="bg-[#FEF3C7] border border-[#F59E0B]/30 rounded-2xl p-4 mb-6 flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-[#F59E0B]/20 flex items-center justify-center shrink-0">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <div v-if="deadlineWarningTasks.length > 0" class="bg-[#FEF3C7] border border-[#F59E0B]/30 rounded-2xl p-3 md:p-4 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#F59E0B]/20 flex items-center justify-center shrink-0">
+            <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <div>
-            <p class="text-[14px] font-semibold text-[#92400E]">{{ deadlineWarningTasks.length }} task{{ deadlineWarningTasks.length > 1 ? 's' : '' }} with deadline &lt; 24h</p>
-            <p class="text-[12px] text-[#78350F]/70">These tasks have not been completed yet. Take action to keep your project on track. (FR-42)</p>
+            <p class="text-[13px] md:text-[14px] font-semibold text-[#92400E]">{{ deadlineWarningTasks.length }} task{{ deadlineWarningTasks.length > 1 ? 's' : '' }} with deadline &lt; 24h</p>
+            <p class="text-[11px] md:text-[12px] text-[#78350F]/70">These tasks have not been completed yet. Take action to keep your project on track. (FR-42)</p>
           </div>
         </div>
 
@@ -103,43 +103,43 @@
         </div>
 
         <!-- STATS CARDS -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
-          <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
+        <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
+          <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
               <span class="text-[12px] text-[#64748B] font-semibold">Total</span>
             </div>
-            <p class="text-[14px] text-[#94A3B8] mb-1">Total Tasks</p>
-            <h3 class="text-[32px] font-bold text-[#0F172A]">{{ tasks.length }}</h3>
+            <p class="text-[12px] md:text-[14px] text-[#94A3B8] mb-1">Total Tasks</p>
+            <h3 class="text-[24px] md:text-[32px] font-bold text-[#0F172A]">{{ tasks.length }}</h3>
           </div>
-          <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-[#E2E8F0]/70 shadow-sm">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-[#DCFCE7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
               <span class="text-[12px] text-[#10B981] font-semibold">Done</span>
             </div>
-            <p class="text-[14px] text-[#94A3B8] mb-1">Completed</p>
-            <h3 class="text-[32px] font-bold text-[#0F172A]">{{ tasks.filter(t => t.status === 'done').length }}</h3>
+            <p class="text-[12px] md:text-[14px] text-[#94A3B8] mb-1">Completed</p>
+            <h3 class="text-[24px] md:text-[32px] font-bold text-[#0F172A]">{{ tasks.filter(t => t.status === 'done').length }}</h3>
           </div>
-          <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#FEF3C7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-[#E2E8F0]/70 shadow-sm">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-[#FEF3C7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
               <span class="text-[12px] text-[#F59E0B] font-semibold">Blocked</span>
             </div>
-            <p class="text-[14px] text-[#94A3B8] mb-1">Blocked Tasks</p>
-            <h3 class="text-[32px] font-bold text-[#0F172A]">{{ tasks.filter(t => t.isBlocked).length }}</h3>
+            <p class="text-[12px] md:text-[14px] text-[#94A3B8] mb-1">Blocked Tasks</p>
+            <h3 class="text-[24px] md:text-[32px] font-bold text-[#0F172A]">{{ tasks.filter(t => t.isBlocked).length }}</h3>
           </div>
-          <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#F3E8FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-[#E2E8F0]/70 shadow-sm">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-[#F3E8FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
               <span class="text-[12px] text-[#F87171] font-semibold">Warn</span>
             </div>
-            <p class="text-[14px] text-[#94A3B8] mb-1">Deadline Warnings</p>
-            <h3 class="text-[32px] font-bold text-[#0F172A]">{{ deadlineWarningTasks.length }}</h3>
+            <p class="text-[12px] md:text-[14px] text-[#94A3B8] mb-1">Deadline Warnings</p>
+            <h3 class="text-[24px] md:text-[32px] font-bold text-[#0F172A]">{{ deadlineWarningTasks.length }}</h3>
           </div>
         </div>
 
         <!-- KANBAN VIEW -->
-        <div v-if="viewMode === 'kanban'" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div v-if="viewMode === 'kanban'" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
           <div v-for="column in columns" :key="column.id">
             <div class="flex items-center justify-between mb-4">
               <div class="flex items-center gap-2">
@@ -522,16 +522,44 @@
       </div>
     </div>
 
+    <!-- MOBILE BOTTOM TAB BAR -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#E2E8F0] z-50 px-2 pb-[env(safe-area-inset-bottom)]">
+      <div class="flex items-center justify-around">
+        <NuxtLink to="/dashboard" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="text-[10px] font-semibold">Dashboard</span>
+        </NuxtLink>
+        <NuxtLink to="/projects" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-semibold">Projects</span>
+        </NuxtLink>
+        <NuxtLink to="/tasks" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#2563EB]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <span class="text-[10px] font-bold">Tasks</span>
+        </NuxtLink>
+        <NuxtLink to="/team" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="text-[10px] font-semibold">Team</span>
+        </NuxtLink>
+        <NuxtLink to="/chat" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-semibold">Chat</span>
+        </NuxtLink>
+      </div>
+    </nav>
+
   </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserRole } from '~/composables/useUserRole'
 
 definePageMeta({ layout: false })
 
 const router = useRouter()
+const { currentUser, isLeader } = useUserRole()
 const showCreateTask = ref(false)
 const selectedTask = ref(null)
 const viewMode = ref('kanban')
@@ -543,10 +571,6 @@ const showReassign = ref(false)
 const newComment = ref('')
 
 const STALLING_HOURS = 48
-
-const isLeader = true
-
-const currentUser = { name: 'Siraj', role: 'Leader' }
 
 const teamMembers = [
   { name: 'Siraj', initial: 'S', color: '#2563EB', role: 'Leader' },

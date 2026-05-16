@@ -35,10 +35,10 @@
       <div class="p-4 border-t border-[#F1F5F9]">
         <div class="bg-[#F8FAFC] rounded-2xl p-4 mb-4">
           <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white font-bold">S</div>
+            <div class="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white font-bold">{{ currentUser.initial }}</div>
             <div>
-              <h3 class="font-semibold text-[14px] text-[#0F172A]">Siraj</h3>
-              <p class="text-[12px] text-[#94A3B8]">Team Leader</p>
+              <h3 class="font-semibold text-[14px] text-[#0F172A]">{{ currentUser.name }}</h3>
+              <p class="text-[12px] text-[#94A3B8]">{{ currentUser.role }}</p>
             </div>
           </div>
         </div>
@@ -47,58 +47,59 @@
     </aside>
 
     <!-- MAIN -->
-    <main class="flex-1 overflow-y-auto">
+    <main class="flex-1 overflow-y-auto pb-20 lg:pb-0">
 
       <!-- Topbar -->
-      <header class="bg-white border-b border-[#E2E8F0] px-8 py-5 flex items-center justify-between">
+      <header class="bg-white border-b border-[#E2E8F0] px-4 md:px-8 py-4 md:py-5 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 class="text-[28px] font-bold text-[#0F172A]">Team</h2>
-          <p class="text-[14px] text-[#94A3B8] mt-1">Manage members, roles, and invitations for your project workspace.</p>
+          <h2 class="text-[22px] md:text-[28px] font-bold text-[#0F172A]">Team</h2>
+          <p class="text-[12px] md:text-[14px] text-[#94A3B8] mt-1">Manage members, roles, and invitations for your project workspace.</p>
         </div>
-        <div class="flex items-center gap-3">
-          <button @click="showJoinCode = true" class="bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#2563EB] text-[14px] font-semibold px-5 py-3 rounded-xl transition">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Join Code
+        <div class="flex items-center gap-2 md:gap-3 flex-wrap">
+          <button v-if="isLeader" @click="showJoinCode = true" class="bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#2563EB] text-[12px] md:text-[14px] font-semibold px-3 md:px-5 py-2 md:py-3 rounded-xl transition">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Join Code
           </button>
-          <button @click="showInviteMember = true" class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[14px] font-semibold px-5 py-3 rounded-xl transition shadow-sm hover:shadow-lg">
+          <span v-if="!isLeader" class="text-[11px] md:text-[13px] text-[#94A3B8] italic">Invite and role management available to Leaders only</span>
+          <button v-if="isLeader" @click="showInviteMember = true" class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[12px] md:text-[14px] font-semibold px-3 md:px-5 py-2 md:py-3 rounded-xl transition shadow-sm hover:shadow-lg">
             + Invite Member
           </button>
         </div>
       </header>
 
-      <div class="p-8">
+      <div class="p-4 md:p-8">
 
         <!-- STATS CARDS -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
           <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 rounded-2xl bg-[#EBF0FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
               <span class="text-[12px] text-[#10B981] font-semibold">Active</span>
             </div>
-            <p class="text-[14px] text-[#94A3B8] mb-1">Total Members</p>
-            <h3 class="text-[32px] font-bold text-[#0F172A]">{{ members.length }}</h3>
+            <p class="text-[12px] md:text-[14px] text-[#94A3B8] mb-1">Total Members</p>
+            <h3 class="text-[24px] md:text-[32px] font-bold text-[#0F172A]">{{ members.length }}</h3>
           </div>
 
-          <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#DCFCE7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-[#E2E8F0]/70 shadow-sm">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-[#DCFCE7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
               <span class="text-[12px] text-[#2563EB] font-semibold">Leaders</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Leaders</p>
             <h3 class="text-[32px] font-bold text-[#0F172A]">{{ members.filter(m => m.role === 'Leader').length }}</h3>
           </div>
 
-          <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#FEF3C7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-[#E2E8F0]/70 shadow-sm">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-[#FEF3C7] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
               <span class="text-[12px] text-[#F59E0B] font-semibold">Pending</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Pending Invites</p>
             <h3 class="text-[32px] font-bold text-[#0F172A]">{{ pendingInvites.length }}</h3>
           </div>
 
-          <div class="bg-white rounded-3xl p-6 border border-[#E2E8F0]/70 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-[#F3E8FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+          <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-[#E2E8F0]/70 shadow-sm">
+            <div class="flex items-center justify-between mb-3 md:mb-4">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-[#F3E8FF] flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
               <span class="text-[12px] text-[#9333EA] font-semibold">Log</span>
             </div>
             <p class="text-[14px] text-[#94A3B8] mb-1">Role Changes</p>
@@ -107,15 +108,15 @@
         </div>
 
         <!-- SEARCH & FILTER -->
-        <div class="bg-white border border-[#E2E8F0]/70 rounded-3xl p-5 mb-8 shadow-sm">
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div class="bg-white border border-[#E2E8F0]/70 rounded-2xl md:rounded-3xl p-4 md:p-5 mb-6 md:mb-8 shadow-sm">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 md:gap-4">
             <div>
-              <h3 class="text-[18px] font-bold text-[#0F172A]">Team Members</h3>
-              <p class="text-[13px] text-[#94A3B8] mt-1">Membership list with names, emails, and roles (FR 3.3.3.5)</p>
+              <h3 class="text-[16px] md:text-[18px] font-bold text-[#0F172A]">Team Members</h3>
+              <p class="text-[12px] md:text-[13px] text-[#94A3B8] mt-1">Membership list with names, emails, and roles (FR 3.3.3.5)</p>
             </div>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <input v-model="searchQuery" type="text" placeholder="Search members..." class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#2563EB] w-[220px]" />
-              <select v-model="filterRole" class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#2563EB]">
+            <div class="flex flex-col sm:flex-row gap-2 md:gap-3">
+              <input v-model="searchQuery" type="text" placeholder="Search members..." class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-[13px] md:text-[14px] focus:outline-none focus:border-[#2563EB] w-full sm:w-[220px]" />
+              <select v-model="filterRole" class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-[13px] md:text-[14px] focus:outline-none focus:border-[#2563EB]">
                 <option value="All">All Roles</option>
                 <option value="Leader">Leader</option>
                 <option value="Member">Member</option>
@@ -127,40 +128,50 @@
         </div>
 
         <!-- MEMBERS GRID -->
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
-          <div v-for="member in filteredMembers" :key="member.id" class="bg-white border border-[#E2E8F0]/70 rounded-3xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
-            <div class="flex items-start justify-between mb-4">
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-[20px]" :style="{ backgroundColor: member.color }">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+          <div v-for="member in filteredMembers" :key="member.id" class="bg-white border border-[#E2E8F0]/70 rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="flex items-start justify-between mb-3 md:mb-4">
+              <div class="flex items-center gap-3 md:gap-4">
+                <div class="w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center text-white font-bold text-[16px] md:text-[20px]" :style="{ backgroundColor: member.color }">
                   {{ member.initial }}
                 </div>
                 <div>
-                  <h3 class="text-[18px] font-bold text-[#0F172A]">{{ member.name }}</h3>
-                  <p class="text-[13px] text-[#94A3B8]">{{ member.email }}</p>
+                  <h3 class="text-[15px] md:text-[18px] font-bold text-[#0F172A]">{{ member.name }}</h3>
+                  <p class="text-[12px] md:text-[13px] text-[#94A3B8]">{{ member.email }}</p>
                 </div>
               </div>
-              <span :class="roleBadgeClass(member.role)" class="text-[12px] font-bold px-3 py-1 rounded-full">
+              <span v-if="!isLeader" :class="roleBadgeClass(member.role)" class="text-[12px] font-bold px-3 py-1 rounded-full">
                 {{ member.role }}
               </span>
+              <div v-else class="relative">
+                <button @click="openRoleMenu(member.id)" class="text-[12px] font-bold px-3 py-1 rounded-full cursor-pointer hover:opacity-80 transition flex items-center gap-1" :class="roleBadgeClass(member.role)">
+                  {{ member.role }}
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div v-if="roleMenuOpen === member.id && member.id !== currentUser.id" class="absolute top-full left-0 mt-1 bg-white border border-[#E2E8F0] rounded-xl shadow-lg z-50 min-w-[140px]">
+                  <button v-if="member.role !== 'Member'" @click="changeRole(member, 'Member'); roleMenuOpen = null" class="w-full text-left px-3 py-2 text-[12px] hover:bg-[#F1F5F9] rounded-t-xl transition">Member</button>
+                  <button v-if="member.role !== 'Leader'" @click="changeRole(member, 'Leader'); roleMenuOpen = null" class="w-full text-left px-3 py-2 text-[12px] hover:bg-[#F1F5F9] rounded-b-xl transition">Leader</button>
+                </div>
+              </div>
             </div>
 
             <!-- Member Details -->
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="bg-[#F8FAFC] rounded-2xl p-4">
-                <p class="text-[12px] text-[#94A3B8] mb-1">Tasks Assigned</p>
-                <p class="text-[14px] font-bold text-[#0F172A]">{{ member.tasksAssigned }}</p>
+            <div class="grid grid-cols-2 gap-2 md:gap-4 mb-3 md:mb-4">
+              <div class="bg-[#F8FAFC] rounded-xl md:rounded-2xl p-2 md:p-4">
+                <p class="text-[11px] md:text-[12px] text-[#94A3B8] mb-1">Tasks Assigned</p>
+                <p class="text-[13px] md:text-[14px] font-bold text-[#0F172A]">{{ member.tasksAssigned }}</p>
               </div>
-              <div class="bg-[#F8FAFC] rounded-2xl p-4">
-                <p class="text-[12px] text-[#94A3B8] mb-1">Tasks Completed</p>
-                <p class="text-[14px] font-bold text-[#0F172A]">{{ member.tasksCompleted }}</p>
+              <div class="bg-[#F8FAFC] rounded-xl md:rounded-2xl p-2 md:p-4">
+                <p class="text-[11px] md:text-[12px] text-[#94A3B8] mb-1">Tasks Completed</p>
+                <p class="text-[13px] md:text-[14px] font-bold text-[#0F172A]">{{ member.tasksCompleted }}</p>
               </div>
-              <div class="bg-[#F8FAFC] rounded-2xl p-4">
-                <p class="text-[12px] text-[#94A3B8] mb-1">Time Logged</p>
-                <p class="text-[14px] font-bold text-[#0F172A]">{{ member.timeLogged }}</p>
+              <div class="bg-[#F8FAFC] rounded-xl md:rounded-2xl p-2 md:p-4">
+                <p class="text-[11px] md:text-[12px] text-[#94A3B8] mb-1">Time Logged</p>
+                <p class="text-[13px] md:text-[14px] font-bold text-[#0F172A]">{{ member.timeLogged }}</p>
               </div>
-              <div class="bg-[#F8FAFC] rounded-2xl p-4">
-                <p class="text-[12px] text-[#94A3B8] mb-1">Joined</p>
-                <p class="text-[14px] font-bold text-[#0F172A]">{{ member.joinedDate }}</p>
+              <div class="bg-[#F8FAFC] rounded-xl md:rounded-2xl p-2 md:p-4">
+                <p class="text-[11px] md:text-[12px] text-[#94A3B8] mb-1">Joined</p>
+                <p class="text-[13px] md:text-[14px] font-bold text-[#0F172A]">{{ member.joinedDate }}</p>
               </div>
             </div>
 
@@ -232,9 +243,9 @@
         </div>
 
         <!-- ROLE CHANGE LOG (FR 3.2.3.11) -->
-        <div class="mb-8">
-          <h3 class="text-[18px] font-bold text-[#0F172A] mb-4">Role Change History Log <span class="text-[12px] font-normal text-[#94A3B8]">(FR 3.2.3.11)</span></h3>
-          <div class="bg-white border border-[#E2E8F0]/70 rounded-3xl overflow-hidden">
+        <div class="mb-6 md:mb-8">
+          <h3 class="text-[16px] md:text-[18px] font-bold text-[#0F172A] mb-3 md:mb-4">Role Change History Log <span class="text-[11px] md:text-[12px] font-normal text-[#94A3B8]">(FR 3.2.3.11)</span></h3>
+          <div class="bg-white border border-[#E2E8F0]/70 rounded-2xl md:rounded-3xl overflow-hidden overflow-x-auto">
             <table class="w-full">
               <thead>
                 <tr class="border-b border-[#E2E8F0] bg-[#F8FAFC]">
@@ -396,16 +407,44 @@
       </div>
     </div>
 
+    <!-- MOBILE BOTTOM TAB BAR -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#E2E8F0] z-50 px-2 pb-[env(safe-area-inset-bottom)]">
+      <div class="flex items-center justify-around">
+        <NuxtLink to="/dashboard" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="text-[10px] font-semibold">Dashboard</span>
+        </NuxtLink>
+        <NuxtLink to="/projects" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-semibold">Projects</span>
+        </NuxtLink>
+        <NuxtLink to="/tasks" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <span class="text-[10px] font-semibold">Tasks</span>
+        </NuxtLink>
+        <NuxtLink to="/team" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#2563EB]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="text-[10px] font-bold">Team</span>
+        </NuxtLink>
+        <NuxtLink to="/chat" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-semibold">Chat</span>
+        </NuxtLink>
+      </div>
+    </nav>
+
   </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserRole } from '~/composables/useUserRole'
 
 definePageMeta({ layout: false })
 
 const router = useRouter()
+const { currentUser, isLeader } = useUserRole()
 
 const searchQuery = ref('')
 const filterRole = ref('All')
@@ -416,16 +455,9 @@ const inviteEmail = ref('')
 const inviteRole = ref('Member')
 const memberToRemove = ref(null)
 const roleChangeConfirmed = ref(null)
+const roleMenuOpen = ref(null)
 
 const joinCode = 'TT-X9K2M7'
-
-const isLeader = true
-
-const currentUser = {
-  id: 1,
-  name: 'Siraj',
-  role: 'Leader'
-}
 
 const members = ref([
   {
@@ -554,6 +586,19 @@ function demoteLeader(member) {
   }
 }
 
+function openRoleMenu(memberId) {
+  roleMenuOpen.value = roleMenuOpen.value === memberId ? null : memberId
+}
+
+function changeRole(member, newRole) {
+  roleChangeConfirmed.value = {
+    id: member.id,
+    name: member.name,
+    previousRole: member.role,
+    newRole
+  }
+}
+
 function confirmRoleChange() {
   if (!roleChangeConfirmed.value) return
   const member = members.value.find(m => m.id === roleChangeConfirmed.value.id)
@@ -568,7 +613,7 @@ function confirmRoleChange() {
       memberColor: member.color,
       previousRole: previousRole,
       newRole: roleChangeConfirmed.value.newRole,
-      changedBy: currentUser.name
+      changedBy: currentUser.value.name
     })
   }
   roleChangeConfirmed.value = null

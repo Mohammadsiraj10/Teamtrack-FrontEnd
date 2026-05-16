@@ -59,17 +59,17 @@
           <div class="flex items-center gap-3">
             <div class="relative">
               <div class="w-11 h-11 rounded-2xl bg-[#2563EB] flex items-center justify-center text-white font-black">
-                S
+                {{ currentUser.initial }}
               </div>
               <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></span>
             </div>
 
             <div>
               <h3 class="font-bold text-[14px] text-[#0F172A]">
-                Siraj
+                {{ currentUser.name }}
               </h3>
               <p class="text-[12px] text-[#94A3B8]">
-                Team Leader
+                {{ currentUser.role }}
               </p>
             </div>
           </div>
@@ -85,35 +85,37 @@
     </aside>
 
     <!-- ===== MAIN ===== -->
-    <main class="flex-1 overflow-y-auto">
-      <header class="bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-8 py-5 flex items-center justify-between sticky top-0 z-40">
+    <main class="flex-1 overflow-y-auto pb-20 lg:pb-0">
+      <header class="bg-white/90 backdrop-blur-xl border-b border-[#E2E8F0] px-4 md:px-8 py-4 md:py-5 flex flex-wrap items-center justify-between gap-3 md:gap-4 sticky top-0 z-40">
         <div>
-          <div class="flex items-center gap-3 mb-1">
-            <h2 class="text-[30px] font-black tracking-tight text-[#0F172A]">
+          <div class="flex items-center gap-2 md:gap-3 mb-1">
+            <h2 class="text-[24px] md:text-[30px] font-black tracking-tight text-[#0F172A]">
               Projects
             </h2>
 
-            <span class="bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] text-[12px] font-black px-3 py-1 rounded-full">
+            <span class="bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] text-[10px] md:text-[12px] font-black px-2 md:px-3 py-1 rounded-full">
               Workspace Control
             </span>
           </div>
 
-          <p class="text-[14px] text-[#64748B]">
+          <p class="text-[12px] md:text-[14px] text-[#64748B]">
             Manage academic project workspaces, resources, progress, time logs, and activity.
           </p>
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 md:gap-4">
           <button
+            v-if="isLeader"
             @click="openFilePicker"
-            class="hidden sm:flex bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#2563EB] border border-[#BFDBFE] text-[14px] font-black px-5 py-3 rounded-2xl transition"
+            class="hidden sm:flex bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#2563EB] border border-[#BFDBFE] text-[12px] md:text-[14px] font-black px-3 md:px-5 py-2 md:py-3 rounded-xl md:rounded-2xl transition"
           >
             Upload File
           </button>
 
           <button
+            v-if="isLeader"
             @click="showCreateProject = true"
-            class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[14px] font-black px-5 py-3 rounded-2xl transition shadow-lg shadow-blue-500/20"
+            class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[12px] md:text-[14px] font-black px-3 md:px-5 py-2 md:py-3 rounded-xl md:rounded-2xl transition shadow-lg shadow-blue-500/20"
           >
             + Create Project
           </button>
@@ -138,22 +140,22 @@
         @change="handleFolderUpload"
       />
 
-      <div class="p-8">
+      <div class="p-4 md:p-8">
         <!-- ===== STATS ===== -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
           <div
             v-for="stat in stats"
             :key="stat.label"
-            class="relative overflow-hidden bg-white rounded-[28px] p-6 border border-[#E2E8F0] shadow-sm hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300"
+            class="relative overflow-hidden bg-white rounded-2xl md:rounded-[28px] p-4 md:p-6 border border-[#E2E8F0] shadow-sm hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300"
           >
             <div
               class="absolute -right-8 -top-8 w-28 h-28 rounded-full opacity-70"
               :class="stat.glow"
             ></div>
 
-            <div class="relative flex items-center justify-between mb-6">
+            <div class="relative flex items-center justify-between mb-4 md:mb-6">
               <div
-                class="w-12 h-12 rounded-2xl flex items-center justify-center"
+                class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center"
                 :class="stat.bg"
               >
                 <span v-html="stat.icon"></span>
@@ -167,37 +169,37 @@
               </span>
             </div>
 
-            <p class="relative text-[14px] text-[#64748B] font-semibold mb-1">
+            <p class="relative text-[12px] md:text-[14px] text-[#64748B] font-semibold mb-1">
               {{ stat.label }}
             </p>
 
-            <div class="relative flex items-end gap-2">
-              <h3 class="text-[34px] font-black tracking-tight text-[#0F172A]">
+            <div class="relative flex items-end gap-1 md:gap-2">
+              <h3 class="text-[26px] md:text-[34px] font-black tracking-tight text-[#0F172A]">
                 {{ stat.value }}
               </h3>
-              <p class="text-[12px] text-[#94A3B8] font-semibold mb-2">
+              <p class="text-[10px] md:text-[12px] text-[#94A3B8] font-semibold mb-2">
                 {{ stat.caption }}
               </p>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-8">
           <!-- ===== LEFT ===== -->
-          <div class="xl:col-span-2 space-y-8">
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-5">
+          <div class="xl:col-span-2 space-y-4 md:space-y-8">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-3 md:gap-5">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Project Workspaces
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Search, filter, and review active academic project spaces.
                   </p>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <div class="flex items-center gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl px-4 py-3 min-w-[280px]">
+                <div class="flex flex-col sm:flex-row gap-2 md:gap-3">
+                  <div class="flex items-center gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl md:rounded-2xl px-3 md:px-4 py-2.5 md:py-3 min-w-0 sm:min-w-[280px]">
                     <span class="text-[15px]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
 
                     <input
@@ -339,11 +341,11 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6">
               <div
                 v-for="project in filteredProjects"
                 :key="project.id"
-                class="bg-white border border-[#E2E8F0] rounded-[30px] p-6 shadow-sm hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300"
+                class="bg-white border border-[#E2E8F0] rounded-2xl md:rounded-[30px] p-4 md:p-6 shadow-sm hover:shadow-xl hover:shadow-slate-900/5 transition-all duration-300"
               >
                 <div class="flex items-start justify-between mb-5">
                   <div>
@@ -480,51 +482,51 @@
           </div>
 
           <!-- ===== RIGHT ===== -->
-          <div class="space-y-8">
-            <div class="relative overflow-hidden bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-[30px] p-6 text-white shadow-xl shadow-blue-500/20">
+          <div class="space-y-4 md:space-y-8">
+            <div class="relative overflow-hidden bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl md:rounded-[30px] p-4 md:p-6 text-white shadow-xl shadow-blue-500/20">
               <div class="absolute -right-14 -top-14 w-40 h-40 rounded-full bg-white/10 blur-xl"></div>
 
-              <div class="relative flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+              <div class="relative flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white/20 border border-white/10 flex items-center justify-center"><svg width="18" height="18" md:width="22" md:height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
 
                 <div>
-                  <h3 class="font-black text-[19px]">
+                  <h3 class="font-black text-[16px] md:text-[19px]">
                     Project Intelligence
                   </h3>
-                  <p class="text-blue-100 text-[13px]">
+                  <p class="text-blue-100 text-[11px] md:text-[13px]">
                     Workspace-level guidance
                   </p>
                 </div>
               </div>
 
-              <div class="relative space-y-4">
-                <div class="bg-white/10 border border-white/10 rounded-3xl p-4">
-                  <p class="text-[12px] text-blue-100 font-black mb-2">
+              <div class="relative space-y-3 md:space-y-4">
+                <div class="bg-white/10 border border-white/10 rounded-xl md:rounded-3xl p-3 md:p-4">
+                  <p class="text-[10px] md:text-[12px] text-blue-100 font-black mb-1 md:mb-2">
                     PROJECT HEALTH
                   </p>
-                  <p class="text-[14px] leading-[1.7] text-blue-50">
+                  <p class="text-[12px] md:text-[14px] leading-[1.7] text-blue-50">
                     3 of 4 active projects are progressing normally. One project needs review.
                   </p>
                 </div>
 
-                <div class="bg-white/10 border border-white/10 rounded-3xl p-4">
-                  <p class="text-[12px] text-blue-100 font-black mb-2">
+                <div class="bg-white/10 border border-white/10 rounded-xl md:rounded-3xl p-3 md:p-4">
+                  <p class="text-[10px] md:text-[12px] text-blue-100 font-black mb-1 md:mb-2">
                     TIME TRACKING
                   </p>
-                  <p class="text-[14px] leading-[1.7] text-blue-50">
+                  <p class="text-[12px] md:text-[14px] leading-[1.7] text-blue-50">
                     {{ totalTimeLogged }} logged across active project workspaces.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Time Summary
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Project-level tracked effort.
                   </p>
                 </div>
@@ -534,18 +536,18 @@
                 </span>
               </div>
 
-              <div class="bg-[#0F172A] rounded-3xl p-6 text-center mb-5">
-                <p class="text-[12px] text-[#94A3B8] font-bold mb-2">
+              <div class="bg-[#0F172A] rounded-xl md:rounded-3xl p-4 md:p-6 text-center mb-4 md:mb-5">
+                <p class="text-[10px] md:text-[12px] text-[#94A3B8] font-bold mb-1 md:mb-2">
                   Total Logged Time
                 </p>
 
-                <div class="text-[38px] font-black text-white tracking-tight">
+                <div class="text-[28px] md:text-[38px] font-black text-white tracking-tight">
                   {{ totalTimeLogged }}
                 </div>
               </div>
 
-              <div class="grid grid-cols-2 gap-3">
-                <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-4">
+              <div class="grid grid-cols-2 gap-2 md:gap-3">
+                <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl md:rounded-3xl p-3 md:p-4">
                   <p class="text-[12px] text-[#94A3B8]">
                     Completed Tasks
                   </p>
@@ -565,13 +567,13 @@
               </div>
             </div>
 
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Workspace Preview
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Selected project summary.
                   </p>
                 </div>
@@ -641,26 +643,26 @@
               </div>
             </div>
 
-            <div class="bg-white rounded-[30px] border border-[#E2E8F0] p-6 shadow-sm">
-              <div class="flex items-center justify-between mb-6">
+            <div class="bg-white rounded-2xl md:rounded-[30px] border border-[#E2E8F0] p-4 md:p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-4 md:mb-6">
                 <div>
-                  <h3 class="text-[20px] font-black text-[#0F172A]">
+                  <h3 class="text-[16px] md:text-[20px] font-black text-[#0F172A]">
                     Recent Activity
                   </h3>
-                  <p class="text-[13px] text-[#64748B] mt-1">
+                  <p class="text-[12px] md:text-[13px] text-[#64748B] mt-1">
                     Latest workspace updates.
                   </p>
                 </div>
               </div>
 
-              <div class="space-y-4">
+              <div class="space-y-3 md:space-y-4">
                 <div
                   v-for="activity in activities"
                   :key="activity.title"
-                  class="flex gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-3xl p-4"
+                  class="flex gap-2 md:gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl md:rounded-3xl p-3 md:p-4"
                 >
                   <div
-                    class="w-10 h-10 rounded-2xl flex items-center justify-center"
+                    class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-2xl flex items-center justify-center shrink-0"
                     :class="activity.bg"
                   >
                     <span v-html="activity.icon"></span>
@@ -784,18 +786,47 @@
         </div>
       </div>
     </div>
+
+    <!-- MOBILE BOTTOM TAB BAR -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#E2E8F0] z-50 px-2 pb-[env(safe-area-inset-bottom)]">
+      <div class="flex items-center justify-around">
+        <NuxtLink to="/dashboard" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="text-[10px] font-semibold">Dashboard</span>
+        </NuxtLink>
+        <NuxtLink to="/projects" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#2563EB]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-bold">Projects</span>
+        </NuxtLink>
+        <NuxtLink to="/tasks" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <span class="text-[10px] font-semibold">Tasks</span>
+        </NuxtLink>
+        <NuxtLink to="/team" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="text-[10px] font-semibold">Team</span>
+        </NuxtLink>
+        <NuxtLink to="/chat" class="flex flex-col items-center gap-0.5 py-2 px-3 text-[#94A3B8]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span class="text-[10px] font-semibold">Chat</span>
+        </NuxtLink>
+      </div>
+    </nav>
+
   </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserRole } from '~/composables/useUserRole'
 
 definePageMeta({
   layout: false
 })
 
 const router = useRouter()
+const { currentUser, isLeader } = useUserRole()
 
 const fileInput = ref(null)
 const folderInput = ref(null)
