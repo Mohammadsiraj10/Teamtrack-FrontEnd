@@ -2,44 +2,45 @@
   <div class="relative">
 
     <!-- ===== HERO ===== -->
-    <section id="hero" class="max-w-[1200px] mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-28">
-      <div class="max-w-[720px] mx-auto text-center">
-        <div class="inline-flex items-center gap-2 bg-[#EBF0FF]/80 border border-[#2563EB]/10 rounded-full pl-[3px] pr-3 sm:pr-4 py-[3px] mb-6 sm:mb-8 backdrop-blur-sm">
-          <span class="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-[#2563EB]">
+    <section id="hero" class="relative max-w-[1200px] mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-20 sm:pb-32 overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] sm:w-[800px] sm:h-[500px] rounded-full opacity-20 blur-[80px] sm:blur-[120px] pointer-events-none" style="background: radial-gradient(ellipse, rgba(37,99,235,0.35) 0%, rgba(37,99,235,0.05) 50%, transparent 70%);"></div>
+      <div class="relative max-w-[720px] mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-white/60 border border-white/40 backdrop-blur-md shadow-[0_2px_12px_rgba(37,99,235,0.08)] rounded-full pl-[3px] pr-3 sm:pr-4 py-[3px] mb-6 sm:mb-8">
+          <span class="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] shadow-sm shadow-blue-500/30">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5"><path d="M20 6L9 17l-5-5" /></svg>
           </span>
           <span class="text-[10px] sm:text-[12.5px] font-semibold text-[#2563EB] tracking-tight">Academic project management, built for fairness</span>
         </div>
 
-        <h1 class="font-heading text-[28px] sm:text-[36px] lg:text-[52px] xl:text-[60px] leading-[1.08] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]">
+        <h1 class="font-heading text-[28px] sm:text-[36px] lg:text-[52px] xl:text-[60px] leading-[1.08] text-[#0F172A] mb-4 sm:mb-6 tracking-[-0.02em]" style="animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;">
           Track every contribution.<br />
           <span class="text-[#2563EB]">Keep your team accountable.</span>
         </h1>
 
-        <p class="text-[#64748B] text-[15px] sm:text-[18px] leading-[1.7] mb-8 sm:mb-10 max-w-[560px] mx-auto">
+        <p class="text-[#64748B] text-[15px] sm:text-[18px] leading-[1.7] mb-8 sm:mb-10 max-w-[560px] mx-auto" style="animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both;">
           TeamTrack is the project management platform built for academic teams. Plan tasks, log time, view contribution analytics, and let AI surface the insights that keep everyone aligned and accountable.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-          <NuxtLink to="/signup" class="inline-flex items-center bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[13px] sm:text-[16px] font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/20 hover:-translate-y-[1px] active:translate-y-0">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10" style="animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both;">
+          <NuxtLink to="/signup" class="group inline-flex items-center bg-gradient-to-b from-[#2563EB] to-[#1D4ED8] text-white text-[13px] sm:text-[16px] font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-[0_8px_30px_-6px_rgba(37,99,235,0.5),0_2px_6px_rgba(37,99,235,0.3)] hover:-translate-y-[2px] active:translate-y-0 shadow-[0_4px_16px_-4px_rgba(37,99,235,0.35),0_1px_2px_rgba(37,99,235,0.2)]">
             Get Started &mdash; Free for Teams
-            <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-[2px]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </NuxtLink>
-          <NuxtLink to="/login" class="inline-flex items-center text-[#475569] hover:text-[#0F172A] text-[13px] sm:text-[15px] font-semibold px-5 sm:px-6 py-3 sm:py-4 rounded-full border border-[#E2E8F0] hover:border-[#CBD5E1] transition-all duration-200">
+          <NuxtLink to="/login" class="inline-flex items-center text-[#475569] hover:text-[#0F172A] text-[13px] sm:text-[15px] font-semibold px-5 sm:px-6 py-3 sm:py-4 rounded-full border border-[#E2E8F0]/80 hover:border-[#CBD5E1] hover:shadow-md hover:bg-white transition-all duration-300">
             Log in
           </NuxtLink>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[12px] sm:text-[13.5px] text-[#64748B] font-medium">
-          <span class="flex items-center gap-1.5">
+        <div class="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[12px] sm:text-[13.5px] text-[#64748B] font-medium" style="animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s both;">
+          <span class="flex items-center gap-1.5 bg-white/50 backdrop-blur-sm border border-white/30 rounded-full px-3 py-1">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M20 6L9 17l-5-5" /></svg>
             University email signup
           </span>
-          <span class="flex items-center gap-1.5">
+          <span class="flex items-center gap-1.5 bg-white/50 backdrop-blur-sm border border-white/30 rounded-full px-3 py-1">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M20 6L9 17l-5-5" /></svg>
             4 user roles &amp; RBAC
           </span>
-          <span class="flex items-center gap-1.5">
+          <span class="flex items-center gap-1.5 bg-white/50 backdrop-blur-sm border border-white/30 rounded-full px-3 py-1">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M20 6L9 17l-5-5" /></svg>
             AI-powered insights
           </span>
@@ -55,15 +56,15 @@
         <p class="text-[#64748B] text-[13px] sm:text-[16px] leading-[1.7] mt-2 sm:mt-3 max-w-[520px] mx-auto">Explore each tab to preview the Dashboard, Projects, Tasks, Team, and Chat pages before signing up.</p>
       </div>
       <div class="relative">
-        <div class="absolute -inset-5 sm:-inset-10 rounded-[20px] sm:rounded-[40px] opacity-50 blur-3xl pointer-events-none" style="background: radial-gradient(circle at 40% 50%, rgba(37,99,235,0.10), transparent 60%);" />
+        <div class="absolute -inset-5 sm:-inset-10 rounded-[20px] sm:rounded-[40px] opacity-50 blur-3xl pointer-events-none" style="background: radial-gradient(circle at 40% 50%, rgba(37,99,235,0.10), transparent 60%);"></div>
 
-        <div class="relative bg-white rounded-[16px] sm:rounded-[28px] border border-[#E2E8F0]/70 shadow-[0_25px_80px_-20px_rgba(0,0,0,0.10)] overflow-hidden">
+        <div class="relative bg-white rounded-[16px] sm:rounded-[28px] border border-[#E2E8F0]/70 shadow-[0_25px_80px_-20px_rgba(0,0,0,0.10),0_2px_8px_rgba(37,99,235,0.04)] overflow-hidden transition-shadow duration-500 hover:shadow-[0_32px_80px_-16px_rgba(0,0,0,0.13),0_4px_12px_rgba(37,99,235,0.06)]">
           <!-- Browser bar -->
           <div class="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3.5 border-b border-[#F1F5F9] bg-[#FAFBFF]">
             <div class="flex gap-[5px] sm:gap-[6px]">
-              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#FF5F57]" />
-              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#FEBC2E]" />
-              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#28C840]" />
+              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#FF5F57]"></span>
+              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#FEBC2E]"></span>
+              <span class="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] rounded-full bg-[#28C840]"></span>
             </div>
             <div class="flex-1 flex justify-center">
               <div class="flex items-center gap-1.5 sm:gap-2 bg-[#F1F5F9]/80 rounded-lg px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-[12px] text-[#94A3B8] font-medium">
@@ -964,26 +965,27 @@
     </section>
 
     <!-- ===== TRUST STATS ===== -->
-    <section class="border-y border-[#E2E8F0]/60 bg-white/50">
+    <section class="border-y border-[#E2E8F0]/60 relative overflow-hidden bg-white/50">
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#2563EB 1px, transparent 1px), linear-gradient(90deg, #2563EB 1px, transparent 1px); background-size: 48px 48px;"></div>
       <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 text-center">
-          <div>
-            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">4</div>
+          <div class="group bg-white/60 backdrop-blur-xl rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/40 p-5 sm:p-6 transition-all duration-400 hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-[2px]">
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1 group-hover:scale-105 transition-transform duration-300">4</div>
             <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">User Roles</div>
             <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">Member, Leader, Instructor, Admin</div>
           </div>
-          <div>
-            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">8</div>
+          <div class="group bg-white/60 backdrop-blur-xl rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/40 p-5 sm:p-6 transition-all duration-400 hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-[2px]">
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1 group-hover:scale-105 transition-transform duration-300">8</div>
             <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Core Modules</div>
             <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">Auth, Workspaces, Tasks, Time, Chat, Analytics, AI, Alerts</div>
           </div>
-          <div>
-            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">&lt;2s</div>
+          <div class="group bg-white/60 backdrop-blur-xl rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/40 p-5 sm:p-6 transition-all duration-400 hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-[2px]">
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1 group-hover:scale-105 transition-transform duration-300">&lt;2s</div>
             <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Max Response</div>
             <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">All page loads under 2 seconds</div>
           </div>
-          <div>
-            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1">99%</div>
+          <div class="group bg-white/60 backdrop-blur-xl rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/40 p-5 sm:p-6 transition-all duration-400 hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-[2px]">
+            <div class="font-heading text-[28px] sm:text-[40px] text-[#0F172A] mb-1 group-hover:scale-105 transition-transform duration-300">99%</div>
             <div class="text-[10px] sm:text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest">Target Uptime</div>
             <div class="text-[10px] sm:text-[12px] text-[#64748B] mt-1">Available 24/7 during semester</div>
           </div>
@@ -1004,24 +1006,27 @@
       </div>
 
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8">
-        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#EBF0FF]">
+        <div class="group relative bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400">
+          <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#2563EB] to-[#60A5FA]"></div>
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#EBF0FF] group-hover:scale-110 transition-transform duration-300">
             <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
           </div>
           <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Role-Based Access & Privacy</h3>
           <p class="text-[13px] sm:text-[14.5px] text-[#64748B] leading-[1.7]">Four distinct roles — Team Member, Team Leader, Instructor (read-only), and Admin — each with scoped permissions. Instructors can view contribution analytics without editing project data.</p>
         </div>
 
-        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#D1FAE5]">
+        <div class="group relative bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400">
+          <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#10B981] to-[#6EE7B7]"></div>
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#D1FAE5] group-hover:scale-110 transition-transform duration-300">
             <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Fair Contribution Tracking</h3>
           <p class="text-[13px] sm:text-[14.5px] text-[#64748B] leading-[1.7]">Start/stop timers, manual logs with mandatory descriptions, and immutable timesheets after 24 hours. Contribution analytics show exactly who did what — no disputes, no ambiguity.</p>
         </div>
 
-        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-shadow duration-300 sm:col-span-2 md:col-span-1">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#FEF3C7]">
+        <div class="group relative bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400 sm:col-span-2 md:col-span-1">
+          <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#F59E0B] to-[#FCD34D]"></div>
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-[#FEF3C7] group-hover:scale-110 transition-transform duration-300">
             <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
           </div>
           <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Transparent AI Assistance</h3>
@@ -1044,32 +1049,32 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">1</div>
+          <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-[0_12px_40px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">1</div>
             <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Register &amp; Login</h4>
             <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Sign up with your university email. Activate your account. Secure session with auto-timeout after 60 min idle.</p>
           </div>
 
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">2</div>
+          <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-[0_12px_40px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">2</div>
             <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Create or Join a Workspace</h4>
             <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Leaders create projects with a unique join code. Members join and get assigned their role. Instructors get read-only access.</p>
           </div>
 
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">3</div>
+          <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-[0_12px_40px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">3</div>
             <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Plan &amp; Assign Tasks</h4>
             <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Kanban or list view. Set priorities, deadlines, dependencies. Flag blocked tasks. Every change is logged in the Activity Log.</p>
           </div>
 
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center">
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">4</div>
+          <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-[0_12px_40px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">4</div>
             <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Log Time &amp; Collaborate</h4>
             <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">Start/stop timers on tasks or submit manual logs. Chat within the project. All time entries become immutable after 24 hours.</p>
           </div>
 
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-center col-span-2 sm:col-span-1">
-            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4">5</div>
+          <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-4 sm:p-6 shadow-sm hover:shadow-[0_12px_40px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400 text-center col-span-2 sm:col-span-1">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-[13px] sm:text-[15px] mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">5</div>
             <h4 class="text-[13px] sm:text-[15px] font-bold text-[#0F172A] mb-1.5 sm:mb-2">Review Analytics &amp; AI Insights</h4>
             <p class="text-[11px] sm:text-[13px] text-[#64748B] leading-[1.6]">See contribution breakdowns, workload alerts, and deadline risks. AI flags issues before they become problems. All labelled and transparent.</p>
           </div>
@@ -1090,7 +1095,7 @@
       </div>
 
       <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
@@ -1103,7 +1108,7 @@
         </div>
 
         <!-- Module 2: Projects -->
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>
@@ -1116,7 +1121,7 @@
         </div>
 
         <!-- Module 3: Tasks -->
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /></svg>
@@ -1129,7 +1134,7 @@
         </div>
 
         <!-- Module 4: Time -->
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
@@ -1142,7 +1147,7 @@
         </div>
 
         <!-- Module 5: Chat -->
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></svg>
@@ -1155,7 +1160,7 @@
         </div>
 
         <!-- Module 6: Analytics -->
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
@@ -1168,7 +1173,7 @@
         </div>
 
         <!-- Module 7: AI -->
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
@@ -1181,7 +1186,7 @@
         </div>
 
         <!-- Module 8: Notifications -->
-        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.04)] hover:shadow-[0_14px_44px_-12px_rgba(37,99,235,0.12)] hover:-translate-y-[2px] transition-all duration-300">
           <div class="flex items-start gap-3 sm:gap-5">
             <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EBF0FF] group-hover:bg-[#2563EB] flex items-center justify-center shrink-0 transition-colors duration-300">
               <svg width="20" height="20" class="sm:w-[24px] sm:h-[24px] text-[#2563EB] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" /></svg>
@@ -1205,8 +1210,9 @@
         </div>
 
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8">
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)]">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#FEE2E2]">
+          <div class="group relative bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400">
+            <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#EF4444] to-[#FCA5A5]"></div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#FEE2E2] group-hover:scale-110 transition-transform duration-300">
               <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
             </div>
             <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Security</h3>
@@ -1218,8 +1224,9 @@
             </ul>
           </div>
 
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)]">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#DBEAFE]">
+          <div class="group relative bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400">
+            <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#2563EB] to-[#60A5FA]"></div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#DBEAFE] group-hover:scale-110 transition-transform duration-300">
               <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-7l1-8z" /></svg>
             </div>
             <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Performance</h3>
@@ -1231,8 +1238,9 @@
             </ul>
           </div>
 
-          <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] sm:col-span-2 md:col-span-1">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#D1FAE5]">
+          <div class="group relative bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 overflow-hidden p-5 sm:p-8 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.1)] hover:-translate-y-1 transition-all duration-400 sm:col-span-2 md:col-span-1">
+            <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#10B981] to-[#6EE7B7]"></div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 flex items-center justify-center bg-[#D1FAE5] group-hover:scale-110 transition-transform duration-300">
               <svg width="20" height="20" class="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M9 12l2 2 4-4" /></svg>
             </div>
             <h3 class="text-[15px] sm:text-[18px] font-bold text-[#0F172A] mb-2 sm:mb-3">Usability</h3>
@@ -1288,7 +1296,7 @@
         </div>
 
         <!-- Audit log visual mockup -->
-        <div class="bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] overflow-hidden">
+        <div class="group bg-white rounded-2xl sm:rounded-[24px] border border-[#E2E8F0]/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] hover:shadow-[0_28px_70px_-15px_rgba(0,0,0,0.12)] transition-shadow duration-400 overflow-hidden">
           <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-[#F1F5F9] flex items-center gap-2 sm:gap-3">
             <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#EBF0FF] flex items-center justify-center">
               <svg width="14" height="14" class="sm:w-[16px] sm:h-[16px]" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" /><rect x="9" y="3" width="6" height="4" rx="2" /></svg>
@@ -1331,13 +1339,17 @@
 
     <!-- ===== FINAL CTA ===== -->
     <section class="max-w-[1200px] mx-auto px-4 sm:px-6 pb-16 sm:pb-28">
-      <div class="bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl sm:rounded-[28px] px-5 sm:px-8 py-10 sm:py-16 text-white text-center">
-        <h2 class="font-heading text-[22px] sm:text-[32px] lg:text-[42px] leading-[1.1] mb-3 sm:mb-4">Ready to make every contribution count?</h2>
-        <p class="text-blue-100 text-[13px] sm:text-[17px] leading-[1.7] mb-6 sm:mb-8 max-w-[540px] mx-auto">
+      <div class="relative bg-gradient-to-br from-[#2563EB] to-[#1E40AF] rounded-2xl sm:rounded-[28px] px-5 sm:px-8 py-10 sm:py-16 text-white text-center overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 bg-white/5 rounded-full"></div>
+        <div class="absolute -bottom-16 -left-16 w-52 h-52 bg-white/5 rounded-full"></div>
+        <div class="absolute top-1/2 left-1/4 w-20 h-20 bg-white/5 rounded-full"></div>
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 48px 48px;"></div>
+        <h2 class="relative font-heading text-[22px] sm:text-[32px] lg:text-[42px] leading-[1.1] mb-3 sm:mb-4">Ready to make every contribution count?</h2>
+        <p class="relative text-blue-100 text-[13px] sm:text-[17px] leading-[1.7] mb-6 sm:mb-8 max-w-[540px] mx-auto">
           From task boards and time tracking to AI-powered insights and contribution analytics — TeamTrack keeps academic teams fair, transparent, and on schedule.
         </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <NuxtLink to="/signup" class="inline-flex items-center bg-white text-[#2563EB] text-[14px] sm:text-[16px] font-bold px-7 sm:px-10 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0">
+        <div class="relative flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <NuxtLink to="/signup" class="pulse-ring relative inline-flex items-center bg-white text-[#2563EB] text-[14px] sm:text-[16px] font-bold px-7 sm:px-10 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:-translate-y-[1px] active:translate-y-0 shadow-[0_6px_20px_-4px_rgba(37,99,235,0.2)] hover:shadow-[0_12px_36px_-6px_rgba(37,99,235,0.3)]">
             Create Your Free Team
             <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </NuxtLink>
@@ -1413,3 +1425,15 @@ const previewThreads = [
   { id: 4, name: 'Analytics', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', mobileIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>', iconBg: 'bg-[#FEF3C7]', activeBg: 'bg-[#F59E0B]', time: 'Monday', active: false, preview: 'Contribution report is ready for review.', unread: 0 }
 ]
 </script>
+
+<style scoped>
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes subtlePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(37,99,235,0); }
+}
+.pulse-ring { animation: subtlePulse 3s ease-in-out infinite; }
+</style>

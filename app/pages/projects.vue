@@ -106,14 +106,6 @@
         <div class="flex items-center gap-2 md:gap-4">
           <button
             v-if="isLeader"
-            @click="openFilePicker"
-            class="hidden sm:flex bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#2563EB] border border-[#BFDBFE] text-[12px] md:text-[14px] font-black px-3 md:px-5 py-2 md:py-3 rounded-xl md:rounded-2xl transition"
-          >
-            Upload File
-          </button>
-
-          <button
-            v-if="isLeader"
             @click="showCreateProject = true"
             class="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-[12px] md:text-[14px] font-black px-3 md:px-5 py-2 md:py-3 rounded-xl md:rounded-2xl transition shadow-lg shadow-blue-500/20"
           >
